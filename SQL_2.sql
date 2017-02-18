@@ -168,7 +168,7 @@ ORDER BY vnt_cant;
 REM 33) ¿Qué artículos los provee el proveedor nº 2?
 SELECT *
 FROM Articulos
-WHERE art_prv = 1;
+WHERE art_prv = 2;
 
 REM 34) ¿Qué clientes viven en Pamplona?
 SELECT clt_num, clt_nom
