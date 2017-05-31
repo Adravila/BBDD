@@ -157,7 +157,6 @@ A <- (π id_cliente (σ renta_anual ) > 90.000 (Cliente))
 B <- (π id_cliente (σ peso < 1 (Embarque))
 C <- (π id_cliente (σ destino = 'Madrid' (Embarque)))
 ((A∩B)∪C) ⋈ Clientes
-
 ```
 
 11. Los clientes cuyos envíos han sido distribuidos por el chófer Juan.
