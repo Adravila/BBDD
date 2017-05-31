@@ -3,7 +3,7 @@
 ## Ejercicio I
 
 
-*Autores*
+**Autores**
 
 Cod_Aut	     | Nombre 		 | Apellidos     
 ------------ | ------------- | ------------- 
@@ -11,7 +11,7 @@ Cod_Aut	     | Nombre 		 | Apellidos
 2			 | A.			 | De Miguel	 
 3			 | D.J			 | Ullman		 
 
-*Editores*
+**Editores**
 
 Cod_Edit	 | Nombre 		 | Cod_Aut	     
 ------------ | ------------- | ------------- 
@@ -19,7 +19,7 @@ Cod_Edit	 | Nombre 		 | Cod_Aut
 2			 | A.			 | De Miguel	 
 3			 | P.			 | Chen			
 
-*Libros*
+**Libros**
 
 Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
 ----------- | ---------------------------------- | ---------- | ------------
@@ -27,7 +27,7 @@ Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
 2 			| Fundamentos y modelos de BD 		 | 2		  | 2
 3 		    | Sistema de BD 					 | 3		  | 3
 
-*Préstamos*
+**Préstamos**
 
 Cod_Lib 	| Cod_Soc 	 | Fecha
 ----------- | ---------- | -----------
