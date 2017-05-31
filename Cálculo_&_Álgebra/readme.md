@@ -68,7 +68,7 @@ Expresar en álgebra relacional las siguientes consultas:
 
 ### Solución del ejercicio II en álgebra relacional
 
-1. 	σ renta_anual > 30.000 (Cliente)
+1. 	```σ renta_anual > 30.000 (Cliente)```
 
 2. 	π nom_cliente (σ id_cliente = 433 (Cliente))
 
