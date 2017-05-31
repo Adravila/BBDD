@@ -1,6 +1,11 @@
-# Ejercicios resueltos de álgebra, cálculo relacional y de dominio
+# Ejercicios resueltos de álgebra y cálculo relacional
 
 ## Ejercicio I
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
 
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
 - Los apellidos de todos los autores.
@@ -15,8 +20,8 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 - Los datos de los socios que tienen en préstamo un ejemplar de todos los libros.
 
 ## Ejercicio II
-	Cliente (_id_cliente_, nom_cliente, renta_anual)
-	Embarque (_num_embarque_, _id_cliente_, peso, id_camión, destino)
+	Cliente (id_cliente, nom_cliente, renta_anual)
+	Embarque (num_embarque, id_cliente, peso, id_camión, destino)
 
 expresar en álgebra relacional las siguientes consultas:
 
