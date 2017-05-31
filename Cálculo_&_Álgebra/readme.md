@@ -140,13 +140,15 @@ A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
 ```
 
 9. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
+ÁLGEBRA
 ```
 A <-(σ peso < 1 (Embarque))
 (σ renta_anual > 90.000 (Cliente ⋈ A))
 ```
 CÁLCULO
 ```
-{t.id_cliente,t.nom_cliente | t € Embarque ^ Er € Cliente ^ t.id_cliente = r.id_cliente ^ t.peso < 1 ^ r.renta_anual > 90.000}
+{t.id_cliente,t.nom_cliente | t € Embarque ^ Er € Cliente 
+ t.id_cliente = r.id_cliente ^ t.peso < 1 ^ r.renta_anual > 90.000}
 ```
 
 
