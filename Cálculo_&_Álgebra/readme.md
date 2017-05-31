@@ -19,6 +19,22 @@ Cod_Edit	 | Nombre 		 | Cod_Aut
 2			 | A.			 | De Miguel	 
 3			 | P.			 | Chen			
 
+*Libros*
+
+Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
+------------ ------------------------------------ ------------ ------------
+1			| Introducción a los Sistemas de BD  | 1		  | 1
+2 			| Fundamentos y modelos de BD 		 | 2		  | 2
+3 		    | Sistema de BD 					 | 3		  | 3
+
+*Préstamos*
+
+Cod_Lib 	| Cod_Soc 	 | Fecha
+------------ ------------ ------------
+1 			| 1 		 | 10-04-98
+2 			| 1 		 | 18-02-99
+3 			| 1			 | 23-07-99
+1			| 2 		 | 01-12-97
 
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
 - Los apellidos de todos los autores.
