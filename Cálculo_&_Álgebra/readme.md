@@ -55,31 +55,30 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 Expresar en álgebra relacional las siguientes consultas:
 
 1. ¿Qué clientes tienen una renta anual que excede de 30.000€?
-
+	σ renta_anual > 30.000 (Cliente)
 2. ¿Cuál es el nombre del cliente nº 433?
 
 3. ¿Cuál es la ciudad destino del embarque número 3244?
 
-d) ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
+4. ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
 
-e) ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
+5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
 
-f) A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
+6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 
 ### Solución del ejercicio II en álgebra relacional
 
-a) σ renta_anual > 30.000 (Cliente)
 
-b) π nom_cliente (σ id_cliente = 433 (Cliente))
+2. π nom_cliente (σ id_cliente = 433 (Cliente))
 
-c) π destino (σ num_embarque = 3244 (Embarque))
+3. π destino (σ num_embarque = 3244 (Embarque))
 
-d) π id_camión (σ peso > 100 (Embarque))
+4. π id_camión (σ peso > 100 (Embarque))
 
-e) 	A <- (π id_cliente (σ destino = 'Vigo' (destino)))
+5. 	A <- (π id_cliente (σ destino = 'Vigo' (destino)))
 	π nom_cliente (Cliente |><| A)
 
-f)	A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
+6.	A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 	π destino (Embarque |><| A)
 
 ### Solución del ejercicio II en cálculo relacional
