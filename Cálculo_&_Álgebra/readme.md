@@ -152,8 +152,15 @@ A <-(σ peso < 1 (Embarque))
 ```
 
 10. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
+```
+A <- (π id_cliente (σ renta_anual ) > 90.000 (Cliente))
+B <- (π id_cliente (σ peso < 1 (Embarque))
+C <- (π id_cliente (σ destino = 'Madrid' (Embarque)))
+((A∩B)∪C) ⋈ Clientes
 
-11. Los clientes cuyos envíos han sido destribuidos por el chófer Juan.
+```
+
+11. Los clientes cuyos envíos han sido distribuidos por el chófer Juan.
 ```
 A <- Camión ⋈ Embarque
 B <- π id_cliente (σ nom_chofer != 'Juan' (A))
