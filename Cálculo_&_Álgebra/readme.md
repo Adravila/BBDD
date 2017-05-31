@@ -2,10 +2,21 @@
 
 ## Ejercicio I
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+
+*Autores*
+Cod_Aut	     | Nombre 		 | Apellidos     | 
+------------ | ------------- | ------------- |
+1			 | C.J			 | Date			 |
+2			 | A.			 | De Miguel	 |
+3			 | D.J			 | Ullman		 |
+
+*Editores*
+Cod_Edit	 | Nombre 		 | Cod_Aut	     | 
+------------ | ------------- | ------------- |
+1			 | S.			 | Ceri			 |
+2			 | A.			 | De Miguel	 |
+3			 | P.			 | Chen			 |
+
 
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
 - Los apellidos de todos los autores.
