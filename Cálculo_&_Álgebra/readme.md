@@ -54,11 +54,11 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 
 Expresar en álgebra relacional las siguientes consultas:
 
-a. ¿Qué clientes tienen una renta anual que excede de 30.000€?
+1. ¿Qué clientes tienen una renta anual que excede de 30.000€?
 
-b. ¿Cuál es el nombre del cliente nº 433?
+2. ¿Cuál es el nombre del cliente nº 433?
 
-c) ¿Cuál es la ciudad destino del embarque número 3244?
+3. ¿Cuál es la ciudad destino del embarque número 3244?
 
 d) ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
 
