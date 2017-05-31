@@ -134,6 +134,10 @@ A <-(π id_camion (σ peso > 100 (Embarque)))
 ```
 
 8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
+```
+A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
+π destino (Embarque ⋈ A)
+```
 
 9. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
 
