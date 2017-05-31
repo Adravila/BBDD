@@ -79,8 +79,8 @@ Expresar en álgebra relacional las siguientes consultas:
 5. 	```A <- (π id_cliente (σ destino = 'Vigo' (destino))) π nom_cliente (Cliente |><| A)```
 
 ```
-var s = "JavaScript syntax highlighting";
-alert(s);
+A <- (π id_cliente (σ destino = 'Vigo' (destino)))
+π nom_cliente (Cliente |><| A)
 ```
 
 6.	```A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))```
