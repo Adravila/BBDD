@@ -4,18 +4,18 @@
 
 
 *Autores*
-Cod_Aut	     | Nombre 		 | Apellidos     | 
------------- | ------------- | ------------- |
-1			 | C.J			 | Date			 |
-2			 | A.			 | De Miguel	 |
-3			 | D.J			 | Ullman		 |
+Cod_Aut	     | Nombre 		 | Apellidos     
+------------ | ------------- | ------------- 
+1			 | C.J			 | Date			 
+2			 | A.			 | De Miguel	 
+3			 | D.J			 | Ullman		 
 
 *Editores*
-Cod_Edit	 | Nombre 		 | Cod_Aut	     | 
------------- | ------------- | ------------- |
-1			 | S.			 | Ceri			 |
-2			 | A.			 | De Miguel	 |
-3			 | P.			 | Chen			 |
+Cod_Edit	 | Nombre 		 | Cod_Aut	     
+------------ | ------------- | ------------- 
+1			 | S.			 | Ceri			 
+2			 | A.			 | De Miguel	 
+3			 | P.			 | Chen			
 
 
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
