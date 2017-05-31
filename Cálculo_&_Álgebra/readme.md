@@ -78,13 +78,13 @@ Expresar en álgebra relacional las siguientes consultas:
 5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
 ```
 A <- (π id_cliente (σ destino = 'Vigo' (destino)))
-π nom_cliente (Cliente |><| A)
+π nom_cliente (Cliente ⋈ A)
 ```
 
 6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 ```
 A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
-π destino (Embarque |><| A)
+π destino (Embarque ⋈ A)
 ```
 
 ## Ejercicio III
@@ -119,7 +119,7 @@ d) Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
 e) Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
 ```
 A <- (π id_cliente (σ peso > 100 (Embarque)))
-π nom_cliente, renta_anual (Cliente|><|A)
+π nom_cliente, renta_anual (Cliente ⋈ A)
 ```
 
 f) El número de los camiones que han transportado embarques que pesan más de 100kg.
