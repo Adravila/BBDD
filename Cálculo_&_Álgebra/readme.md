@@ -96,53 +96,53 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 
 Expresar en álgebra relacional las siguientes consultas:
 
-a) Una lista con los números de los embarques que pesan más de 20kg.
+1. Una lista con los números de los embarques que pesan más de 20kg.
 ```
 π num_embarque (σ peso > 20 (Embarque))	
 ```
 
-b) Los nombres de los clientes con más de 60.000€ de renta anual.
+2. Los nombres de los clientes con más de 60.000€ de renta anual.
 ```
 π nom_cliente (σ renta_anual > 60.000 (Cliente))
 ```
 
-c) El chófer del camión nº 45.
+3. El chófer del camión nº 45.
 ```
 π nom_chofer (σ id_camion = 45 (Camion))
 ```
 
-d) Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
+4. Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
 ```
 π destino (σ peso > 100 (Embarques))
 ```
 
-e) Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
+5. Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
 ```
 A <- (π id_cliente (σ peso > 100 (Embarque)))
 π nom_cliente, renta_anual (Cliente ⋈ A)
 ```
 
-f) El número de los camiones que han transportado embarques que pesan más de 100kg.
+6. El número de los camiones que han transportado embarques que pesan más de 100kg.
 
-g) Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
+7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
 
-h) Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
+8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
 
-i) Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
+9. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
 
-j) Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
+10. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
 
-k) Los clientes cuyos envíos han sido destribuidos por el chófer Juan.
+11. Los clientes cuyos envíos han sido destribuidos por el chófer Juan.
 
-l) Los conductores que han distribuido envíos de clientes con renta anual por encima de los 120.000€ a ciudades con población superior a un millón de habitantes.
+12. Los conductores que han distribuido envíos de clientes con renta anual por encima de los 120.000€ a ciudades con población superior a un millón de habitantes.
 
-m) Clientes que han recibido envíos distribuidos por todos los chóferes.
+13. Clientes que han recibido envíos distribuidos por todos los chóferes.
 
-n) Ciudades que han recibido embarques de todos los clientes.
+14. Ciudades que han recibido embarques de todos los clientes.
 
-ñ) Chóferes que han distribuido envíos a todas las ciudades.
+15. Chóferes que han distribuido envíos a todas las ciudades.
 
-o) Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
+16. Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
 
 ## Ejercicio IV
 
@@ -153,16 +153,35 @@ o) Clientes que han enviado embarques a toda ciudad con población mayor de 500.
 
 Encontrar una expresión en álgebra relacional para las siguientes cuestiones:
 
-a) Averiguar los nombres de todos los empleados que trabajan para el Banco Crédito.
+1. Averiguar los nombres de todos los empleados que trabajan para el Banco Crédito.
 
-b) Obtener el nombre y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito.
+2. Obtener el nombre y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito.
 
-c) Obtener una lista con el nombre, la calle y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito y ganan más de 12.000€ anuales.
+3. Obtener una lista con el nombre, la calle y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito y ganan más de 12.000€ anuales.
 
-d) Sacar un listado que contenga el nombre de todos los empleados de esta base de datos que viven en la misma ciudad que la compañía para la que trabajan.
+4. Sacar un listado que contenga el nombre de todos los empleados de esta base de datos que viven en la misma ciudad que la compañía para la que trabajan.
 
-e) Averiguar el nombre de todos los empleados que viven en la misma ciudad y en la misma calle que sus jefes.
+5. Averiguar el nombre de todos los empleados que viven en la misma ciudad y en la misma calle que sus jefes.
 
-f) Obtener una lista con el nombre de todos los empleados de esta base de datos que no trabajan para el Banco Crédito.
+6. Obtener una lista con el nombre de todos los empleados de esta base de datos que no trabajan para el Banco Crédito.
 
-g) Averiguar el nombre de todos los empleados que ganan más que cualquier empleado del Banco Pequeño.
+7. Averiguar el nombre de todos los empleados que ganan más que cualquier empleado del Banco Pequeño.
+
+## Ejercicio V
+
+Las siguientes tablas están almacenadas en un SGBD relacional:
+	Hotel (nºhotel, nombre, dirección)
+	Habitación (nºhabitación, nºhotel, tipo, precio)
+	Registro (nºhotel, nºhuesped, fecha-entrada, fecha-salida, nºhabitación)
+	Huesped (nºhuesped, nombre, dirección)
+
+donde Hotel contiene los datos del hotel, Habitación contiene los datos de las habitaciones de cada hotel, Registro contiene los datos de los registros realizados y Huesped contiene los datos de los huespedes que se hospedan en los diferentes hoteles.
+
+Generar las expresiones correspondientes en álgebra relacional para las siguientes consultas:
+
+1. Lista de todos los hoteles.
+2. Lista de todas las habitaciones individuales con un precio menor de 100 ¿.
+3. Obtener los nombres y direcciones de todos los huespedes.
+4. Listar el precio y el tipo de todas las habitaciones del Hotel Atlantico.
+5. Obtener una lista de todos los huespedes actuales del Hotel Atlantico.
+6. Obtener un listado con los datos de todas las habitaciones del Hotel Atlantico, incluyendo el nombre del huesped actual de la habitación, si es que está ocupada.
