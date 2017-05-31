@@ -144,6 +144,7 @@ A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
 A <-(σ peso < 1 (Embarque))
 (σ renta_anual > 90.000 (Cliente ⋈ A))
 ```
+CÁLCULO
 ```
 {t.id_cliente,t.nom_cliente | t € Embarque ^ Er € Cliente ^ t.id_cliente = r.id_cliente ^ t.peso < 1 ^ r.renta_anual > 90.000}
 ```
