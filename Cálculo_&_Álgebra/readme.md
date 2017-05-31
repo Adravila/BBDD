@@ -170,6 +170,7 @@ Encontrar una expresión en álgebra relacional para las siguientes cuestiones:
 ## Ejercicio V
 
 Las siguientes tablas están almacenadas en un SGBD relacional:
+
 	Hotel (nºhotel, nombre, dirección)
 	Habitación (nºhabitación, nºhotel, tipo, precio)
 	Registro (nºhotel, nºhuesped, fecha-entrada, fecha-salida, nºhabitación)
