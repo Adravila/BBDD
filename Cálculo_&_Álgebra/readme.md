@@ -4,6 +4,7 @@
 
 
 *Autores*
+
 Cod_Aut	     | Nombre 		 | Apellidos     
 ------------ | ------------- | ------------- 
 1			 | C.J			 | Date			 
@@ -11,6 +12,7 @@ Cod_Aut	     | Nombre 		 | Apellidos
 3			 | D.J			 | Ullman		 
 
 *Editores*
+
 Cod_Edit	 | Nombre 		 | Cod_Aut	     
 ------------ | ------------- | ------------- 
 1			 | S.			 | Ceri			 
