@@ -52,7 +52,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 	Cliente (id_cliente, nom_cliente, renta_anual)
 	Embarque (num_embarque, id_cliente, peso, id_camión, destino)
 
-expresar en álgebra relacional las siguientes consultas:
+Expresar en álgebra relacional las siguientes consultas:
 
 a) ¿Qué clientes tienen una renta anual que excede de 30.000€?
 
@@ -66,7 +66,7 @@ e) ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciuda
 
 f) A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 
-## Solución del ejercicio II en álgebra relacional
+### Solución del ejercicio II en álgebra relacional
 
 a) σ renta_anual > 30.000 (Cliente)
 
@@ -82,3 +82,53 @@ e) 	A <- (π id_cliente (σ destino = 'Vigo' (destino)))
 f)	A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 	π destino (Embarque |><| A)
 
+### Solución del ejercicio II en cálculo relacional
+
+### Solución del ejercicio II en cálculo de dominio
+
+## Ejercicio III
+
+	Cliente (id_cliente, nom_cliente, renta_anual)
+	Embarque (num_embarque, id_cliente, peso, id_camión, destino)
+	Camión (id_camión, nom_chófer)
+	Ciudad (nomb_ciudad, población)
+
+Expresar en álgebra relacional las siguientes consultas:
+
+a) Una lista con los números de los embarques que pesan más de 20kg.
+
+b) Los nombres de los clientes con más de 60.000€ de renta anual.
+
+c) El chófer del camión nº 45.
+
+d) Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
+
+e) Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
+
+f) El número de los camiones que han transportado embarques que pesan más de 100kg.
+
+g) Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
+
+h) Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
+
+i) Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
+
+j) Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
+
+k) Los clientes cuyos envíos han sido destribuidos por el chófer Juan.
+
+l) Los conductores que han distribuido envíos de clientes con renta anual por encima de los 120.000€ a ciudades con población superior a un millón de habitantes.
+
+m) Clientes que han recibido envíos distribuidos por todos los chóferes.
+
+n) Ciudades que han recibido embarques de todos los clientes.
+
+ñ) Chóferes que han distribuido envíos a todas las ciudades.
+
+o) Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
+
+### Solución del ejercicio II en álgebra relacional
+
+### Solución del ejercicio II en cálculo relacional
+
+### Solución del ejercicio II en cálculo de dominio
