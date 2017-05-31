@@ -21,10 +21,15 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 expresar en álgebra relacional las siguientes consultas:
 
 a) ¿Qué clientes tienen una renta anual que excede de 30.000€?
+
 b) ¿Cuál es el nombre del cliente nº 433?
+
 c) ¿Cuál es la ciudad destino del embarque número 3244?
+
 d) ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
+
 e) ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
+
 f) A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 
 ## Solución del ejercicio II en álgebra relacional
