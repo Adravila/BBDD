@@ -143,3 +143,26 @@ n) Ciudades que han recibido embarques de todos los clientes.
 ñ) Chóferes que han distribuido envíos a todas las ciudades.
 
 o) Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
+
+## Ejercicio IV
+
+	Empleado (nombre-empleado, calle, ciudad)
+	Trabaja (nombre-empleado, nombre-empresa, sueldo)
+	Empresa (nombre-empresa, ciudad)
+	Jefe (nombre-empleado, nombre-jefe)
+
+Encontrar una expresión en álgebra relacional para las siguientes cuestiones:
+
+a) Averiguar los nombres de todos los empleados que trabajan para el Banco Crédito.
+
+b) Obtener el nombre y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito.
+
+c) Obtener una lista con el nombre, la calle y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito y ganan más de 12.000€ anuales.
+
+d) Sacar un listado que contenga el nombre de todos los empleados de esta base de datos que viven en la misma ciudad que la compañía para la que trabajan.
+
+e) Averiguar el nombre de todos los empleados que viven en la misma ciudad y en la misma calle que sus jefes.
+
+f) Obtener una lista con el nombre de todos los empleados de esta base de datos que no trabajan para el Banco Crédito.
+
+g) Averiguar el nombre de todos los empleados que ganan más que cualquier empleado del Banco Pequeño.
