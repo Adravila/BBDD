@@ -55,20 +55,6 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 Expresar en álgebra relacional las siguientes consultas:
 
 1. ¿Qué clientes tienen una renta anual que excede de 30.000€?
-
-2. ¿Cuál es el nombre del cliente nº 433?
-
-3. ¿Cuál es la ciudad destino del embarque número 3244?
-
-4. ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
-
-5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
-
-6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
-
-### Solución del ejercicio II en álgebra relacional
-
-1. ¿Qué clientes tienen una renta anual que excede de 30.000€?
  	
 ```
 σ renta_anual > 30.000 (Cliente)
@@ -91,19 +77,15 @@ Expresar en álgebra relacional las siguientes consultas:
 
 5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
 ```
-	A <- (π id_cliente (σ destino = 'Vigo' (destino)))
-	π nom_cliente (Cliente |><| A)
+A <- (π id_cliente (σ destino = 'Vigo' (destino)))
+π nom_cliente (Cliente |><| A)
 ```
 
 6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 ```
-	A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
-	π destino (Embarque |><| A)
+A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
+π destino (Embarque |><| A)
 ```
-
-### Solución del ejercicio II en cálculo relacional
-
-### Solución del ejercicio II en cálculo de dominio
 
 ## Ejercicio III
 
@@ -115,14 +97,30 @@ Expresar en álgebra relacional las siguientes consultas:
 Expresar en álgebra relacional las siguientes consultas:
 
 a) Una lista con los números de los embarques que pesan más de 20kg.
+```
+π num_embarque (σ peso > 20 (Embarque))	
+```
 
 b) Los nombres de los clientes con más de 60.000€ de renta anual.
+```
+π nom_cliente (σ renta_anual > 60.000 (Cliente))
+```
 
 c) El chófer del camión nº 45.
+```
+π nom_chofer (σ id_camion = 45 (Camion))
+```
 
 d) Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
+```
+π destino (σ peso > 100 (Embarques))
+```
 
 e) Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
+```
+A <- (π id_cliente (σ peso > 100 (Embarque)))
+π nom_cliente, renta_anual (Cliente|><|A)
+```
 
 f) El número de los camiones que han transportado embarques que pesan más de 100kg.
 
@@ -145,9 +143,3 @@ n) Ciudades que han recibido embarques de todos los clientes.
 ñ) Chóferes que han distribuido envíos a todas las ciudades.
 
 o) Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
-
-### Solución del ejercicio II en álgebra relacional
-
-### Solución del ejercicio II en cálculo relacional
-
-### Solución del ejercicio II en cálculo de dominio
