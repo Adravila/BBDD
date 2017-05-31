@@ -123,8 +123,15 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 ```
 
 6. El número de los camiones que han transportado embarques que pesan más de 100kg.
+```
+π num_embarque (σ peso > 100 (Embarque))
+```
 
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
+```
+A <-(π id_camion (σ peso > 100 (Embarque)))
+π nom_chófer (Camión ⋈ A)
+```
 
 8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
 
