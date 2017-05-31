@@ -22,7 +22,7 @@ Cod_Edit	 | Nombre 		 | Cod_Aut
 *Libros*
 
 Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
------------- ------------------------------------ ------------ ------------
+----------- | ---------------------------------- | ---------- | ------------
 1			| Introducción a los Sistemas de BD  | 1		  | 1
 2 			| Fundamentos y modelos de BD 		 | 2		  | 2
 3 		    | Sistema de BD 					 | 3		  | 3
@@ -30,7 +30,7 @@ Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
 *Préstamos*
 
 Cod_Lib 	| Cod_Soc 	 | Fecha
------------- ------------ ------------
+----------- | ---------- | -----------
 1 			| 1 		 | 10-04-98
 2 			| 1 		 | 18-02-99
 3 			| 1			 | 23-07-99
