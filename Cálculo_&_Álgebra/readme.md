@@ -68,22 +68,38 @@ Expresar en álgebra relacional las siguientes consultas:
 
 ### Solución del ejercicio II en álgebra relacional
 
-1. 	```σ renta_anual > 30.000 (Cliente)```
+1. ¿Qué clientes tienen una renta anual que excede de 30.000€?
+ 	
+```
+σ renta_anual > 30.000 (Cliente)
+```
 
-2. 	```π nom_cliente (σ id_cliente = 433 (Cliente))```
+2. ¿Cuál es el nombre del cliente nº 433?
+```
+π nom_cliente (σ id_cliente = 433 (Cliente))
+```
 
-3. 	```π destino (σ num_embarque = 3244 (Embarque))```
+3. ¿Cuál es la ciudad destino del embarque número 3244?
+```
+π destino (σ num_embarque = 3244 (Embarque))
+```
 
-4. 	```π id_camión (σ peso > 100 (Embarque))```
+4. ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
+```
+π id_camión (σ peso > 100 (Embarque))
+```
 
-5. 	```
+5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
+```
 	A <- (π id_cliente (σ destino = 'Vigo' (destino)))
 	π nom_cliente (Cliente |><| A)
-	```
+```
 
-6.	```A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))```
-
-	```π destino (Embarque |><| A)```
+6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
+```
+	A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
+	π destino (Embarque |><| A)
+```
 
 ### Solución del ejercicio II en cálculo relacional
 
