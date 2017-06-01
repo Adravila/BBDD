@@ -89,9 +89,25 @@ Expresar en álgebra relacional las siguientes consultas:
 σ renta_anual > 30.000 (Cliente)
 ```
 
+```
+{t.id_cliente, t_nom_cliente | t € Cliente ^ t.renta_anual > 30.000}
+```
+
+```
+{i,n | (∃r) | Cliente(i,n,r) ^ r > 30.000}
+```
+
 2. ¿Cuál es el nombre del cliente nº 433?
 ```
 π nom_cliente (σ id_cliente = 433 (Cliente))
+```
+
+```
+{t.nom_cliente | t € Cliente ^ t.id_cliente = 433}
+```
+
+```
+{n | (∃i) | Cliente(i,n,r) ^ i=433}
 ```
 
 3. ¿Cuál es la ciudad destino del embarque número 3244?
@@ -99,15 +115,36 @@ Expresar en álgebra relacional las siguientes consultas:
 π destino (σ num_embarque = 3244 (Embarque))
 ```
 
+```
+{t.destino | t € Embarque ^ t.num_embarque = 3244}
+```
+
+```
+{d | ∃n | E(n,i,p,c,d) ^ n = 3244}
+```
+
 4. ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
 ```
 π id_camión (σ peso > 100 (Embarque))
 ```
 
+```
+{t.id_camion | t € Embarque ^ t.peso > 100}
+```
+
+```
+{c | ∃p | t € Embarque(n,i,p,c,d) ^ n = 3244}
+```
+
+
 5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
 ```
-A <- (π id_cliente (σ destino = 'Vigo' (destino)))
+A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 π nom_cliente (Cliente ⋈ A)
+```
+
+```
+{t.nom_cliente | t € Cliente, r € Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
 ```
 
 6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
