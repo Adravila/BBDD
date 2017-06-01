@@ -50,7 +50,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 ```
 
 ```
-{t.Apellido | t € Autores}
+{t.Apellido | t ∈ Autores}
 ```
 
 ```
@@ -67,7 +67,7 @@ SELECT Apellidos FROM Autores;
 ```
 
 ```
-{t € Autores ^ t.Apellido = 'Ullman'}
+{t ∈ Autores ^ t.Apellido = 'Ullman'}
 ```
 
 ```
@@ -84,7 +84,7 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 ```
 
 ```
-{t.Nombre, t.Apellido | t € Autores ^ t.Cod_Autor > 1}
+{t.Nombre, t.Apellido | t ∈ Autores ^ t.Cod_Autor > 1}
 ```
 
 ```
@@ -101,11 +101,11 @@ Socios x Libros
 ```
 
 ```
-{t € Socios, r € Libros}
+{t ∈ Socios, r ∈ Libros}
 ```
 
 ```
-{(∃(c_s), ∃(n_s), ∃(a_p), ∃(c_l), ∃(n_l), ∃(c_e), ∃(c_a)) | s € Socios(c_s, n_s, a_s), l € Libros(c_l, n_l, c_e, c_a)}
+{(∃(c_s), ∃(n_s), ∃(a_p), ∃(c_l), ∃(n_l), ∃(c_e), ∃(c_a)) | s ∈ Socios(c_s, n_s, a_s), l ∈ Libros(c_l, n_l, c_e, c_a)}
 ```
 
 ```SQL
@@ -174,7 +174,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{t.id_cliente, t_nom_cliente | t € Cliente ^ t.renta_anual > 30.000}
+{t.id_cliente, t_nom_cliente | t ∈ Cliente ^ t.renta_anual > 30.000}
 ```
 
 ```
@@ -191,7 +191,7 @@ SELECT * FROM Cliente WHERE renta_anual > 30000;
 ```
 
 ```
-{t.nom_cliente | t € Cliente ^ t.id_cliente = 433}
+{t.nom_cliente | t ∈ Cliente ^ t.id_cliente = 433}
 ```
 
 ```
@@ -210,7 +210,7 @@ WHERE id_cliente = 433;
 ```
 
 ```
-{t.destino | t € Embarque ^ t.num_embarque = 3244}
+{t.destino | t ∈ Embarque ^ t.num_embarque = 3244}
 ```
 
 ```
@@ -229,11 +229,11 @@ WHERE num_embarque = 3244;
 ```
 
 ```
-{t.id_camion | t € Embarque ^ t.peso > 100}
+{t.id_camion | t ∈ Embarque ^ t.peso > 100}
 ```
 
 ```
-{c | ∃(p) | t € Embarque(n,i,p,c,d) ^ n = 3244}
+{c | ∃(p) | t ∈ Embarque(n,i,p,c,d) ^ n = 3244}
 ```
 
 ``` SQL
@@ -249,11 +249,11 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
-{t.nom_cliente | t € Cliente, r € Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
+{t.nom_cliente | t ∈ Cliente, r ∈ Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
 ```
 
 ```
-{n | ∃(i),∃(d) | t € Cliente(i,n,r), r € Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
+{n | ∃(i),∃(d) | t ∈ Cliente(i,n,r), r ∈ Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
 ```
 
 ```SQL
@@ -272,11 +272,11 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 ```
 
 ```
-{t.destino | t € Embarque, r € Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
+{t.destino | t ∈ Embarque, r ∈ Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
 ```
 
 ```
-{d | ∃(i,r) | t € Embarque(n,i,p,c,d), r € Cliente(i,n,r) ^ r.r < 6000}
+{d | ∃(i,r) | t ∈ Embarque(n,i,p,c,d), r ∈ Cliente(i,n,r) ^ r.r < 6000}
 ```
 
 ```SQL
@@ -303,7 +303,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{t.num_embarque | t € Embarque ^ t.peso > 20}
+{t.num_embarque | t ∈ Embarque ^ t.peso > 20}
 ```
 
 ```
@@ -316,7 +316,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{t.nom_cliente | t € Cliente ^ t.renta_anual > 60.000}
+{t.nom_cliente | t ∈ Cliente ^ t.renta_anual > 60.000}
 ```
 
 ```
@@ -329,7 +329,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{t.nom_chófer | t € Camión ^ t.id_camión = 45}
+{t.nom_chófer | t ∈ Camión ^ t.id_camión = 45}
 ```
 
 ```
@@ -342,7 +342,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{t.destino | t € Embarque ^ t.peso > 100}
+{t.destino | t ∈ Embarque ^ t.peso > 100}
 ```
 
 ```
@@ -361,11 +361,11 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 ```
 
 ```
-{c.nom_cliente, e.renta_anual | c € Cliente, e € Embarque ^ c.id_cliente = e.id_cliente ^ e.peso > 100}
+{c.nom_cliente, e.renta_anual | c ∈ Cliente, e ∈ Embarque ^ c.id_cliente = e.id_cliente ^ e.peso > 100}
 ```
 
 ```
-{(c) | (E(n), E(i), E(p), E(d)) | (Embarque(n,i,p,c,d) ^ p > 100)}
+{(c) | (∃(n), ∃(i), ∃(p), ∃(d)) | (Embarque(n,i,p,c,d) ^ p > 100)}
 ```
 
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
@@ -388,7 +388,7 @@ A <-(σ peso < 1 (Embarque))
 ```
 
 ```
-{t.id_cliente,t.nom_cliente | t € Embarque ^ Er € Cliente 
+{t.id_cliente, t.nom_cliente | t ∈ Embarque ^ ∃r ∈ Cliente 
  t.id_cliente = r.id_cliente ^ t.peso < 1 ^ r.renta_anual > 90.000}
 ```
 
