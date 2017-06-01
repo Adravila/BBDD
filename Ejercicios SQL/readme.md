@@ -584,7 +584,7 @@ WHERE clt_num IN(
 );
 ```
 
-REM 14) Obtener el nº y el nombre de los artículos cuya cantidad total vendida es superior a la media de cantidades vendidas de todos los artículos.
+14. Obtener el nº y el nombre de los artículos cuya cantidad total vendida es superior a la media de cantidades vendidas de todos los artículos.
 ```SQL
 SELECT art_num, art_nom
 FROM Articulos
@@ -654,7 +654,7 @@ set lines 75
 set pages 10
 ttitle "Informe de clientes"
 btitle "Adrián Dávila Guerra"
-```SQL
+```
 
 19. Se desea conocer el número y el nombre del gerente de las tiendas cuyas ventas hayan sido superiores a la media de ventas realizadas por todas las tiendas. El listado tendra el siguiente formato:
 - En la cabecera aparecerá el siguiente título "Nombre de los gerentes".
@@ -662,6 +662,7 @@ btitle "Adrián Dávila Guerra"
 - Las páginas aparecerá numeradas.
 - Salto de página controlado por una pausa.
 - No más de tres registros por página
+
 ```SQL
 SELECT *
 FROM Tiendas
