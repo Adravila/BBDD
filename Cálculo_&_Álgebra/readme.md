@@ -100,16 +100,17 @@ SELECT Nombre, Apellido FROM Autores WHERE Cod_Aut > 1;
 Socios x Libros
 ```
 
-```SQL
-SELECT * FROM Socios, Libros;
-```
-
 ```
 {t € Socios, r € Libros}
 ```
 
-{(∃c, ∃n, ∃a) | Socios(c,n,a) ^ a = 'Ullman'}
+```
+{(∃c_s, ∃n_s, ∃a_p, ∃c_l, ∃n_l, ∃c_e, ∃c_a) | Socios(c_s, n_s, a_s) ^ Libros(c_l, n_l, c_e, c_a)}
+```
 
+```SQL
+SELECT * FROM Socios, Libros;
+```
 
 - Los datos de todos los autores y de todos los editores.
 ```
