@@ -4,6 +4,7 @@
 	- Contenido por página no superior a 20 líneas.
 	- El pie de página ha de llevar nuestro nombre completo, login del SO y el login de Oracle, cada uno en una línea distinta.
 	- Mostrar el esquema de una tabla o de una vista que le indiquemos por pantalla.
+	
 	```SQL
 	SHOW release
 	set pause off
@@ -18,6 +19,7 @@
 	- Contenido por página no superior a 20 líneas.
 	- Indicar el nombre del usuario.
 	- Mostrar por pantalla los valores anteriores y posteriores de las variables del sistema.
+	
 	```SQL
 	column clt_num format 10
 	column clt_apell format a10
@@ -37,6 +39,7 @@
 	- Versión actual de Oracle .
 	- Mostrar por pantalla los valores anteriores y posteriores de las variables del sistema.
 	- Nombre completo del usuario a pie de página.
+	
 	```SQL
 	describe tiendas
 	set pages 20
@@ -51,6 +54,7 @@
 	- Contenido por páginas no superior a 20 líneas.
 	- Indicar nuestro nombre de usuario de Oracle .
 	- Mostrar la versión actual de Oracle .
+	
 	```SQL
 	!hostname
 	set lines 60
@@ -64,6 +68,7 @@
 	- Nos muestre la hora actual de entrada al sistema.
 	- El prompt del sistema contenga la hora actual.
 	- Si una consulta se muestra en más de una página debe aparecernos el siguiente mensaje para pasar a la siguiente página: pulsa una tecla para continuar.
+	
 	```SQL
 	DEFINE_EDITOR = Kate
 	set time on
