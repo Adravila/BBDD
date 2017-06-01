@@ -750,7 +750,7 @@ WHERE art_col LIKE 'rojo' UNION
 	SELECT art_num, art_nom
 	FROM Articulos
 	WHERE art_peso > 500; 
-```SQL
+```
 
 8. Seleccionar todos los clientes que han realizado alguna compra.
 ```SQL
