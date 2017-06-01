@@ -427,7 +427,7 @@ ORDER BY count(*) DESC;
 
 # Práctica 4
 
-1. Buscar todos los artículos cuyos pesos resulten inferiores al peso del artículo no 2, ordenados por peso
+1. Buscar todos los artículos cuyos pesos resulten inferiores al peso del artículo nº 2, ordenados por peso.
 ```SQL
 SELECT *
 FROM Articulos
@@ -446,7 +446,7 @@ WHERE 	art_peso >
 		(SELECT art_peso
  		 FROM Articulos
 		 WHERE art_nom LIKE 'calendario')
-	OR art_col = 
+	OR art_col IN 
 		(SELECT DISTINCT(art_col)
 		 FROM Articulos
 		 WHERE art_nom LIKE 'impresora');
@@ -456,13 +456,13 @@ WHERE 	art_peso >
 ```SQL
 SELECT art_nom
 FROM Articulos
-WHERE 	art_col =
-		(SELECT art_col
-		 FROM Articulos
-		 WHERE art_num = 10 AND art_peso >= 
-			(SELECT avg(art_peso)
-			 FROM Articulos)
-		);
+WHERE art_col IN
+	(SELECT art_col
+	 FROM Articulos
+	 WHERE art_num = 10 AND art_peso >= 
+		(SELECT avg(art_peso)
+		 FROM Articulos)
+	);
 ```
 
 4. Obtener la lista de proveedores que suministran como mínimo un artículo de color negro.
