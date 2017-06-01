@@ -39,42 +39,53 @@ Cod_Lib 	| Cod_Soc 	 | Fecha
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
 - Los apellidos de todos los autores.
 ```
+π Apellido (Autores)
 ```
 
 - Los datos del autor cuyo apellido es Ullman.
 ```
+σ Apellido = 'Ullman' (Autores)
 ```
 
 - El nombre y el apellido de los autores con código mayor que 1.
 ```
+π Nombre, Apellido (σ Cod_Aut > 1 (Autores))
 ```
 
 - Los datos de los socios y de los libros.
 ```
+Socios x Libros
 ```
 
 - Los datos de todos los autores y de todos los editores.
 ```
+Autores ∪ Editores
 ```
 
 - Los datos de todos los autores que no sean, a su vez editores.
 ```
+Autores - Editores
 ```
 
 - Los datos de los autores que también son editores.
 ```
+π Nombre, Apellido (Autores) ∩ Nombre, Apellido (Editores)
 ```
 
 - Los datos de los socios, cuyo apellido sea Manrique, y de los libros.
 ```
+σ Apellido = 'Manrique' (Socios x Libros)
 ```
 
 - Los datos de los libros que tienen en préstamo cada socio.
 ```
+π cod_lib (Préstamos) ⋈ Libros ⋈ Socios 
 ```
 
 - Los datos de los socios que tienen en préstamo un ejemplar de todos los libros.
 ```
+A <- π Cod_Soc, Cod_Libro (Préstamo) / π Cod_Libro (Libros)
+A/Libros
 ```
 
 ## Ejercicio II
@@ -147,10 +158,20 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 {t.nom_cliente | t € Cliente, r € Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
 ```
 
+```
+```
+
 6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
 ```
 A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 π destino (Embarque ⋈ A)
+```
+
+```
+{t.destino | t € Embarque, r € Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
+```
+
+```
 ```
 
 ## Ejercicio III
