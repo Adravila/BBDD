@@ -198,6 +198,12 @@ SELECT * FROM Cliente WHERE renta_anual > 30000;
 {n | (∃i) | Cliente(i,n,r) ^ i=433}
 ```
 
+``` SQL
+SELECT nom_cliente
+FROM Cliente
+WHERE id_cliente = 433;
+```
+
 3. ¿Cuál es la ciudad destino del embarque número 3244?
 ```
 π destino (σ num_embarque = 3244 (Embarque))
@@ -209,6 +215,12 @@ SELECT * FROM Cliente WHERE renta_anual > 30000;
 
 ```
 {d | ∃n | E(n,i,p,c,d) ^ n = 3244}
+```
+
+``` SQL
+SELECT destino
+FROM Embarque
+WHERE num_embarque = 3244;
 ```
 
 4. ¿Qué camiones han transportado paquetes con un peso por encima de los 100kg?
@@ -224,6 +236,11 @@ SELECT * FROM Cliente WHERE renta_anual > 30000;
 {c | ∃p | t € Embarque(n,i,p,c,d) ^ n = 3244}
 ```
 
+``` SQL
+SELECT id_camion
+FROM Embarque
+WHERE peso > 100;
+```
 
 5. ¿Cuáles son los nombres de los clientes que han enviado paquetes a la ciudad de Vigo?
 ```
@@ -236,6 +253,16 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
+{n | ∃(i,d) | t € Cliente(i,n,r), r € Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
+```
+
+```
+SELECT nom_cliente
+FROM Cliente
+WHERE id_cliente IN(
+	SELECT id_cliente
+	FROM Embarque
+	WHERE destino = 'Vigo');
 ```
 
 6. ¿A qué destinos han enviado paquetes los clientes con renta anual inferior a 6.000€?
@@ -249,6 +276,16 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 ```
 
 ```
+{d | ∃(i,r) | t € Embarque(n,i,p,c,d), r € Cliente(i,n,r) ^ r.r < 6000}
+```
+
+```SQL
+SELECT destino
+FROM Embarque
+WHERE id_cliente IN(
+	SELECT id_cliente
+	FROM Cliente
+	WHERE renta_anual < 6000);
 ```
 
 ## Ejercicio III
