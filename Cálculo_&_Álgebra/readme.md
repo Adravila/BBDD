@@ -19,6 +19,12 @@ Cod_Edit	 | Nombre 		 | Cod_Aut
 2			 | A.			 | De Miguel	 
 3			 | P.			 | Chen			
 
+**Socios**
+Cod_Soc Nombre Apellido
+----------- | ----------- | -----------
+1 | E. | Manrique 
+2 | M. | García
+
 **Libros**
 
 Cod_Lib 	| Nombre 							 | Cod_Edit   | Cod_Aut
@@ -96,6 +102,12 @@ Socios x Libros
 ```SQL
 SELECT * FROM Socios, Libros;
 ```
+
+```
+{t € Socios, r € Libros}
+```
+
+{(∃c, ∃n, ∃a) | Socios(c,n,a) ^ a = 'Ullman'}
 
 
 - Los datos de todos los autores y de todos los editores.
