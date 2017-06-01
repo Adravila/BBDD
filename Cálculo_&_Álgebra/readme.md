@@ -42,9 +42,18 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 π Apellido (Autores)
 ```
 
+``` SQL
+SELECT Apellidos FROM Autores;
+```
+
+
 - Los datos del autor cuyo apellido es Ullman.
 ```
 σ Apellido = 'Ullman' (Autores)
+```
+
+```SQL
+SELECT * FROM Autores WHERE Apellido = 'Ullman';
 ```
 
 - El nombre y el apellido de los autores con código mayor que 1.
@@ -52,14 +61,27 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 π Nombre, Apellido (σ Cod_Aut > 1 (Autores))
 ```
 
+```SQL
+SELECT Nombre, Apellido FROM Autores WHERE Cod_Aut > 1;
+```
+
 - Los datos de los socios y de los libros.
 ```
 Socios x Libros
 ```
 
+```SQL
+SELECT * FROM Socios, Libros;
+```
+
+
 - Los datos de todos los autores y de todos los editores.
 ```
 Autores ∪ Editores
+```
+
+```SQL
+SELECT * FROM Autores UNION SELECT * FROM Editores;
 ```
 
 - Los datos de todos los autores que no sean, a su vez editores.
@@ -67,14 +89,28 @@ Autores ∪ Editores
 Autores - Editores
 ```
 
+```SQL
+SELECT * FROM Autores MINUS SELECT * FROM Editores;
+```
+
 - Los datos de los autores que también son editores.
 ```
 π Nombre, Apellido (Autores) ∩ Nombre, Apellido (Editores)
 ```
 
+```SQL
+SELECT * FROM Autores INTERSET SELECT * FROM Editores;
+```
+
 - Los datos de los socios, cuyo apellido sea Manrique, y de los libros.
 ```
 σ Apellido = 'Manrique' (Socios x Libros)
+```
+
+```SQL
+SELECT *
+FROM Socios, Libros
+WHERE Apellido = 'Manrique';
 ```
 
 - Los datos de los libros que tienen en préstamo cada socio.
@@ -106,6 +142,10 @@ Expresar en álgebra relacional las siguientes consultas:
 
 ```
 {i,n | (∃r) | Cliente(i,n,r) ^ r > 30.000}
+```
+
+``` SQL
+SELECT * FROM Cliente WHERE renta_anual > 30000;
 ```
 
 2. ¿Cuál es el nombre del cliente nº 433?
