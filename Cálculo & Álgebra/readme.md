@@ -256,7 +256,7 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 {n | ∃(i,d) | t € Cliente(i,n,r), r € Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
 ```
 
-```
+```SQL
 SELECT nom_cliente
 FROM Cliente
 WHERE id_cliente IN(
