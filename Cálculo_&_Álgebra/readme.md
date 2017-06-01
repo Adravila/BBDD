@@ -105,7 +105,7 @@ Socios x Libros
 ```
 
 ```
-{(∃c_s, ∃n_s, ∃a_p, ∃c_l, ∃n_l, ∃c_e, ∃c_a) | Socios(c_s, n_s, a_s) ^ Libros(c_l, n_l, c_e, c_a)}
+{(∃c_s, ∃n_s, ∃a_p, ∃c_l, ∃n_l, ∃c_e, ∃c_a) | Socios(c_s, n_s, a_s), Libros(c_l, n_l, c_e, c_a)}
 ```
 
 ```SQL
