@@ -42,14 +42,29 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 π Apellido (Autores)
 ```
 
+```
+{t.Apellido | t € Autores}
+```
+
+```
+{a | (Ec, En) | Autores(c,n,a)}
+```
+
 ``` SQL
 SELECT Apellidos FROM Autores;
 ```
 
-
 - Los datos del autor cuyo apellido es Ullman.
 ```
 σ Apellido = 'Ullman' (Autores)
+```
+
+```
+{t € Autores ^t.Apellido = 'Ullman'}
+```
+
+```
+{(Ec, En, Ea) | Autores(c,n,a) ^ a = 'Ullman'}
 ```
 
 ```SQL
@@ -59,6 +74,14 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 - El nombre y el apellido de los autores con código mayor que 1.
 ```
 π Nombre, Apellido (σ Cod_Aut > 1 (Autores))
+```
+
+```
+{t.Nombre, t.Apellido | t € Autores ^ t.Cod_Autor > 1}
+```
+
+```
+{n,a | Ec | Autores(c,n,a) ^ c>1)}
 ```
 
 ```SQL
