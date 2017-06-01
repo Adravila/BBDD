@@ -499,10 +499,11 @@ WHERE 	art_pv IN
 		 WHERE A1.art_col = A2.art_col
 		 GROUP BY art_col)
 ORDER BY art_nom;
-```SQL
+```
 
 7. Alternativa al ejercicio 6 donde deben aparecer también los artículos que no tienen definido el color.
 - Expresado en euros.
+
 ```SQL
 SELECT art_num, art_nom, art_pv, nvl(art_col,'indefinido')
 FROM Articulos A1
@@ -514,6 +515,7 @@ WHERE 	art_pv IN
 		)
 ORDER BY art_nom;
 ```
+
 8. Obtener el nombre de los gerentes de las tiendas que han vendido al menos una unidad del artículo nº 2.
 ```SQL
 SELECT tda_ger
@@ -556,6 +558,7 @@ WHERE EXISTS
 	 GROUP BY art_col
 	 HAVING A1.art_pv > min(A2.art_pv) AND art_col LIKE 'blanco');
 ```
+
 12. Obtener una lista de los clientes que han gastado más dinero que la media de gasto de todos los clientes.
 ```SQL
 SELECT * 
