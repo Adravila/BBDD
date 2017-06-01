@@ -227,7 +227,7 @@
 	SELECT *
 	FROM Articulos
 	WHERE art_col IN('rojo','verde');
-	```SQL
+	```
 	
 23. Se desea saber las ventas que se realizaron el día 9 de enero de 1991.
 	```SQL
