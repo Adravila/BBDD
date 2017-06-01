@@ -310,6 +310,12 @@ Expresar en álgebra relacional las siguientes consultas:
 {n | (∃(p)) | (Embarque(n,i,p,c,d)) ^ (p>20)}
 ```
 
+```SQL
+SELECT num_embarque
+FROM Embarque
+WHERE peso > 20;
+```
+
 2. Los nombres de los clientes con más de 60.000€ de renta anual.
 ```
 π nom_cliente (σ renta_anual > 60.000 (Cliente))
@@ -323,9 +329,15 @@ Expresar en álgebra relacional las siguientes consultas:
 {n | (∃(r)) | (Cliente(i,n,r)) ^ (r > 60.000)}
 ```
 
+```SQL
+SELECT nom_cliente
+FROM Cliente
+WHERE renta_anual > 60000;
+```
+
 3. El chófer del camión nº 45.
 ```
-π nom_chofer (σ id_camion = 45 (Camión))
+π nom_chofer (σ id_camión = 45 (Camión))
 ```
 
 ```
@@ -333,7 +345,13 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{(c) | (∃(i)) | (Camion(i,c) ^ i = 45)}
+{(c) | (∃(i)) | (Camión(i,c) ^ i = 45)}
+```
+
+```SQL
+SELECT nom_chófer
+FROM Camión
+WHERE id_camión = 45;
 ```
 
 4. Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
@@ -347,6 +365,12 @@ Expresar en álgebra relacional las siguientes consultas:
 
 ```
 {d | (∃(p)) | (Embarque(n,i,p,c,d)) ^ p > 100}
+```
+
+```SQL
+SELECT destino
+FROM Embarque
+WHERE peso > 100;
 ```
 
 5. Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
