@@ -38,15 +38,44 @@ Cod_Lib 	| Cod_Soc 	 | Fecha
 
 Expresar en álgebra relacional y obtener la instancia resultante de los siguientes apartados, usando las relaciones adjuntas.
 - Los apellidos de todos los autores.
+```
+```
+
 - Los datos del autor cuyo apellido es Ullman.
+```
+```
+
 - El nombre y el apellido de los autores con código mayor que 1.
+```
+```
+
 - Los datos de los socios y de los libros.
+```
+```
+
 - Los datos de todos los autores y de todos los editores.
+```
+```
+
 - Los datos de todos los autores que no sean, a su vez editores.
+```
+```
+
 - Los datos de los autores que también son editores.
+```
+```
+
 - Los datos de los socios, cuyo apellido sea Manrique, y de los libros.
+```
+```
+
 - Los datos de los libros que tienen en préstamo cada socio.
+```
+```
+
 - Los datos de los socios que tienen en préstamo un ejemplar de todos los libros.
+```
+```
 
 ## Ejercicio II
 	Cliente (id_cliente, nom_cliente, renta_anual)
@@ -167,14 +196,23 @@ B <- π id_cliente (σ nom_chofer != 'Juan' (A))
 ```
 
 12. Los conductores que han distribuido envíos de clientes con renta anual por encima de los 120.000€ a ciudades con población superior a un millón de habitantes.
+```
+```
 
 13. Clientes que han recibido envíos distribuidos por todos los chóferes.
+```
+```
 
 14. Ciudades que han recibido embarques de todos los clientes.
-
+```
+```
 15. Chóferes que han distribuido envíos a todas las ciudades.
+```
+```
 
 16. Clientes que han enviado embarques a toda ciudad con población mayor de 500.000 habitantes.
+```
+```
 
 ## Ejercicio IV
 
@@ -186,18 +224,32 @@ B <- π id_cliente (σ nom_chofer != 'Juan' (A))
 Encontrar una expresión en álgebra relacional para las siguientes cuestiones:
 
 1. Averiguar los nombres de todos los empleados que trabajan para el Banco Crédito.
+```
+```
 
 2. Obtener el nombre y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito.
+```
+```
 
 3. Obtener una lista con el nombre, la calle y la ciudad de residencia de todos los empleados que trabajan para el Banco Crédito y ganan más de 12.000€ anuales.
+```
+```
 
 4. Sacar un listado que contenga el nombre de todos los empleados de esta base de datos que viven en la misma ciudad que la compañía para la que trabajan.
+```
+```
 
 5. Averiguar el nombre de todos los empleados que viven en la misma ciudad y en la misma calle que sus jefes.
+```
+```
 
 6. Obtener una lista con el nombre de todos los empleados de esta base de datos que no trabajan para el Banco Crédito.
+```
+```
 
 7. Averiguar el nombre de todos los empleados que ganan más que cualquier empleado del Banco Pequeño.
+```
+```
 
 ## Ejercicio V
 
@@ -213,8 +265,25 @@ donde Hotel contiene los datos del hotel, Habitación contiene los datos de las 
 Generar las expresiones correspondientes en álgebra relacional para las siguientes consultas:
 
 1. Lista de todos los hoteles.
+```
+```
+
 2. Lista de todas las habitaciones individuales con un precio menor de 100 ¿.
+```
+```
+
 3. Obtener los nombres y direcciones de todos los huespedes.
+```
+```
+
 4. Listar el precio y el tipo de todas las habitaciones del Hotel Atlantico.
+```
+```
+
 5. Obtener una lista de todos los huespedes actuales del Hotel Atlantico.
+```
+```
+
 6. Obtener un listado con los datos de todas las habitaciones del Hotel Atlantico, incluyendo el nombre del huesped actual de la habitación, si es que está ocupada.
+```
+```
