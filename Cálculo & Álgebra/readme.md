@@ -54,7 +54,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 ```
 
 ```
-{a | (∃c, ∃n) | Autores(c,n,a)}
+{a | (∃(c), ∃(n)) | Autores(c,n,a)}
 ```
 
 ``` SQL
@@ -71,7 +71,7 @@ SELECT Apellidos FROM Autores;
 ```
 
 ```
-{(∃c, ∃n, ∃a) | Autores(c,n,a) ^ a = 'Ullman'}
+{(∃(c), ∃(n), ∃(a)) | Autores(c,n,a) ^ a = 'Ullman'}
 ```
 
 ```SQL
@@ -88,7 +88,7 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 ```
 
 ```
-{n,a | ∃c | Autores(c,n,a) ^ c>1}
+{n,a | (∃(c)) | (Autores(c,n,a) ^ c>1)}
 ```
 
 ```SQL
@@ -105,7 +105,7 @@ Socios x Libros
 ```
 
 ```
-{(∃c_s, ∃n_s, ∃a_p, ∃c_l, ∃n_l, ∃c_e, ∃c_a) | Socios(c_s, n_s, a_s), Libros(c_l, n_l, c_e, c_a)}
+{(∃(c_s), ∃(n_s), ∃(a_p), ∃(c_l), ∃(n_l), ∃(c_e), ∃(c_a)) | s € Socios(c_s, n_s, a_s), l € Libros(c_l, n_l, c_e, c_a)}
 ```
 
 ```SQL
@@ -233,7 +233,7 @@ WHERE num_embarque = 3244;
 ```
 
 ```
-{c | ∃p | t € Embarque(n,i,p,c,d) ^ n = 3244}
+{c | ∃(p) | t € Embarque(n,i,p,c,d) ^ n = 3244}
 ```
 
 ``` SQL
@@ -253,7 +253,7 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
-{n | ∃(i,d) | t € Cliente(i,n,r), r € Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
+{n | ∃(i),∃(d) | t € Cliente(i,n,r), r € Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
 ```
 
 ```SQL
@@ -302,27 +302,51 @@ Expresar en álgebra relacional las siguientes consultas:
 π num_embarque (σ peso > 20 (Embarque))	
 ```
 
+```
+{t.num_embarque | t € Embarque ^ t.peso > 20}
+```
+
+```
+{n | (∃(p)) | (Embarque(n,i,p,c,d)) ^ (p>20)}
+```
+
 2. Los nombres de los clientes con más de 60.000€ de renta anual.
 ```
 π nom_cliente (σ renta_anual > 60.000 (Cliente))
 ```
 
+```
+{t.nom_cliente | t € Cliente ^ t.renta_anual > 60.000}
+```
+
+```
+{n | (∃(r)) | (Cliente(i,n,r)) ^ (r > 60.000)}
+```
+
 3. El chófer del camión nº 45.
 ```
-π nom_chofer (σ id_camion = 45 (Camion))
+π nom_chofer (σ id_camion = 45 (Camión))
 ```
 
 ```
-
+{t.nom_chófer | t € Camión ^ t.id_camión = 45}
 ```
 
 ```
-{(c) | (Ei) | (Camion(i,c) ^ i = 45)}
+{(c) | (∃(i)) | (Camion(i,c) ^ i = 45)}
 ```
 
 4. Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
 ```
 π destino (σ peso > 100 (Embarques))
+```
+
+```
+{t.destino | t € Embarque ^ t.peso > 100}
+```
+
+```
+{d | (∃(p)) | (Embarque(n,i,p,c,d)) ^ p > 100}
 ```
 
 5. Los nombres y la renta anual de los clientes que han enviado paquetes que pesan más de 100kg.
@@ -337,10 +361,11 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 ```
 
 ```
+{c.nom_cliente, e.renta_anual | c € Cliente, e € Embarque ^ c.id_cliente = e.id_cliente ^ e.peso > 100}
 ```
 
 ```
-{(c) | (En, Ei, Ep, Ed) | (Embarque(n,i,p,c,d) ^ p > 100)}
+{(c) | (E(n), E(i), E(p), E(d)) | (Embarque(n,i,p,c,d) ^ p > 100)}
 ```
 
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
