@@ -13,7 +13,7 @@ Cod_Aut	     | Nombre 		 | Apellidos
 
 **Editores**
 
-Cod_Edit	 | Nombre 		 | Cod_Aut	     
+Cod_Edit	 | Nombre 		 | Apellidos	     
 ------------ | ------------- | ------------- 
 1			 | S.			 | Ceri			 
 2			 | A.			 | De Miguel	 
