@@ -40,6 +40,7 @@
 	- Mostrar por pantalla los valores anteriores y posteriores de las variables del sistema.
 	- Nombre completo del usuario a pie de página.
 	
+	
 	```SQL
 	describe tiendas
 	set pages 20
