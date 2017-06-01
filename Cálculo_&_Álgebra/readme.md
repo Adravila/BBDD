@@ -261,6 +261,14 @@ Expresar en álgebra relacional las siguientes consultas:
 π nom_chofer (σ id_camion = 45 (Camion))
 ```
 
+```
+
+```
+
+```
+{(c) | (Ei) | (Camion(i,c) ^ i = 45)}
+```
+
 4. Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
 ```
 π destino (σ peso > 100 (Embarques))
@@ -275,6 +283,13 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 6. El número de los camiones que han transportado embarques que pesan más de 100kg.
 ```
 π num_embarque (σ peso > 100 (Embarque))
+```
+
+```
+```
+
+```
+{(c) | (En, Ei, Ep, Ed) | (Embarque(n,i,p,c,d) ^ p > 100)}
 ```
 
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
