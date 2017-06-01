@@ -47,7 +47,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 ```
 
 ```
-{a | (Ec, En) | Autores(c,n,a)}
+{a | (∃c, ∃n) | Autores(c,n,a)}
 ```
 
 ``` SQL
@@ -60,11 +60,11 @@ SELECT Apellidos FROM Autores;
 ```
 
 ```
-{t € Autores ^t.Apellido = 'Ullman'}
+{t € Autores ^ t.Apellido = 'Ullman'}
 ```
 
 ```
-{(Ec, En, Ea) | Autores(c,n,a) ^ a = 'Ullman'}
+{(∃c, ∃n, ∃a) | Autores(c,n,a) ^ a = 'Ullman'}
 ```
 
 ```SQL
@@ -81,7 +81,7 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 ```
 
 ```
-{n,a | Ec | Autores(c,n,a) ^ c>1)}
+{n,a | ∃c | Autores(c,n,a) ^ c>1}
 ```
 
 ```SQL
