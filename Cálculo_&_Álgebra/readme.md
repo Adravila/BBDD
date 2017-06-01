@@ -20,7 +20,8 @@ Cod_Edit	 | Nombre 		 | Cod_Aut
 3			 | P.			 | Chen			
 
 **Socios**
-Cod_Soc Nombre Apellido
+
+Cod_Soc | Nombre | Apellido
 ----------- | ----------- | -----------
 1 | E. | Manrique 
 2 | M. | García
