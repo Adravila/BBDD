@@ -923,13 +923,37 @@ WHERE vnt_clt != 5 AND vnt_fch >
 # Preguntas de examen
 
 1. Listado con la información de cada tienda y el importe de ventas realizadas por cada una de ellas. Si una tienda no ha realizado ninguna venta deberá aparecer que ha gastado 0 €.
+```SQL
+```
 
 2. Listado de clientes que sean de las localidades que empiecen por ‘Ma’, que no se llamen ‘Pablo’ y que hayan realizado al menos 3 compras. El listado se ordenará alfabéticamente por apellido, y en caso de que dos clientes tengan el mismo apellido se ordenarán alfabéticamente por nombre.
+```SQL
+```
 
 3. Listado de localidades. Para cada localidad queremos saber el nombre de la localidad, la cantidad de clientes que residen en dicha localidad, la cantidad de tiendas que hay en dicha localidad y la ratio de habitantes por tienda.
+```SQL
+```
 
 2. Realiza la siguiente consulta de 4 formas distintas (3,5 puntos): Listado de tiendas que hayan vendido productos del proveedor número 7. Dentro de la tabla artículos, la columna que contiene el número de proveedor es art_prv.
 - Producto natural
+```SQL
+```
 - Consulta anidada
+```SQL
+SELECT *
+FROM Tiendas
+WHERE tda_num IN(
+	SELECT vnt_tda
+	FROM Ventas
+	WHERE vnt_art IN(
+		SELECT art_num
+		FROM Articulos
+		WHERE art_prv = 5)
+);
+```
 - Consulta correlacionada
+```SQL
+```
 - Consulta de existencia
+```SQL
+```
