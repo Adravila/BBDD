@@ -928,6 +928,17 @@ WHERE vnt_clt != 5 AND vnt_fch >
 
 2. Listado de clientes que sean de las localidades que empiecen por ‘Ma’, que no se llamen ‘Pablo’ y que hayan realizado al menos 3 compras. El listado se ordenará alfabéticamente por apellido, y en caso de que dos clientes tengan el mismo apellido se ordenarán alfabéticamente por nombre.
 ```SQL
+SELECT *
+FROM Clientes
+WHERE clt_pob LIKE 'Ma%' 
+	AND clt_pob NOT LIKE 'Pablo' 
+	AND clt_num IN(
+		SELECT vnt_clt
+		FROM Ventas
+		GROUP BY vnt_clt
+		HAVING count(vnt_clt) > 3
+	)
+	ORDER BY clt_apell, clt_nom;
 ```
 
 3. Listado de localidades. Para cada localidad queremos saber el nombre de la localidad, la cantidad de clientes que residen en dicha localidad, la cantidad de tiendas que hay en dicha localidad y la ratio de habitantes por tienda.
