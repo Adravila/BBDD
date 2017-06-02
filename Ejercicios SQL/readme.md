@@ -937,6 +937,9 @@ WHERE vnt_clt != 5 AND vnt_fch >
 2. Realiza la siguiente consulta de 4 formas distintas (3,5 puntos): Listado de tiendas que hayan vendido productos del proveedor número 7. Dentro de la tabla artículos, la columna que contiene el número de proveedor es art_prv.
 - Producto natural
 ```SQL
+SELECT T.*
+FROM Tiendas T, Ventas V, Articulos A
+WHERE T.tda_num = V.vnt_tda AND V.vnt_art = A.art_num AND art_prv = 5;
 ```
 - Consulta anidada
 ```SQL
