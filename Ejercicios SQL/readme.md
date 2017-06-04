@@ -349,7 +349,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Clientes
-	WHERE clt_apeLl LIKE 'dut'.
+	WHERE clt_apeLl LIKE 'du%___%t';
 	```
 	
 27. Buscar todos los artículos cuyo color no esté especificado
@@ -377,8 +377,8 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Articulos
-	WHERE art_peso >= 100
-	ORDER BY art_peso,art_pc;
+	WHERE art_peso <= 100
+	ORDER BY art_peso, art_pc;
 	```
 31. Obtener una lista de los artículos vendidos en orden creciente a la cantidad vendida de una sola vez de dicho artículo.
 	```SQL
@@ -405,7 +405,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT clt_num, clt_nom
 	FROM Clientes
-	WHERE clt_pob LIKE 'pamplona';
+	WHERE clt_pob = 'pamplona';
 	```
 	
 # Práctica 3
