@@ -214,7 +214,7 @@ WHERE id_cliente = 433;
 ```
 
 ```
-{d | ∃n | E(n,i,p,c,d) ^ n = 3244}
+{d | ∃(n) | E(n,i,p,c,d) ^ n = 3244}
 ```
 
 ``` SQL
@@ -233,7 +233,7 @@ WHERE num_embarque = 3244;
 ```
 
 ```
-{c | ∃(p) | t ∈ Embarque(n,i,p,c,d) ^ n = 3244}
+{c | ∃(p) | t ∈ Embarque(n,i,p,c,d) ^ p > 100}
 ```
 
 ``` SQL
@@ -249,11 +249,11 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
-{t.nom_cliente | t ∈ Cliente, r ∈ Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
+{t.nom_cliente | t ∈ Cliente, ∃r ∈ Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
 ```
 
 ```
-{n | ∃(i),∃(d) | t ∈ Cliente(i,n,r), r ∈ Embarque(n,i,p,c,d) ^ r.d = 'Vigo'}
+{n | ∃(i),∃(d) | (Cliente(i,n,r)) ^ (Embarque(n,i,p,c,d) ^ d = 'Vigo')}
 ```
 
 ```SQL
@@ -272,11 +272,11 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 ```
 
 ```
-{t.destino | t ∈ Embarque, r ∈ Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
+{t.destino | t ∈ Embarque, ∃r ∈ Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
 ```
 
 ```
-{d | ∃(i,r) | t ∈ Embarque(n,i,p,c,d), r ∈ Cliente(i,n,r) ^ r.r < 6000}
+{d | ∃(i,r) | (Embarque(n,i,p,c,d)) ^ (Cliente(i,n,r) ^ r < 6000)}
 ```
 
 ```SQL
