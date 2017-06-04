@@ -538,7 +538,7 @@ ORDER BY art_peso;
 SELECT art_num, art_nom
 FROM Articulos
 WHERE 	art_peso > 
-		(SELECT art_peso
+		(SELECT MAX(art_peso)
  		 FROM Articulos
 		 WHERE art_nom LIKE 'calendario')
 	OR art_col IN 
