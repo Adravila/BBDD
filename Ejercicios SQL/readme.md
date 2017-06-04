@@ -1038,6 +1038,10 @@ WHERE clt_pob LIKE 'Ma%'
 
 3. Listado de localidades. Para cada localidad queremos saber el nombre de la localidad, la cantidad de clientes que residen en dicha localidad, la cantidad de tiendas que hay en dicha localidad y la ratio de habitantes por tienda.
 ```SQL
+SELECT C.clt_pob, count(C.clt_pob), count(distinct(V.vnt_tda))
+FROM Clientes C, Ventas V
+WHERE C.clt_num = V.vnt_clt
+GROUP BY C.clt_pob;
 ```
 
 2. Realiza la siguiente consulta de 4 formas distintas (3,5 puntos): Listado de tiendas que hayan vendido productos del proveedor número 7. Dentro de la tabla artículos, la columna que contiene el número de proveedor es art_prv.
