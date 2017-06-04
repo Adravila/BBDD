@@ -387,6 +387,12 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 {(n,r) | (∃(n), ∃(i), ∃(p), ∃(d)) | (Cliente(i,n,r)) ^ (Embarque(n,i,p,c,d) ^ p > 100)} 
 ```
 
+```SQL
+SELECT C.nom_cliente, C.renta_anual
+FROM Clientes C, Embarque E
+WHERE C.id_cliente = E.id_cliente AND E.peso > 100;
+```
+
 6. El número de los camiones que han transportado embarques que pesan más de 100kg.
 ```
 π id_camión (σ peso > 100 (Embarque))
@@ -400,9 +406,15 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 {(i) | ∃(p) | (Embarque(n,i,p,c,d) ^ p > 100)}
 ```
 
+```SQL
+SELECT id_camión
+FROM Embarque
+WHERE peso > 100;
+```
+
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
 ```
-A <-(π id_camion (σ peso > 100 (Embarque)))
+A <-(π id_camión (σ peso > 100 (Embarque)))
 π nom_chófer (Camión ⋈ A)
 ```
 
@@ -414,10 +426,30 @@ A <-(π id_camion (σ peso > 100 (Embarque)))
 {(n) | (∃(p), ∃(c)) | (Camión(n,c)) ^ (Embarque(i,n,p,c,d) ^ p > 100)}
 ```
 
+```SQL
+SELECT C.nom_chófer
+FROM Camión C, Embarque E
+WHERE C.id_camión = E.id_camión AND E.peso > 100;
+```
+
 8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
 ```
 A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
 π destino (Embarque ⋈ A)
+```
+
+```
+{t.destino | t € Embarque, r € Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual > 90.000}
+```
+
+```
+{(d) | ∃(i), ∃(r) | (Embarque(i,n,p,c,d)) ^ (Cliente(i,n,r) ^ r > 90.000}
+```
+
+```SQL
+SELECT E.destino
+FROM Embarque E, Cliente C
+WHERE E.id_cliente = C.id_cliente AND C.renta_anual > 90000;
 ```
 
 9. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
