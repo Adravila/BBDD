@@ -1045,7 +1045,7 @@ WHERE clt_pob LIKE 'Ma%'
 ```SQL
 SELECT T.*
 FROM Tiendas T, Ventas V, Articulos A
-WHERE T.tda_num = V.vnt_tda AND V.vnt_art = A.art_num AND art_prv = 5;
+WHERE T.tda_num = V.vnt_tda AND V.vnt_art = A.art_num AND art_prv = 7;
 ```
 - Consulta anidada
 ```SQL
@@ -1057,7 +1057,7 @@ WHERE tda_num IN(
 	WHERE vnt_art IN(
 		SELECT art_num
 		FROM Articulos
-		WHERE art_prv = 5)
+		WHERE art_prv = 7)
 );
 ```
 - Consulta correlacionada
