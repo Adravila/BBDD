@@ -406,6 +406,14 @@ A <-(π id_camion (σ peso > 100 (Embarque)))
 π nom_chófer (Camión ⋈ A)
 ```
 
+```
+{t.nom_chófer | t € Camión, ∃r € Embarque ^ t.id_camión = r.id_camión ^ r.peso > 100}
+```
+
+```
+{(n) | (∃(p), ∃(c)) | (Camión(n,c)) ^ (Embarque(i,n,p,c,d) ^ p > 100)}
+```
+
 8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
 ```
 A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
@@ -415,13 +423,17 @@ A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
 9. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo.
 
 ```
-A <-(σ peso < 1 (Embarque))
+A <-(π id_cliente (σ peso < 1 (Embarque))
 (σ renta_anual > 90.000 (Cliente ⋈ A))
 ```
 
 ```
 {t.id_cliente, t.nom_cliente | t ∈ Embarque ^ ∃r ∈ Cliente 
  t.id_cliente = r.id_cliente ^ t.peso < 1 ^ r.renta_anual > 90.000}
+```
+
+```
+{(i,d) | (∃(r), ∃(p)) | (Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)}
 ```
 
 10. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
