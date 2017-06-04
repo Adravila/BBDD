@@ -1,3 +1,98 @@
+# Apéndice - Tablas
+### Artículos
+ART_NUM | ART_NOM  | ART_PESO  | ART_COL  | ART_PC  | ART_PV  | ART_PRV
+------------ | ------------ | ------------ | ------------ | ------------ | ------------ |  ------------ |
+1 | impresora | 150 | rojo | 400 | 580 | 4
+2 | calculadora | 150 | negro | 4000 | 4700 | 1
+3 | calendario | 100 | blanco | 420 | 600 | 4
+4 | lampara | 550 | rojo | 2100 | 2980 | 5
+5 | lampara | 550 | blanco | 2000 | 2900 | 5
+6 | lampara | 550 | azul | 2100 | 2980 | 5
+7 | lampara | 550 | verde | 2100 | 2980 | 5
+8 | pesacartas 1-500 | | |  2400 | 4000 | 3
+9 | pesacartas 1-1000 | | | 3000 | 5000 | 3
+10 | boligrafo | 20 | rojo | 20 | 40 | 2
+11 | boligrafo | 20 | azul | 20 | 40 | 2
+12 | boligrafo lujo | 20 | rojo | 60 | 100 | 2
+13 | boligrafo lujo | 20 | verde | 60 | 100 | 2
+14 | boligrafo lujo | 20 | azul | 60 | 100 | 2
+15 | boligrafo lujo | 20 | negro | 60 | 100 | 2
+
+### Tiendas
+
+TDA_NUM | TDA_POB | TDA_GER
+------------ | ------------ | ------------
+1 | madrid-batan | contesfosques, jordi
+2 | madrid-centro | martinez, juan
+3 | pamplona | dominguez, julian
+4 | barcelona | peqa, jose maria
+5 | trujillo | mendez, pedro
+6 | jaen | marin, raquel
+7 | valencia | petit, joan
+8 | requena | marcos, pilar
+9 | palencia | castroviejo, lorenzo
+10 | gerona | gomez, gabriel
+11 | lyon | madoux, jean
+12 | paris | fouet, paul
+
+### Clientes
+
+CLT_NUM | CLT_APELL | CLT_NOM | CLT_PAIS | CLT_POB
+------------ | ------------ | ------------ | ------------ | ------------
+1 | borras |  margarita  | e  | madrid
+2 | perez |  miguel  | e  | madrid
+3 | dupont |  jean  | f |  paris
+4 | dupret |  michel  | f  | lyon
+5 | llopis |  antoni  | e |  barcelona
+6 | souris |  marcel |  f |  paris
+7 | goqi |  pablo |  e |  pamplona
+8 | courbon |  gerad |  f |  lyon
+9 | roman |  consuelo |  e |  jaen
+10 | roca |  pau  | e |  gerona
+11 | mancha |  jorge  | e |  valencia
+12 | curro |  pablo |  e |  barcelona
+13 | cortes |  diego  | e |  madrid
+14 | fernandez |  joaquin |  e |  madrid
+15 | duran |  jacinto  | e  | pamplona
+16 | minguin |  pedro |  e |  pamplona
+
+### Proveedores
+PRV_NUM| PRV_NOM
+-------| --------
+1| catio electronic
+2| estilograficas reunidas
+3| mecanica de precision
+4| sanjita
+5| electrolamp
+
+### Proveedores
+VNT_CLT |VNT_TDA| VNT_ART| VNT_CANT| VNT_PRECIO| VNT_FC
+------- |---------- |---------- |----------| ----------| ------
+5| 4| 4| 1| 2980| 910106
+7| 3 |10| 1 |40| 910106
+7 |3 |11 |2 |80| 910106
+7 |3 |14 |3 |300| 910106
+8 |11 |2 |1 |4700| 910109
+6 |12 |3 |2 |1200 |910109
+6 |12 |15 |2| 200 |910109
+13 |1 |4| 1 |2980 |910109
+13 |1| 3 |1 |600| 910110
+1 |2 |2 |1 |4700 |910110
+1 |2 |12| 1 |100 |910110
+1 |2 |13 |10 |1000| 910110
+4 |11 |1 |8 |4640 |910111
+4 |11 |10 |7| 280 |910111
+3 |7 |6 |1 |2980| |910111
+3 |7| 9| 2| 10000| |910111
+
+###Pesos
+PESO_NOM |PESO_MIN |PESO_MAX
+--------- |----------| ----------
+leve| 0| 100
+ligero |101| 500
+medio| 501| 2500
+pesado |2501| 9999
+
 # Práctica 1 
 1. Generar un entorno de trabajo que tenga las siguientes características:
 	- Indicación de la cuenta de Oracle donde estamos trabajando.
