@@ -790,11 +790,11 @@ WHERE clt_pob IN ('madrid','barcelona') AND clt_num NOT IN(
 ```
 # Práctica 5
 
-1. Seleccionar los artículos de color rojo y visualizar su no nombre y peso, así como el nombre del proveedor, ordenados según su peso.
+1. Seleccionar los artículos de color rojo y visualizar su nº, nombre y peso, así como el nombre del proveedor, ordenados según su peso.
 ```SQL
-SELECT art_nom, art_peso, prv_nom
+SELECT art_num, art_nom, art_peso, prv_nom
 FROM Articulos, Proveedores
-WHERE art_num = prv_num AND art_col LIKE 'rojo'
+WHERE art_col LIKE 'rojo'
 ORDER BY art_peso;
 ```
 2. Hacer el producto cartesiano entre las tablas Artículos y Proveedores cuenta que el color de los artículos ha de ser rojo.
