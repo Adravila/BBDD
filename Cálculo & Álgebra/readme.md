@@ -214,7 +214,7 @@ WHERE id_cliente = 433;
 ```
 
 ```
-{d | ∃(n) | E(n,i,p,c,d) ^ n = 3244}
+{d | ∃(n) | (Embarque(n,i,p,c,d) ^ n = 3244)}
 ```
 
 ``` SQL
@@ -307,7 +307,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{n | (∃(p)) | (Embarque(n,i,p,c,d)) ^ (p>20)}
+{n | (∃(p)) | (Embarque(n,i,p,c,d) ^ p>20)}
 ```
 
 ```SQL
@@ -326,7 +326,7 @@ WHERE peso > 20;
 ```
 
 ```
-{n | (∃(r)) | (Cliente(i,n,r)) ^ (r > 60.000)}
+{n | (∃(r)) | (Cliente(i,n,r) ^ r > 60.000)}
 ```
 
 ```SQL
@@ -379,17 +379,25 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 π nom_cliente, renta_anual (Cliente ⋈ A)
 ```
 
+```
+{c.nom_cliente, c.renta_anual | c € Cliente, ∃e € Embarque ^ c.id_cliente = e.id_cliente ^ e.peso > 100}
+```
+
+```
+{(n,r) | (∃(n), ∃(i), ∃(p), ∃(d)) | (Cliente(i,n,r)) ^ (Embarque(n,i,p,c,d) ^ p > 100)} 
+```
+
 6. El número de los camiones que han transportado embarques que pesan más de 100kg.
 ```
-π num_embarque (σ peso > 100 (Embarque))
+π id_camión (σ peso > 100 (Embarque))
 ```
 
 ```
-{c.nom_cliente, e.renta_anual | c ∈ Cliente, e ∈ Embarque ^ c.id_cliente = e.id_cliente ^ e.peso > 100}
+{e.id_camión| e ∈ Embarque ^ e.peso > 100}
 ```
 
 ```
-{(c) | (∃(n), ∃(i), ∃(p), ∃(d)) | (Embarque(n,i,p,c,d) ^ p > 100)}
+{(i) | ∃(p) | (Embarque(n,i,p,c,d) ^ p > 100)}
 ```
 
 7. Los nombres de los chóferes que han distribuido envíos que pesan más de 100kg.
