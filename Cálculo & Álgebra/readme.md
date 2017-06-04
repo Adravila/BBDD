@@ -349,9 +349,9 @@ WHERE renta_anual > 60000;
 ```
 
 ```SQL
-SELECT nom_chófer
+SELECT nom_chofer
 FROM Camión
-WHERE id_camión = 45;
+WHERE id_camion = 45;
 ```
 
 4. Los nombres de las ciudades que han recibido envíos que pesan más de 100kg.
@@ -407,7 +407,7 @@ WHERE C.id_cliente = E.id_cliente AND E.peso > 100;
 ```
 
 ```SQL
-SELECT id_camión
+SELECT id_camion
 FROM Embarque
 WHERE peso > 100;
 ```
@@ -427,9 +427,9 @@ A <-(π id_camión (σ peso > 100 (Embarque)))
 ```
 
 ```SQL
-SELECT C.nom_chófer
-FROM Camión C, Embarque E
-WHERE C.id_camión = E.id_camión AND E.peso > 100;
+SELECT C.nom_chofer
+FROM Camion C, Embarque E
+WHERE C.id_camion = E.id_camion AND E.peso > 100;
 ```
 
 8. Las ciudades que han recibido embarques de clientes que tienen una renta anual por encima de los 90.000€.
@@ -468,12 +468,32 @@ A <-(π id_cliente (σ peso < 1 (Embarque))
 {(i,d) | (∃(r), ∃(p)) | (Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)}
 ```
 
+```SQL
+SELECT C.id_cliente, C.nom_cliente
+FROM Cliente C, Embarque E
+WHERE C.id_cliente = E.id_cliente AND C.renta_anual > 90000 AND E.peso < 1;
+```
+
 10. Los clientes que tienen una renta anual por encima de los 90.000€ que han enviado paquetes con peso menor de un kilo o han enviado embarques a la ciudad de Madrid.
 ```
 A <- (π id_cliente (σ renta_anual ) > 90.000 (Cliente))
 B <- (π id_cliente (σ peso < 1 (Embarque))
 C <- (π id_cliente (σ destino = 'Madrid' (Embarque)))
-((A∩B)∪C) ⋈ Clientes
+(Clientes ⋈ (A∩B)∪C))
+```
+
+```
+{(t.id_cliente, t.nom_cliente) | t € Cliente, ∃r € Embarque ^ t.id_cliente = r.id_cliente ^ [(t.renta_anual > 90.000 ^ r.peso < 1) v (r.destino = 'Madrid')]}
+```
+
+```
+(n,i) | (∃(r),∃(p),∃(i),∃(d) | [(Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)] v (Embarque(i,n,p,c,d) ^ d = 'Madrid')}
+```
+
+```SQL
+SELECT *
+FROM Clientes C, Embarque E
+WHERE C.id_cliente = E.id_cliente AND ((C.renta_anual > 90000 AND E.peso < 1) OR E.destino = 'Madrid');
 ```
 
 11. Los clientes cuyos envíos han sido distribuidos por el chófer Juan.
