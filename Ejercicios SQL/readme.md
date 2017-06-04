@@ -85,8 +85,8 @@ VNT_CLT |VNT_TDA| VNT_ART| VNT_CANT| VNT_PRECIO| VNT_FC
 3 |7 |6 |1 |2980| |910111
 3 |7| 9| 2| 10000| |910111
 
-###Pesos
-PESO_NOM |PESO_MIN |PESO_MAX
+### Pesos
+PESO_NOM | PESO_MIN |PESO_MAX
 --------- |----------| ----------
 leve| 0| 100
 ligero |101| 500
