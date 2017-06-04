@@ -554,9 +554,9 @@ FROM Articulos
 WHERE art_col IN
 	(SELECT art_col
 	 FROM Articulos
-	 WHERE art_num = 10 AND art_peso >= 
-		(SELECT avg(art_peso)
-		 FROM Articulos)
+	 WHERE art_num = 10
+	 GROUP BY art_col
+	 HAVING art_peso >= avg(art_peso)
 	);
 ```
 
