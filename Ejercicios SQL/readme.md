@@ -1076,4 +1076,14 @@ WHERE tda_num IN(
 ```
 - Consulta de existencia
 ```SQL
+SELECT *
+FROM Tiendas T
+WHERE EXISTS(
+	SELECT *
+	FROM Ventas
+	WHERE T.tda_num = vnt_tda AND vnt_art in (
+		SELECT art_num
+		FROM Articulos
+		WHERE art_prv = 5)
+);
 ```
