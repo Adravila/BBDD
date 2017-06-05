@@ -225,6 +225,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT DISTINCT art_col
 	FROM Articulos;
+	WHERE art_col IS NOT NULL;
 	```
 	
 9. Formatear el resultado del problema 6 para que la columna resultante se llame localidad.
@@ -269,9 +270,9 @@ pesado |2501| 9999
 	
 15. Seleccionar todos los artículos rojos que pesen más de 100g.
 	```SQL
-	SELECT art_col
+	SELECT *
 	FROM Articulos
-	WHERE art_peso > 100;
+	WHERE art_col = 'rojo' AND art_peso > 100;
 	```
 	
 16. Seleccionar todos los artículos que sean rojos o que pesen más de 500g.
@@ -313,7 +314,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Articulos
-	WHERE art_peso,art_col IS NULL AND art_color IS NULL;
+	WHERE art_peso IS NULL AND art_col IS NULL;
 	```
 	
 22. Visualizar una lista de artículos de color rojo o de color verde.
@@ -369,7 +370,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT tda_ger
 	FROM Tiendas
-	ORDER BY  tda_ger;
+	ORDER BY tda_ger;
 	```
 	
 30. Clasificar los artículos que pesan menos o igual a 100g por orden creciente del peso y, cuando éste sea idéntico, clasificarlos según el precio de compra decreciente.
@@ -391,6 +392,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Ventas
+	WHERE vnt_cant IS NOT NULL
 	ORDER BY vnt_cant;
 	```
 33. ¿Qué artículos los provee el proveedor nº 2?
