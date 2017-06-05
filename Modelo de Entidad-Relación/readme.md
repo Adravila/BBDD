@@ -87,6 +87,16 @@ cierto momento un departamento no tenga gerente alguno pero todo gerente pertene
 - Almacenaremos el nombre, número de la seguridad social 3, dirección, salario, sexo y fecha de nacimiento de cada empleado. Todo empleado está asignado a un departamento, pero puede trabajar en varios proyectos, que no necesariamente estarán controlados por el mismo departamento. Nos interesa el número de horas por semana que un empleado trabaja en cada proyecto, y también quién es el supervisor directo de cada empleado.
 - Queremos mantenernos al tanto de los familiares de cada empleado para administrar sus seguros. De cada familiar almacenaremos el nombre, sexo, fecha de nacimiento y parentesco con el empleado.
 
+13. Se desea diseñar una base de datos para una discoteca-videoteca que contenga información de videos, discos, socios, empleados y préstamos. Tenemos que tener en cuenta las siguientes consideraciones:
+- Un socio puede tener en préstamo varios videos y discos a la vez.
+- Un video o disco sólo puede estar prestado a un socio en una fecha dada.
+- Un empleado puede prestar muchos discos y videos.
+- Cuando se realiza un préstamo debemos saber el nombre del socio, el video o disco prestado, la fecha de préstamo y el nombre del empleado que lo ha realizado.
+- En todo momento debemos poder conocer el autor de un disco o el protagonista de un video.
+
+![](https://github.com/Adravila/BBDD/blob/master/Modelo%20de%20Entidad-Relaci%C3%B3n/Ejer_13.png?raw=true)
+
+
 14. Se desea diseñar una base de datos para una agencia matrimonial, que contenga información de las personas, tanto hombres como mujeres, que desean casarse, empleados (divididos en tres categorías socios, directores y administrativos), citas realizadas, donde debe constar, además de los nombres de las personas de la cita, la fecha y el director que la promovió, y los matrimonios celebrados. Debemos tener en cuenta que:
 - Una persona puede tener cita con diferentes personas.
 - Una persona puede casarse con varias personas pero no puede estar casado con más de una en la misma fecha.
