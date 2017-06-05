@@ -25,7 +25,7 @@ Faltaría añadir en la relación matricula un atributo "nota"
 
 ![](http://i.imgur.com/dzO3B9v.png)
 
-5. Se desea diseñar una base de datos para una sucursal bancaria que contenga información sobre los Clientes, las Cuentas, las Sucursales y las Transacciones producidas,
+6. Se desea diseñar una base de datos para una sucursal bancaria que contenga información sobre los Clientes, las Cuentas, las Sucursales y las Transacciones producidas,
 teniendo en cuenta las siguientes restricciones:
 - Una transacción viene determinada por su número de transacción, la fecha en que se realizó y la cantidad.
 - Un cliente puede tener muchas cuentas.
@@ -44,6 +44,44 @@ vender un tipo de producto a muchas clientas (al igual que antes, en momentos di
 comprar a una vendedora muchos productos diferentes. (Lo mismo.) Al añadir el atributo fecha a la relación una 
 clienta puede comprar un tipo de producto en una fecha concreta sólo a una vendedora (igual con las otras) y 
 como en el ejercicio nos piden que sólo un producto por venta por eso añadimos dicho atributo.
-Por otra parte existe la entidad "trabajadoras" que contendrá los diferentes atributos que heredarán tanto gerente, como jefas como vendedoras. (Las tres, por tanto, se encuentran al mismo nivel.) Sin embargo pongo una relación diferente entre gerente y departamento ya que es una de las restricciones que nos da el enunciado del ejercicio.
-Y por último en la relación departamento-gerente he marcado una participación total de éste último ya que entiendo que toda persona con el cargo de gerente pertenece siempre a un departamento, en ningún momento habrá un gerente que no esté asignado a un departamento ya que aunque dicho cargo lo ostenta una persona va asociado con el departamento, es decir, puede ser que en cierto momento un departamento no tenga gerente alguno pero todo gerente pertenecerá siempre a un departamento.
+Por otra parte existe la entidad "trabajadoras" que contendrá los diferentes atributos que heredarán tanto 
+gerente, como jefas como vendedoras. (Las tres, por tanto, se encuentran al mismo nivel.) 
+Sin embargo pongo una relación diferente entre gerente y departamento ya que es una de las restricciones 
+que nos da el enunciado del ejercicio. Y por último en la relación departamento-gerente he marcado una 
+participación total de éste último ya que entiendo que toda persona con el cargo de gerente pertenece 
+siempre a un departamento, en ningún momento habrá un gerente que no esté asignado a un departamento 
+ya que aunque dicho cargo lo ostenta una persona va asociado con el departamento, es decir, puede ser que en
+cierto momento un departamento no tenga gerente alguno pero todo gerente pertenecerá siempre a un departamento.
 ```
+10. Se desea diseñar una base de datos para una agencia de viajes que, para ofrecer mejor servicio a sus clientes, considera de interés tener registrada la información referente a los diferentes tour que puede ofrecer. Tenemos que tener en cuenta lo siguiente:
+- Un tour, según su finalidad, cultural, histórica, deportiva . . . , tiene unos determinados puntos de ruta y puede repetirse varias veces en un año.
+- Definimos por viaje un tour concreto a realizar a partir de una fecha determinada.
+- Los puntos de ruta de un tour pueden ser ciudades, monumentos, zonas geográficas, etc., y se consideran de visita solamente o de visita y estancia. En este último caso el punto de ruta tiene asignado uno o varios hoteles.
+- Entendemos por cliente de un viaje a la persona que ha decidido hacerlo y ha hecho efectiva una señal.
+- Un cliente puede confirmar su participación en más de un viaje (se sobreentiende que las fechas son diferentes).
+- Las personas que participan en un viaje pueden ser alojadas en los mismos o en diferentes hoteles.
+
+![](http://i.imgur.com/ZXq4qma.png)
+
+### Ejercicio examen de Febrero 2017
+
+1. El Centro de Salud “Puerta de la Sal” desea generar un banco de datos para conservar el histórico de todos los pacientes que han ingresado. El Centro de Salud se divide en varias unidades médicas, cada una de las cuales tiene un código único, un nombre y la planta en la que se sitúa dentro del edificio del Centro de Salud. Cada unidad tiene un médico responsable. El personal lo forman médicos y enfermeros, de los que se desea almacenar sus datos principales como son el código, nombre y especialidad. A todo paciente que llega al Centro de Salud se le ingresa en una unidad y se registran sus datos personales, como son número de la Seguridad Social, nombre, fecha de nacimiento y fecha de ingreso. Durante todo el periodo que un paciente está ingresado, los médicos les realizan diferentes intervenciones. De cada una de estas intervenciones se almacenarán los siguientes datos: síntoma observado, tratamiento prescrito y fecha. De cada revisión que haga un enfermero se almacenará fecha y tratamiento. En todo momento se necesita saber los datos de cualquier persona que trabaja en el Centro de Salud, los datos personales y clínicos de los pacientes que han sido ingresados alguna vez o estén ingresados en este momento. Contestar, justificando las respuestas, a las siguientes preguntas:
+- Descripción de todos los atributos necesarios para generar esta bases de datos (0,5 puntos).
+- Diseño conceptual utilizando el modelo Entidad-Relación extendido (1 punto).
+- Estudio de las dependencias funcionales existentes (1 punto).
+- Obtención del correspondiente diseño lógico para esta base de datos, utilizando el proceso de normalización y detallando cada uno de sus pasos (2 puntos).
+
+![](http://i.imgur.com/qtrY7WP.png)
+
+Se puede entender que:
+* Hay completitud total en la especialización (es decir, consideramos que el personal es necesariamente médico o enfermero). Se pondría una línea doble de "Persona" al círculo de la "d"
+* No se limita que los médicos sean responsables de una Unidad como máximo (en un hospital pequeño, un médico con varias especialidades podría ser responsable de N unidades)
+* La relación "Trabaja en" no se explicita en el enunciado , por lo que no tiene porqué ponerse.
+* Hay quien considera que las revisiones de los enfermeros son consecuencia de los tratamientos que indican los médicos. En ese caso se complicaría el modelo con una entidad "Tratamiento" que estaría relacionada con "Revisa" y con "Interviene"
+
+Añadir
+* falta doble raya entre unidad médica y "responsable de" (para obligar a que 
+* fecha alta en "ingresa en" para saber a quien ha salido (y quien no)
+
+
+
