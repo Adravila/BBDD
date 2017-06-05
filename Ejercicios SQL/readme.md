@@ -1077,13 +1077,13 @@ WHERE tda_num IN(
 - Consulta de existencia
 ```SQL
 SELECT *
-FROM Tiendas T
+FROM Tiendas
 WHERE EXISTS(
 	SELECT *
 	FROM Ventas
-	WHERE T.tda_num = vnt_tda AND vnt_art in (
-		SELECT art_num
+	WHERE tda_num = vnt_tda AND EXISTS(
+		SELECT *
 		FROM Articulos
-		WHERE art_prv = 5)
+		WHERE vnt_art = art_num AND art_prv = 5)
 );
 ```
