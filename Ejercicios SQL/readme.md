@@ -182,7 +182,6 @@ pesado |2501| 9999
 	SELECT * FROM Tiendas;
 	SELECT * FROM Articulos;
 	SELECT * FROM Clientes;
-	SELECT * FROM Suministros;
 	SELECT * FROM Pesos;
 	```
 	
