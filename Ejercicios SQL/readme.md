@@ -1073,6 +1073,16 @@ WHERE tda_num IN(
 ```
 - Consulta correlacionada
 ```SQL
+SELECT *
+FROM Tiendas
+WHERE tda_num IN(
+	SELECT vnt_tda
+	FROM Ventas
+	WHERE 7 IN
+		(SELECT art_prv
+		FROM Articulos
+		WHERE vnt_art = art_num)
+);
 ```
 - Consulta de existencia
 ```SQL
@@ -1084,6 +1094,6 @@ WHERE EXISTS(
 	WHERE tda_num = vnt_tda AND EXISTS(
 		SELECT *
 		FROM Articulos
-		WHERE vnt_art = art_num AND art_prv = 5)
+		WHERE vnt_art = art_num AND art_prv = 7)
 );
 ```
