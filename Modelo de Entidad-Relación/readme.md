@@ -65,6 +65,8 @@ cierto momento un departamento no tenga gerente alguno pero todo gerente pertene
 - Un profesor está siempre asignado a una única área de conocimiento, pudiendo cambiar de área en cualquier momento; interesa la fecha en que un profesor se adscribe a un área de conocimiento.
 - Todo departamento tendrá una o varias área de conocimiento.
 
+![](https://github.com/Adravila/BBDD/blob/master/Modelo%20de%20Entidad-Relaci%C3%B3n/Ejer_8.png?raw=true)
+
 9. Se desea diseñar una base de datos que contenga la información relativa a las carreteras de un determinado país, sabiendo que:
 - En dicho país las carreteras se encuentran divididas en tramos.
 - Un tramo siempre pertenece a una única carretera y no puede cambiar de carretera.
