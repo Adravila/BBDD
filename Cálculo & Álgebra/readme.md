@@ -596,7 +596,8 @@ Generar las expresiones correspondientes en álgebra relacional para las siguien
 ```
 ```
 
-2. Dados los esquemas relacionales de la siguiente figura
+## Ejercicio de examen (Febrero 2017)
+Dados los esquemas relacionales de la siguiente figura
 	```
 	Tiendas(num, poblacion,gerente)
 	Clientes(num,apellido,nombre,pais,poblacion)
