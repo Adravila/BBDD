@@ -639,7 +639,7 @@ FROM Articulos A, Ventas V, Tiendas T, Clientes C
 WHERE 	A.articulo_num = V.articulo_num AND A.art_col = 'pistacho' AND
 	V.fecha = 170206 AND
 	T.num_tienda = V.num_tienda AND T.poblacion = 'Cadiz' AND
-	C.pais = "España"
+	C.pais = 'España';
 ```
 
 
