@@ -644,12 +644,11 @@ WHERE 	A.articulo_num = V.articulo_num AND A.art_col = 'pistacho' AND
 - Obtener el número y población de las tiendas que han vendido todos los artículos (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
 
 ```
-Cliente Cl(cliente_num,apellido,nombre,pais,poblacion) # Renombramiento
-A <-(π cliente_num (σ art_col = 'pistacho' (Cl))
-B <-(π tienda_num (σ fecha = 170206 (Ventas ⋈ A))
-Tiendas Ti(tienda_num, poblacion,gerente) # Renombramiento
-C <-(σ poblacion = 'Cádiz' (Ti ⋈ B))
-R(Cl ⋈ C)
+Tiendas1(tienda_num, poblacion,gerente) <- Tiendas(num, poblacion,gerente)
+Artículos1(articulo_num,nombre,peso,color,PVP,proveedor_num) <- Artículos(num,nombre,peso,color,PVP,proveedor_num)
+
+A <-(π tienda_num, poblacion (Tiendas1 ⋈ (Ventas / Artículos1)))
+
 ```
 
 ```
