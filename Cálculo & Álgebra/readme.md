@@ -599,21 +599,19 @@ Generar las expresiones correspondientes en álgebra relacional para las siguien
 ## Ejercicio de examen (Febrero 2017)
 Dados los esquemas relacionales de la siguiente figura:
 	
-	```
 	Tiendas(num, poblacion,gerente)
 	Clientes(num,apellido,nombre,pais,poblacion)
 	Artículos(num,nombre,peso,color,PVP,proveedor_num)
 	Proveedores(num,nombre)
 	Ventas(cliente_num,tienda_num,articulo_num,fecha,cantidad)
-	```	
 	
 Expresar en álgebra relacional las siguientes consultas:
 - Obtener los datos de los clientes españoles que compraron artículos de color pistacho el día 6 de febrero de 2017 en las tiendas de Cádiz (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
 
 ```
-Tiendas1(tienda_num, poblacion,gerente) <-- Tiendas(num, poblacion,gerente)
-Cliente1(cliente_num,apellido,nombre,pais,poblacion) <-- Clientes(num,apellido,nombre,pais,poblacion)
-Artículos1(articulo_num,nombre,peso,color,PVP,proveedor_num) <-- Artículos(num,nombre,peso,color,PVP,proveedor_num)
+Tiendas1(tienda_num, poblacion,gerente) <- Tiendas(num, poblacion,gerente)
+Cliente1(cliente_num,apellido,nombre,pais,poblacion) <- Clientes(num,apellido,nombre,pais,poblacion)
+Artículos1(articulo_num,nombre,peso,color,PVP,proveedor_num) <- Artículos(num,nombre,peso,color,PVP,proveedor_num)
 
 A <-(π articulo_num (σ art_col = 'pistacho' (Artículos1))
 T <-(σ poblacion = 'Cádiz' (Tiendas1))
