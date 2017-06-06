@@ -597,7 +597,8 @@ Generar las expresiones correspondientes en álgebra relacional para las siguien
 ```
 
 ## Ejercicio de examen (Febrero 2017)
-Dados los esquemas relacionales de la siguiente figura
+Dados los esquemas relacionales de la siguiente figura:
+	
 	```
 	Tiendas(num, poblacion,gerente)
 	Clientes(num,apellido,nombre,pais,poblacion)
@@ -605,7 +606,49 @@ Dados los esquemas relacionales de la siguiente figura
 	Proveedores(num,nombre)
 	Ventas(cliente_num,tienda_num,articulo_num,fecha,cantidad)
 	```	
+	
 Expresar en álgebra relacional las siguientes consultas:
 - Obtener los datos de los clientes españoles que compraron artículos de color pistacho el día 6 de febrero de 2017 en las tiendas de Cádiz (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
+
+```
+Cliente Cl(cliente_num,apellido,nombre,pais,poblacion) # Renombramiento
+A <-(π cliente_num (σ art_col = 'pistacho' (Cl))
+B <-(π tienda_num (σ fecha = 170206 (Ventas ⋈ A))
+Tiendas Ti(tienda_num, poblacion,gerente) # Renombramiento
+C <-(σ poblacion = 'Cádiz' (Ti ⋈ B))
+R(Cl ⋈ C)
+```
+
+```
+
+```
+
+```
+```
+
+```SQL
+
+```
+
+
 - Obtener el número y población de las tiendas que han vendido todos los artículos (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
-- Expresar en cálculo relacional la consulta la consulta anterior 2.b (solución correcta 0,25 puntos, explicación de los resultados 0,25 puntos).
+
+```
+Cliente Cl(cliente_num,apellido,nombre,pais,poblacion) # Renombramiento
+A <-(π cliente_num (σ art_col = 'pistacho' (Cl))
+B <-(π tienda_num (σ fecha = 170206 (Ventas ⋈ A))
+Tiendas Ti(tienda_num, poblacion,gerente) # Renombramiento
+C <-(σ poblacion = 'Cádiz' (Ti ⋈ B))
+R(Cl ⋈ C)
+```
+
+```
+
+```
+
+```
+```
+
+```SQL
+
+```
