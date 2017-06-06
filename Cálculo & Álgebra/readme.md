@@ -615,10 +615,10 @@ Tiendas1(tienda_num, poblacion,gerente) <-- Tiendas(num, poblacion,gerente)
 Cliente1(cliente_num,apellido,nombre,pais,poblacion) <-- Clientes(num,apellido,nombre,pais,poblacion)
 Artículos1(articulo_num,nombre,peso,color,PVP,proveedor_num) <-- Artículos(num,nombre,peso,color,PVP,proveedor_num)
 
-A <-(π articulo_num (σ art_col = 'pistacho' (Artículos))
-T <-(σ poblacion = 'Cádiz' (Tiendas))
+A <-(π articulo_num (σ art_col = 'pistacho' (Artículos1))
+T <-(σ poblacion = 'Cádiz' (Tiendas1))
 V <-(π cliente_num, articulo_num, tienda_num (σ fecha = 170206 (A ⋈ T ⋈ Ventas))
-R(σ país = 'España' (V ⋈ Clientes)
+R(σ país = 'España' (V ⋈ Clientes1)
 ```
 
 ```
