@@ -611,12 +611,14 @@ Expresar en álgebra relacional las siguientes consultas:
 - Obtener los datos de los clientes españoles que compraron artículos de color pistacho el día 6 de febrero de 2017 en las tiendas de Cádiz (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
 
 ```
-Cliente Cl(cliente_num,apellido,nombre,pais,poblacion) # Renombramiento
-A <-(π cliente_num (σ art_col = 'pistacho' (Cl))
-B <-(π tienda_num (σ fecha = 170206 (Ventas ⋈ A))
-Tiendas Ti(tienda_num, poblacion,gerente) # Renombramiento
-C <-(σ poblacion = 'Cádiz' (Ti ⋈ B))
-R(Cl ⋈ C)
+Tiendas(tienda_num, poblacion,gerente) # Renombramiento
+Cliente(cliente_num,apellido,nombre,pais,poblacion) # Renombramiento
+Artículos(articulo_num,nombre,peso,color,PVP,proveedor_num) # Renombramiento
+
+A <-(π articulo_num (σ art_col = 'pistacho' (Artículos))
+T <-(σ poblacion = 'Cádiz' (Tiendas))
+V <-(π cliente_num, articulo_num, tienda_num (σ fecha = 170206 (A ⋈ T ⋈ Ventas))
+R(σ país = 'España' (V ⋈ Clientes)
 ```
 
 ```
@@ -627,7 +629,17 @@ R(Cl ⋈ C)
 ```
 
 ```SQL
+# Para realizar un renombramiento en SQL tendremos que hacer:
+ALTER TABLE Clientes RENAME COLUMN nun TO cliente_num;
+ALTER TABLE Tiendas RENAME COLUMN nun TO tienda_num;
+ALTER TABLE Articulos RENAME COLUMN nun TO articulo_num;
 
+SELECT C.*
+FROM Articulos A, Ventas V, Tiendas T, Clientes C
+WHERE 	A.articulo_num = V.articulo_num AND A.art_col = 'pistacho' AND
+	V.fecha = 170206 AND
+	T.num_tienda = V.num_tienda AND T.poblacion = 'Cadiz' AND
+	C.pais = "España"
 ```
 
 
@@ -650,5 +662,4 @@ R(Cl ⋈ C)
 ```
 
 ```SQL
-
 ```
