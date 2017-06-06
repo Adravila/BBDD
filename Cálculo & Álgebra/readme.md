@@ -596,14 +596,15 @@ Generar las expresiones correspondientes en álgebra relacional para las siguien
 ```
 ```
 
-2 Dados los esquemas relacionales de la siguiente figura
+2. Dados los esquemas relacionales de la siguiente figura
+	```
 	Tiendas(num, poblacion,gerente)
 	Clientes(num,apellido,nombre,pais,poblacion)
 	Artículos(num,nombre,peso,color,PVP,proveedor_num)
 	Proveedores(num,nombre)
 	Ventas(cliente_num,tienda_num,articulo_num,fecha,cantidad)
-	
+	```	
 Expresar en álgebra relacional las siguientes consultas:
-a) Obtener los datos de los clientes españoles que compraron artículos de color pistacho el día 6 de febrero de 2017 en las tiendas de Cádiz (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
-b) Obtener el número y población de las tiendas que han vendido todos los artículos (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
-c) Expresar en cálculo relacional la consulta la consulta anterior 2.b (solución correcta 0,25 puntos, explicación de los resultados 0,25 puntos).
+- Obtener los datos de los clientes españoles que compraron artículos de color pistacho el día 6 de febrero de 2017 en las tiendas de Cádiz (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
+- Obtener el número y población de las tiendas que han vendido todos los artículos (solución correcta 0,5 puntos, explicación de los resultados 0,5 puntos).
+- Expresar en cálculo relacional la consulta la consulta anterior 2.b (solución correcta 0,25 puntos, explicación de los resultados 0,25 puntos).
