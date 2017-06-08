@@ -1062,7 +1062,7 @@ WHERE clt_pob LIKE 'Ma%'
 
 3. Listado de localidades. Para cada localidad queremos saber el nombre de la localidad, la cantidad de clientes que residen en dicha localidad, la cantidad de tiendas que hay en dicha localidad y la ratio de habitantes por tienda.
 ```SQL
-SELECT C.clt_pob, count(C.clt_pob), count(distinct(V.vnt_tda))
+SELECT C.clt_pob, count(C.clt_pob), count(distinct(V.vnt_tda)), count(distinct(V.vnt_tda)) / count(*) AS "Ratio habitantes"
 FROM Clientes C, Ventas V
 WHERE C.clt_num = V.vnt_clt
 GROUP BY C.clt_pob;
