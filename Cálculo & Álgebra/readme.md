@@ -153,11 +153,10 @@ WHERE Apellido = 'Manrique';
 - Los datos de los libros que tienen en préstamo cada socio.
 ```
 π cod_lib (Préstamos) ⋈ Libros ⋈ Socios
-π cod_lib (Libros) ⋈ Préstamos ⋈ Socios 
 ```
 
 ```SQL
-SELECT L.*
+SELECT P.*
 FROM Préstamos P, Libros L, Socios S
 WHERE P.cod_libro = L.cod_libro AND P.cod_socio = S.cod_socio;
 ```
