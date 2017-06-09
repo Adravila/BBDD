@@ -515,6 +515,11 @@ B <- π id_cliente (σ nom_chofer != 'Juan' (A))
 
 13. Clientes que han recibido envíos distribuidos por todos los chóferes.
 ```
+(Cliente ⋈ (Embarque / Camion)
+```
+
+```
+{t.cli | t ∈ Cliente, t ∈ (∀h)(h ∈ R1(Chofer), (∀s)(s ∈ Camion), (∃r)(r ∈ Embarque) ^ (r.id_camion = s.id_camion) ^ (r.id_camion = t.id_cliente) ^ (h.nom_chofer = s.nom_chofer)}
 ```
 
 14. Ciudades que han recibido embarques de todos los clientes.
