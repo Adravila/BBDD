@@ -1,5 +1,5 @@
-# Ejemplos de SQL
-## 1.1. Identificación ante el producto
+# Ejemplos de SQL - Tema 1
+### 1.1. Identificación ante el producto
 ```SQL
   > sqlplus
   SQL*Plus: Release 9.2.0.1.0 - Production on Tue Apr 13 16:28:13 2004
@@ -17,7 +17,7 @@
   SQL>
 ```
 
-## 1.2. Conexión con usuario
+### 1.2. Conexión con usuario
 ```SQL
 SQL> conn nombre_usuario@juno
 Introduzca la clave:
@@ -33,8 +33,8 @@ Connected.
 SQL>
 ```
 
-## 1.3. Desconexión con usuario
-```
+### 1.3. Desconexión con usuario
+```SQL
 SQL> disconnect
 SQL>
 Disconnected from Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production
@@ -42,7 +42,7 @@ JServer Release 9.2.0.1.0 - Production
 SQL>
 ```
 
-## 1.4. Mostrar el contenido del buffer
+### 1.4. Mostrar el contenido del buffer
 ```SQL
 SQL> l
 1 select *
@@ -50,7 +50,7 @@ SQL> l
 SQL>
 ```
 
-## 1.5. Añadir una línea a la orden del buffer
+### 1.5. Añadir una línea a la orden del buffer
 ```SQL
 
 SQL> i where prv_num > 2
@@ -61,7 +61,7 @@ SQL> l
 SQL>
 ```
 
-## 1.6. Borrar línea y cambiar texto
+### 1.6. Borrar línea y cambiar texto
 ```SQL
 SQL> del
 SQL> l
@@ -72,7 +72,7 @@ SQL> c/proveedores/tiendas
 SQL>
 ```
 
-## 1.7. Manera de mostrar un error
+### 1.7. Manera de mostrar un error
 ```SQL
 SQL> select art_num
 2 from proveedores;
@@ -83,7 +83,7 @@ ORA-00904: "ART_NUM": identificador no valido
 SQL>
 ```
 
-## 1.8. Salvar el buffer y guardar la ejecución en un fichero
+### 1.8. Salvar el buffer y guardar la ejecución en un fichero
 ```SQL
 SQL> l
 1 select *
@@ -107,18 +107,18 @@ SQL> !less resul.lst
 SQL>
 ```
 
-## 1.9. Definición de editor
+### 1.9. Definición de editor
 ```SQL
 SQL> define_editor = jed
 SQL>
 ```
 
-## 1.10. Edición de fichero
+### 1.10. Edición de fichero
 ```SQL
 SQL> edit consulta
 ```
 
-## 1.11. Edición del buffer
+### 1.11. Edición del buffer
 ```SQL
 SQL> edit afiedt
 ```
@@ -129,7 +129,7 @@ o bien, simplemente:
 SQL> edit
 ```
 
-## 1.12. Descripción de un objeto
+### 1.12. Descripción de un objeto
 ```SQL
 SQL> describe proveedores
 
@@ -139,7 +139,7 @@ PRV_NUM | NOT NULL | NUMBER(38)
 PRV_NOM | NOT NULL | VARCHAR2(25)
 ```
 
-## 1.13. Ayuda de una orden
+### 1.13. Ayuda de una orden
 ```SQL
 SQL> help save
 SAVE
@@ -152,7 +152,7 @@ SAV[E] file_name[.ext] [CRE[ATE] | REP[LACE] | APP[END]]
 Not available in iSQL*Plus
 ```
 
-## 1.14. Título y pie de página
+### 1.14. Título y pie de página
 ```SQL
 SQL> ttitle center 'Informe del dia'
 SQL> btitle skip SQL.USER skip 'UCA'
@@ -173,7 +173,7 @@ UCA
 5 filas seleccionadas.
 ```
 
-## 1.15. Formateo de columnas
+### 1.15. Formateo de columnas
 ```SQL
 SQL> column art_nom alias nombre
 SQL> column nombre format a6
@@ -194,7 +194,7 @@ SQL> select *
 3 filas seleccionadas.
 ```
 
-## 1.16. Establecer variables
+### 1.16. Establecer variables
 ```SQL
 SQL> set pages 20
 SQL> set echo on
@@ -202,7 +202,7 @@ SQL> set pause off
 SQL>
 ```
 
-## 1.17. Valores de variables 
+### 1.17. Valores de variables 
 ```SQL
 SQL> show pages
 pagesize 20
@@ -211,7 +211,7 @@ USER es "GADESCHI"
 SQL>
 ```
 
-## 1.18. Eliminar valor de variable
+### 1.18. Eliminar valor de variable
 ```SQL
 SQL> undefine var1
 SQL> define var1
@@ -219,7 +219,7 @@ SP2-0135: el simbolo var1 es UNDEFINED (INDEFINIDO)
 SQL>
 ```
 
-## 1.19. Uso de variables con &
+### 1.19. Uso de variables con &
 ```SQL
 SQL> select *
 2 from &var1;
@@ -238,7 +238,7 @@ nuevo 2: from proveedores
 5 filas seleccionadas.
 ```
 
-## 1.20 Uso de variables con & (cont.)
+### 1.20 Uso de variables con & (cont.)
 ```SQL
 SQL> describe &tab
 Introduzca un valor para tab: proveedores
@@ -247,8 +247,9 @@ Nombre                ?Nulo?   Tipo
 --------------------- -------- ----------------------------
 PRV_NUM               NOT NULL NUMBER(38)
 PRV_NOM               NOT NULL VARCHAR2(25)
+```
 
-## 1.21 Redefinición de operador
+### 1.21 Redefinición de operador
 ```SQL
 SQL> set define #
 SQL> select *
@@ -256,23 +257,24 @@ SQL> select *
 Introduzca un valor para var1: proveedores
 antiguo 2: from #var1
 nuevo 2: from proveedores
-PRV_NUM PRV_NOM
+
+PRV_NUM    PRV_NOM
 ---------- -------------------------
-1 catio electronic
-2 estilograficas reunidas
-3 mecanica de precision
-4 sanjita
-5 electrolamp
-5 filas seleccionadas.
+         1 catio electronic
+         2 estilograficas reunidas
+         3 mecanica de precision
+         4 sanjita
+         5 electrolamp
+         5 filas seleccionadas.
 ```
 
-## 1.22 Contenido del fichero nombre_fichero
+### 1.22 Contenido del fichero nombre_fichero
 ```SQL
 SELECT &1
 FROM &2;
 ```
 
-## 1.23 Uso del operador & con órdenes de SQL*Plus
+### 1.23 Uso del operador & con órdenes de SQL*Plus
 ```SQL
 SQL> describe &var
 Introduzca un valor para var: proveedores
@@ -283,7 +285,7 @@ PRV_NUM             NOT NULL NUMBER(38)
 PRV_NOM             NOT NULL VARCHAR2(25)
 ```
 
-## 1.24 Uso de variables con & y &&
+### 1.24 Uso de variables con & y &&
 ```SQL
 SQL> select *
 2 from &&var1;
@@ -306,7 +308,7 @@ SQL> run
 antiguo 2: from &&var1
 nuevo 2: from proveedores
 
-PRV_NUM PRV_NOM
+PRV_NUM    PRV_NOM
 ---------- -------------------------
          1 catio electronic
          2 estilograficas reunidas
@@ -320,7 +322,7 @@ SQL> delete from &var1;
 SQL>
 ```
 
-## 1.25. Fichero de órdenes: login.sql
+### 1.25. Fichero de órdenes: login.sql
 ```SQL
 REM nos muestra el nombre del usuario
 SHOW user
@@ -339,7 +341,7 @@ SELECT sysdate
 FROM dual;
 ```
 
-## 1.33 Listado de órdenes del SQL*Plus
+### 1.26 Listado de órdenes del SQL*Plus
 ```SQL
 SQL> help index
 Enter Help [topic] for help.
