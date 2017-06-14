@@ -1,4 +1,4 @@
-# Ejemplos de SQL - Tema 1
+# Ejemplos de SQL - SQL*Plus
 ### 1.1. Identificación ante el producto
 ```SQL
   > sqlplus
