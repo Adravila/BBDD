@@ -286,7 +286,7 @@ SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
   NUMERO     NOMBRE               APELLIDO
   ---------- -------------------- -------------------------
   6          marcel               souris
-  13        diego                 cortes
+  13         diego                cortes
   
 2 filas seleccionadas.
 ```
