@@ -51,7 +51,7 @@ SELECT art_num, art_nom
 FROM Articulos
 WHERE art_peso > 500;
 
-REM 12) Queremos saber los datos de todos los clientes que no son españoles.
+12) Queremos saber los datos de todos los clientes que no son españoles.
 SELECT *
 FROM Clientes
 WHERE clt_pais NOT LIKE 'e';
@@ -112,8 +112,7 @@ SELECT *
 FROM Ventas
 WHERE vnt_fch LIKE '910109';
 
-# 24) Buscar un cliente del que hemos olvidado el apellido exacto, pero recordamos que
-comienza por "ro".
+# 24) Buscar un cliente del que hemos olvidado el apellido exacto, pero recordamos que comienza por "ro".
 SELECT *
 FROM Clientes
 WHERE clt_apell LIKE 'ro%';
