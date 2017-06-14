@@ -2,9 +2,8 @@
 # a) Indicación de la cuenta de Oracle donde estamos trabajando.
 # b) Desactivación de las pausas.
 # c) Contenido por página no superior a 20 líneas.
-# d) El pie de página ha de llevar nuestro nombre completo, login del SO y el login de
-#  Oracle, cada uno en una línea distinta.
-#  e) Mostrar el esquema de una tabla o de una vista que le indiquemos por pantalla.
+# d) El pie de página ha de llevar nuestro nombre completo, login del SO y el login de Oracle, cada uno en una línea distinta.
+# e) Mostrar el esquema de una tabla o de una vista que le indiquemos por pantalla.
 
 SHOW release
 set pause off
