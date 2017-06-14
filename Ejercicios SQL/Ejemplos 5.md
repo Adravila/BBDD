@@ -215,6 +215,9 @@ SQL> select art_num numero
 
 ### 5.10. Producto natural
 ```SQL
+# Producto natural entre las tablas: se realiza el producto natural entre las tablas Clientes y Ventas, 
+# y se seleccionan las tuplas de los clientes que han comprado el artículo 3.
+
 SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
   2  from clientes, ventas
   3  where clt_num = vnt_clt and vnt_art = 3;
@@ -229,6 +232,10 @@ SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
 
 ### 5.11. Consulta anidada
 ```SQL
+# Consulta anidada: se realiza una consulta anidada por obtener los no de clientes que
+# han comprado el artículo no 3. Esta consulta sirve de criterio de selección para obtener
+# los datos de los clientes que lo han comprado.
+
 SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
   2  from clientes
   3  where clt_num in
@@ -246,6 +253,9 @@ SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
 
 ### 5.12. Consulta correlacionada
 ```SQL
+# Consulta correlacionada: para cada tupla de la tabla Clientes se comprueba mediante
+# una consulta correlacionada si ha comprado el artículo no 3.
+
 SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
   2  from clientes
   3  where 3 in
@@ -263,6 +273,9 @@ NUMERO     NOMBRE               APELLIDO
 
 ### 5.13. Consulta de existencia
 ```SQL
+# Consulta de existencia: para cada cliente de la tabla Clientes se comprueba mediante
+# una consulta si es verdad (existe) que el cliente ha comprado el artículo no 3.
+
 SQL> select clt_num numero, clt_nom nombre, clt_apell apellido
   2  from clientes
   3  where exists
