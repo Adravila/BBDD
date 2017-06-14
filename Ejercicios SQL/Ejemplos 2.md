@@ -2,7 +2,7 @@
 ### 2.1. Proyección de datos de los proveedores
 ```SQL
 SQL> select prv_num, prv_nom
-2 from proveedores;
+  2 from proveedores;
 
   PRV_NUM    PRV_NOM
   ---------- -------------------------
@@ -208,5 +208,6 @@ SQL> update articulos
 ```SQL
 SQL> delete from art_2
   2 where art_num > 20;
+  
 6 filas suprimidas.
 ```
