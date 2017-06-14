@@ -49,7 +49,7 @@ SELECT art_num, art_nom
 FROM Articulos
 WHERE art_peso > 500;
 
-12) Queremos saber los datos de todos los clientes que no son españoles.
+# 12) Queremos saber los datos de todos los clientes que no son españoles.
 SELECT *
 FROM Clientes
 WHERE clt_pais NOT LIKE 'e';
