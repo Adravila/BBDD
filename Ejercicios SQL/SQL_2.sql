@@ -1,5 +1,4 @@
 # 1) Visualizar por pantalla el contenido de cada una de las siguientes tablas:
-
 SELECT * FROM Proveedores;
 SELECT * FROM Tiendas;
 SELECT * FROM Articulos;
@@ -8,7 +7,6 @@ SELECT * FROM Suministros;
 SELECT * FROM Pesos;
 
 # 2) Visualizar por pantalla los nombres de todos los proveedores.
-
 SELECT DISTINCT prv_nom
 FROM Proveedores;
 
@@ -170,7 +168,7 @@ SELECT *
 FROM Articulos
 WHERE art_prv = 2;
 
-REM 34) ¿Qué clientes viven en Pamplona?
+# 34) ¿Qué clientes viven en Pamplona?
 SELECT clt_num, clt_nom
 FROM Clientes
 WHERE clt_pob LIKE 'pamplona';
