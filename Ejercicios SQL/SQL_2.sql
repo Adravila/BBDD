@@ -18,9 +18,7 @@ FROM Clientes;
 SELECT DISTINCT tda_ger
 FROM Tiendas;
 
-# 5) Seleccionar el nombre de todos los gerentes y la población donde se encuentran dichas
-tiendas.
-
+# 5) Seleccionar el nombre de todos los gerentes y la población donde se encuentran dichas tiendas.
 SELECT tda_ger, tda_pob
 FROM Tiendas;
 
