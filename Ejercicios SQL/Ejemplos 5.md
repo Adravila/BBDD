@@ -68,7 +68,7 @@ SQL> select art_num numero, art_nom nombre, proveedores.*
 3 filas seleccionadas.
 ```
 
-### 5.4. Datos de artículos cuyos no es mayor que 4 que se han vendido o no
+### 5.4. Datos de artículos cuyos nº es mayor que 4 que se han vendido o no
 ```SQL
 SQL> select art_num numero, art_nom nombre,
   2  to_date(vnt_fch,'yymmdd') fecha
