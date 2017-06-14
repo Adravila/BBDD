@@ -257,6 +257,7 @@ NUMERO     NOMBRE               APELLIDO
 13         diego                cortes
 
 2 filas seleccionadas.
+```
 
 ### 5.13. Consulta de existencia
 ```SQL
