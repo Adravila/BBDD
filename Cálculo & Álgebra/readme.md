@@ -54,7 +54,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 ```
 
 ```
-{a | (∃(c), ∃(n)) | Autores(c,n,a)}
+{a | (∃c)(∃n) Autores(cna)}
 ```
 
 ``` SQL
@@ -71,7 +71,7 @@ SELECT Apellidos FROM Autores;
 ```
 
 ```
-{(∃(c), ∃(n), ∃(a)) | Autores(c,n,a) ^ a = 'Ullman'}
+{((∃c)(∃n)(∃a) Autores(cna) ^ a = 'Ullman'}
 ```
 
 ```SQL
@@ -88,7 +88,7 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 ```
 
 ```
-{n,a | (∃(c)) | (Autores(c,n,a) ^ c>1)}
+{na | (∃c) (Autores(cna) ^ c>1)}
 ```
 
 ```SQL
@@ -105,7 +105,7 @@ Socios x Libros
 ```
 
 ```
-{(∃(c_s), ∃(n_s), ∃(a_p), ∃(c_l), ∃(n_l), ∃(c_e), ∃(c_a)) | s ∈ Socios(c_s, n_s, a_s), l ∈ Libros(c_l, n_l, c_e, c_a)}
+{(∃l)(∃n)(∃e)(∃a) Socios(cna) ^ Libros(lnea)}
 ```
 
 ```SQL
@@ -184,7 +184,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{i,n | (∃r) | Cliente(i,n,r) ^ r > 30.000}
+{in | (∃r) (Cliente(inr) ^ r > 30.000)}
 ```
 
 ``` SQL
@@ -201,7 +201,7 @@ SELECT * FROM Cliente WHERE renta_anual > 30000;
 ```
 
 ```
-{n | (∃i) | Cliente(i,n,r) ^ i=433}
+{n | (∃i) (Cliente(inr) ^ i=433)}
 ```
 
 ``` SQL
@@ -220,7 +220,7 @@ WHERE id_cliente = 433;
 ```
 
 ```
-{d | ∃(n) | (Embarque(n,i,p,c,d) ^ n = 3244)}
+{d | (∃n) (Embarque(nipcd) ^ n = 3244)}
 ```
 
 ``` SQL
@@ -239,7 +239,7 @@ WHERE num_embarque = 3244;
 ```
 
 ```
-{c | ∃(p) | t ∈ Embarque(n,i,p,c,d) ^ p > 100}
+{c | (∃p) (Embarque(nipcd) ^ p > 100)}
 ```
 
 ``` SQL
@@ -259,7 +259,7 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
-{n | ∃(i),∃(d) | (Cliente(i,n,r)) ^ (Embarque(n,i,p,c,d) ^ d = 'Vigo')}
+{n | (∃n)(∃i)(∃p)(∃c)(∃d) (Cliente(inr) ^ (Embarque(nipcd) ^ d = 'Vigo')}
 ```
 
 ```SQL
@@ -282,7 +282,7 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 ```
 
 ```
-{d | ∃(i,r) | (Embarque(n,i,p,c,d)) ^ (Cliente(i,n,r) ^ r < 6000)}
+{d | (∃i)(∃n)(∃r) (Embarque(nipcd) ^ Cliente(inr) ^ r < 6000)}
 ```
 
 ```SQL
@@ -313,7 +313,7 @@ Expresar en álgebra relacional las siguientes consultas:
 ```
 
 ```
-{n | (∃(p)) | (Embarque(n,i,p,c,d) ^ p>20)}
+{n | (∃p) (Embarque(nipcd) ^ p > 20)}
 ```
 
 ```SQL
@@ -332,7 +332,7 @@ WHERE peso > 20;
 ```
 
 ```
-{n | (∃(r)) | (Cliente(i,n,r) ^ r > 60.000)}
+{n | (∃r) (Cliente(inr) ^ r > 60.000)}
 ```
 
 ```SQL
@@ -351,7 +351,7 @@ WHERE renta_anual > 60000;
 ```
 
 ```
-{(c) | (∃(i)) | (Camión(i,c) ^ i = 45)}
+{c | (∃i) (Camión(ic) ^ i = 45)}
 ```
 
 ```SQL
@@ -370,7 +370,7 @@ WHERE id_camion = 45;
 ```
 
 ```
-{d | (∃(p)) | (Embarque(n,i,p,c,d)) ^ p > 100}
+{d | (∃p) (Embarque(nipcd) ^ p > 100)}
 ```
 
 ```SQL
@@ -390,7 +390,7 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 ```
 
 ```
-{(n,r) | (∃(n), ∃(i), ∃(p), ∃(d)) | (Cliente(i,n,r)) ^ (Embarque(n,i,p,c,d) ^ p > 100)} 
+{nr | (∃n)(∃i)(∃p)(∃d) (Cliente(inr) ^ Embarque(nipcd) ^ p > 100)} 
 ```
 
 ```SQL
@@ -409,7 +409,7 @@ WHERE C.id_cliente = E.id_cliente AND E.peso > 100;
 ```
 
 ```
-{(i) | ∃(p) | (Embarque(n,i,p,c,d) ^ p > 100)}
+{i | (∃p) (Embarque(nipcd) ^ p > 100)}
 ```
 
 ```SQL
@@ -429,7 +429,7 @@ A <-(π id_camión (σ peso > 100 (Embarque)))
 ```
 
 ```
-{(n) | (∃(p), ∃(c)) | (Camión(n,c)) ^ (Embarque(i,n,p,c,d) ^ p > 100)}
+{(n) | (∃i)(∃n)(∃p)(∃c)(∃d) (Camión(nc) ^ (Embarque(inpcd) ^ p > 100)}
 ```
 
 ```SQL
@@ -449,7 +449,7 @@ A <-(π id_cliente (σ renta_anual > 90.000€ (Cliente)))
 ```
 
 ```
-{(d) | ∃(i), ∃(r) | (Embarque(i,n,p,c,d)) ^ (Cliente(i,n,r) ^ r > 90.000}
+{(d) | (∃i)(∃n)(∃r) (Embarque(inpcd) ^ Cliente(inr) ^ r > 90.000)}
 ```
 
 ```SQL
@@ -471,7 +471,7 @@ A <-(π id_cliente (σ peso < 1 (Embarque))
 ```
 
 ```
-{(i,d) | (∃(r), ∃(p)) | (Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)}
+{id | (∃r)(∃i)(∃n)(∃p)(∃c)(∃d) (Cliente(inr) ^ Embarque(inpcd) ^ p < 1 ^ r > 90.000)}
 ```
 
 ```SQL
@@ -493,7 +493,8 @@ C <- (π id_cliente (σ destino = 'Madrid' (Embarque)))
 ```
 
 ```
-(n,i) | (∃(r),∃(p),∃(i),∃(d) | [(Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)] v (Embarque(i,n,p,c,d) ^ d = 'Madrid')}
+(ni) | (∃r)(∃p)(∃i)(∃d) [(Cliente(i,n,r) ^ r > 90.000) ^ (Embarque(i,n,p,c,d) ^ p < 1)] v (Embarque(i,n,p,c,d) ^ d = 'Madrid')}
+(ni) | (∃r)(∃i)(∃n)(∃p)(∃c)(∃d) (Cliente(inr) ^ Embarque(inpcd) ^ ((r > 90.000 ^ p < 1) v (d = 'Madrid'))) }
 ```
 
 ```SQL
