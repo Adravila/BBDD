@@ -53,7 +53,7 @@ SQL> select art_num numero, art_nom nombre, proveedores.*
 15 filas seleccionadas.
 ```
 
-### 5.3. Datos de los artículos y sus proveedores cuyos no son menores que 4
+### 5.3. Datos de los artículos y sus proveedores cuyos nº son menores que 4
 ```SQL
 SQL> select art_num numero, art_nom nombre, proveedores.*
   2  from articulos, proveedores
