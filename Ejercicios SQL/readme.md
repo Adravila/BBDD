@@ -1138,3 +1138,31 @@ GROUP BY A
 HAVING COUNT(*) =
 	(SELECT COUNT (*) FROM T2);
 ```
+
+### Ejemplo: Encontrar a los socios que han tenido en préstamo un ejemplar de todos los libros
+
+```
+# División en álgebra relacional:
+(ΠCód_Lib,Cód_Soc(Préstamos))/(ΠCód_Lib(Libros))
+```
+
+``` SQL
+# Versión clásica:
+SELECT distinct(x.cod_soc)
+FROM prestamos AS x
+WHERE NOT EXISTS (
+	SELECT * FROM libros y
+	WHERE NOT EXISTS(
+		SELECT * FROM prestamos AS z
+		WHERE (z.cod_soc=x.cod_soc) AND (z.cod_lib=y.cod_lib)) 
+);
+```
+
+``` SQL
+# Versión alternativa:
+SELECT cod_soc
+FROM prestamos P
+WHERE cod_lib IN (SELECT cod_lib FROM libros)
+GROUP BY cod_soc
+HAVING COUNT(*) = (SELECT COUNT(*) FROM libros);
+```
