@@ -1148,14 +1148,15 @@ HAVING COUNT(*) =
 
 ``` SQL
 # Versión clásica:
-SELECT distinct(x.cod_soc)
+SELECT x.cod_soc
 FROM prestamos AS x
 WHERE NOT EXISTS (
 	SELECT * FROM libros y
 	WHERE NOT EXISTS(
 		SELECT * FROM prestamos AS z
 		WHERE (z.cod_soc=x.cod_soc) AND (z.cod_lib=y.cod_lib)) 
-);
+)
+GROUP BY x.cod_soc;
 ```
 
 ``` SQL
@@ -1182,7 +1183,8 @@ WHERE NOT EXISTS (
 	WHERE NOT EXISTS(
 		SELECT * FROM prestamos AS z
 		WHERE (z.cod_soc=x.cod_soc) AND (z.fecha = x.fecha) AND (z.cod_lib=y.cod_lib)) 
-);
+)
+GROUP BY x.cod_soc, x.fecha;
 ```
 
 ```SQL
