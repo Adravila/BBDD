@@ -1167,7 +1167,7 @@ GROUP BY cod_soc
 HAVING COUNT(*) = (SELECT COUNT(*) FROM libros);
 ```
 
-### Ejemplo II: Encontrar a los socios que han tenido en préstamo un ejemplar de todos los libros
+### Ejemplo II: Encontrar a los socios y con su fecha de préstamo que han tenido en préstamo un ejemplar de todos los libros
 ```
 # División en álgebra relacional:
 Préstamos/(ΠCód_Lib(Libros))
