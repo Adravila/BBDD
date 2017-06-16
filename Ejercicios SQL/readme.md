@@ -1118,6 +1118,7 @@ WHERE EXISTS(
 ## División relacional
 En SQL existen diversas operaciones para realizar cálculos a partir de atributos, sin embargo, la división es una excepción y se necesita ser más concreto a la hora de realizar la operación. En este ejemplo podremos obtener el resultado de una divisón entre dos tablas:
 ```SQL
+# Versión clásica:
 SELECT DISTINCT x.A
 FROM T1 AS x
 WHERE NOT EXISTS (
