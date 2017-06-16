@@ -1120,12 +1120,20 @@ En SQL existen diversas operaciones para realizar cálculos a partir de atributo
 ```SQL
 SELECT DISTINCT x.A
 FROM T1 AS x
-WHERE NOT EXISTS(
-	SELECT *
-	FROM  T2 AS y
+WHERE NOT EXISTS (
+	SELECT * FROM T2 y
 	WHERE NOT EXISTS(
-		SELECT *
-		FROM T1 AS z
-		WHERE (z.A=x.A) AND (z.B=y.B))
+		SELECT * FROM T1 AS z
+		WHERE (z.A=x.A) AND (z.B=y.B)) 
 );
+```
+
+```SQL
+# Versión alternativa:
+SELECT A
+FROM T1
+WHERE B IN ( SELECT B FROM T2 )
+GROUP BY A
+HAVING COUNT(*) =
+	(SELECT COUNT (*) FROM T2);
 ```
