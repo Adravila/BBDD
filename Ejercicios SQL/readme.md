@@ -1114,3 +1114,18 @@ WHERE EXISTS(
 		WHERE vnt_art = art_num AND art_prv = 7)
 );
 ```
+# Consejos y guías
+## División relacional
+```SQL
+# Plantilla para realizar una división entre dos tablas
+SELECT DISTINCT x.A
+FROM T1 AS x
+WHERE NOT EXISTS(
+	SELECT *
+	FROM  T2 AS y
+	WHERE NOT EXISTS(
+		SELECT *
+		FROM T1 AS z
+		WHERE (z.A=x.A) AND (z.B=y.B))
+);
+```
