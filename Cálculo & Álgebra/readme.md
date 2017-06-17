@@ -390,7 +390,7 @@ A <- (π id_cliente (σ peso > 100 (Embarque)))
 ```
 
 ```
-{nr | (∃n)(∃i)(∃p)(∃d) (Cliente(inr) ^ Embarque(nipcd) ^ p > 100)} 
+{nr | (∃n)(∃i)(∃p)(∃c)(∃d) (Cliente(inr) ^ Embarque(nipcd) ^ p > 100)} 
 ```
 
 ```SQL
