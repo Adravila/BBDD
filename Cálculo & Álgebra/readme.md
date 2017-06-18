@@ -664,11 +664,11 @@ A <-(π tienda_num, poblacion (Tiendas1 ⋈ (Ventas / Artículos1)))
 ```
 
 ```
-{t.tienda_num, t.poblacion | t ∈ Tiendas1, ∃v ∈ Ventas, ∀a ∈ Artículos1 ^ t.tiendas_num = v.tiendas_num ^ v.artículo_num = a.artículo_num}
+{t.num, t.poblacion | t ∈ Tiendas, ∃v ∈ Ventas, ∀a ∈ Artículos ^ t.num = v.tiendas_num ^ v.artículo_num = a.num}
 ```
 
 ```
-{tp | (∃c)(∃t)(∃v)(∃f)(∃x)(∀a)(∀n)(∀p)(∀c)(∀i)(∀v) (Tiendas1(tpg) ^ Ventas(ctafx) ^ Artículos1(anpciv)}
+{tp | (∃c)(∃t)(∃v)(∃f)(∃x)(∀a)(∀n)(∀p)(∀c)(∀i)(∀v) (Tiendas(tpg) ^ Ventas(ctafx) ^ Artículos(anpciv)}
 ```
 
 ```SQL
