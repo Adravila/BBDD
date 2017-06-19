@@ -1101,6 +1101,33 @@ WHERE EXISTS(
 		WHERE vnt_art = art_num AND art_prv = 7)
 );
 ```
+
+5. Obtener el numero y nombre y el numero de artículos distintos comprados por los clientes que sean de la misma ciudad que los clientes franceses, ordenados descendentemente por el numero de artículos distintos comprados.
+- Que queden como: Numero Nombre Apellidos Num_articulos
+- Ancho de nombre y apellidos a 15 caracteres
+- A pie de pagina debe aparecer el nombre del que lo realiza
+- 10 registros por pagina
+```SQL
+column CLT_NOM format a15 
+column CLT_APELL format a15 
+btitle left "Adrián Dávila Guerra"
+set pages 10
+
+SELECT clt_num Numero, clt_nom Nombre, clt_apell Apellidos, count(distinct vnt_art) Num_Articulos
+FROM Clientes, Ventas
+WHERE vnt_clt IN 
+	(SELECT c1.clt_num
+	FROM Clientes c1
+	WHERE 'f' IN (
+		SELECT c2.clt_pais
+		FROM Clientes c2
+		WHERE c2.clt_pob = c1.clt_pob)
+	)
+AND vnt_clt = clt_num
+GROUP BY clt_num, clt_nom, clt_apell
+ORDER BY count(distinct vnt_art) DESC;
+```
+
 # Consejos y guías
 ## División relacional
 En SQL existen diversas operaciones para realizar cálculos a partir de atributos, sin embargo, la división es una excepción y se necesita ser más concreto a la hora de realizar la operación. En este ejemplo podremos obtener el resultado de una divisón entre dos tablas:
