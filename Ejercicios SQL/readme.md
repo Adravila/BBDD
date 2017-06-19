@@ -905,14 +905,6 @@ WHERE 0 < (
 
 9. Seleccionar todos los clientes que no han realizado compras
 ```SQL
-#PRODUCTO NATURAL
-
-SELECT clt_num, clt_nom
-FROM Clientes, Ventas
-WHERE clt_num != vnt_clt
-GROUP BY clt_num, clt_nom
-ORDER BY clt_num;
-
 #ANIDADA
 
 SELECT clt_num, clt_nom
@@ -936,7 +928,7 @@ WHERE clt_num NOT IN(
 
 SELECT clt_num, clt_nom
 FROM Clientes
-WHERE 0 >= (
+WHERE 0 = (
 	SELECT count(vnt_cant)
 	FROM Ventas
 	WHERE clt_num = vnt_clt
@@ -952,7 +944,7 @@ GROUP BY vnt_art,art_num, art_col, art_peso
 ORDER BY art_num;
 ```
 
-11. Visualizar las informaciones sobre las tiendas que han vendido el artículo no 4. Resolver el problema de cuatro maneras distintas
+11. Visualizar las informaciones sobre las tiendas que han vendido el artículo nº 4. Resolver el problema de cuatro maneras distintas
 ```SQL
 #PRODUCTO NATURAL 
 
@@ -1022,7 +1014,7 @@ WHERE NOT EXISTS(
 	WHERE tda_num = vnt_tda AND vnt_art = 4);
 ```
 
-15. Supongamos que hemos vendido un cierto número de artículos al cliente no 5. Obtener la lista de ventas de estos artículos efectuadas a los restantes clientes con posterioridad a las ventas efectuadas al cliente nº 5
+15. Supongamos que hemos vendido un cierto número de artículos al cliente nº 5. Obtener la lista de ventas de estos artículos efectuadas a los restantes clientes con posterioridad a las ventas efectuadas al cliente nº 5
 ```SQL
 SELECT *
 FROM Ventas
