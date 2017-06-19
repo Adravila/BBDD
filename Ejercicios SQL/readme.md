@@ -576,15 +576,14 @@ pesado |2501| 9999
 4. Obtener la lista de proveedores que suministran como mínimo un artículo de color negro.
 	```SQL
 	SELECT *
-	FROM Proveedores
+	FROM proveedores
 	WHERE prv_num IN
 		(SELECT art_prv
 		 FROM Articulos
-		 WHERE art_col LIKE 'negro');
-	```
-	
-	```
-	# NOTA: Duda, ¿cómo podemos describir el mínimo de un artículo?
+		 WHERE art_col LIKE 'negro'
+		 GROUP BY art_prv
+		 HAVING (count(art_col)>=1)
+	); 
 	```
 
 5. Seleccionar el nombre y apellido de los clientes que sean españoles y además residan en la misma ciudad de los que se llaman de nombre Pablo, ordenados por su nº de cliente.
