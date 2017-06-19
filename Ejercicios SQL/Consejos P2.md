@@ -47,5 +47,11 @@
 - Puede establecerse una columna a valor null si la definición de restricción de integridad para esa columna en la tabla lo permite.
 - Puede establecerse una columna igual a una expresión aritmética compuesta de columnas y constantes (+, -, *, ó /).
 - También pueden utilizarse funciones Oracle que operen en una única columna en la cláusula set.
-- Si el valor de la cláusula set proviene de una consulta anidada, deberá haber exactamente las mismas columnas que las especicadas en la subconsulta y, además, si son más de una columna deberán ir entre paréntesis.
-- Cada subconsulta deberá ser subconsulta a una única la para cada registro a actualizar.
+- Si el valor de la cláusula set proviene de una consulta anidada, deberá haber exactamente las mismas columnas que las especificadas en la subconsulta y, además, si son más de una columna deberán ir entre paréntesis.
+- Cada subconsulta deberá ser subconsulta a una única fila para cada registro a actualizar.
+
+## Diferencias entre las órdenes DELETE, DROP y TRUNCATE
+La diferencia entre las órdenes delete, drop y truncate consiste en lo siguiente: 
+- La orden delete, sin un criterio de selección, hace que todos los datos de la tabla se borren, pero la definición de dicha tabla permanece en el diccionario de datos.
+- La orden drop elimina, además, la definición de la tabla en el Diccionario de Datos, liberando por ello el espacio ocupado en la base de datos.
+- La orden truncate borra todas las tuplas de una tabla pero no borra la definición de la tabla del Diccionario de Datos y, además, puede liberar el espacio ocupado por ella y así Oracle puede disponer de dicho espacio para otros objetos.
