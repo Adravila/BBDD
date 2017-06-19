@@ -2,7 +2,7 @@
 - Las cláusulas select y from son obligatorias en cada consulta SQL.
 - La cláusula from deberá ir a continuación de la cláusula select.
 - No es necesario seleccionar o proyectar todas las columnas de una tabla.
-- Las columnas se muestran de izquierda a derecha en el orden especicado en la cláusula select.
+- Las columnas se muestran de izquierda a derecha en el orden especificado en la cláusula select.
 - Si queremos proyectar todas las columnas de una tabla usaremos el asterisco (*) yéstas aparecerán en el mismo orden en que fueron creadas.
 - Las filas se muestran en el orden en que están almacenadas.
 - Los usuarios pueden obtener información de sus propias tablas, o bien de aquellas a las que se les haya dado permiso de acceso.
