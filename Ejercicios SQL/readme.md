@@ -672,17 +672,13 @@ WHERE EXISTS
 
 12. Obtener una lista de los clientes que han gastado más dinero que la media de gasto de todos los clientes.
 ```SQL
-SELECT * 
+SELECT *
 FROM Clientes
 WHERE clt_num IN(
 	SELECT vnt_clt
-	FROM Ventas
+	FROM ventas
 	GROUP BY vnt_clt
-	HAVING sum(vnt_precio)  > (
-		SELECT avg(sum(vnt_precio))
-		FROM Ventas
-		GROUP BY vnt_precio
-	)
+	HAVING sum(vnt_cant*vnt_precio) > (SELECT avg(vnt_precio) FROM ventas)
 );
 ```
 
