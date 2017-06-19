@@ -40,3 +40,12 @@
 - La especificación de las filas a copiar tiene la misma sintaxis que la de las consultas SQL. Podrá ser tan compleja como se desee con excepción de la cláusula order by que no puede ser utilizada.
 - Las columnas que aparezcan en la cláusula insert son receptoras de los datos, mientras que las que aparecen en la select son columnas emisoras.
 - La secuencia y tipo de datos de las columnas que aparecen en la cláusula insert deberán corresponder con la secuencia y tipo de datos de las columnas obtenidas por la subconsulta.
+
+## Notas sobre el empleo de la orden UPDATE:
+- update opera en todas las filas que cumplen la condición where.
+- Si la cláusula where es omitida, todas las filas serán actualizadas.
+- Puede establecerse una columna a valor null si la definición de restricción de integridad para esa columna en la tabla lo permite.
+- Puede establecerse una columna igual a una expresión aritmética compuesta de columnas y constantes (+, -, *, ó /).
+- También pueden utilizarse funciones Oracle que operen en una única columna en la cláusula set.
+- Si el valor de la cláusula set proviene de una consulta anidada, deberá haber exactamente las mismas columnas que las especicadas en la subconsulta y, además, si son más de una columna deberán ir entre paréntesis.
+- Cada subconsulta deberá ser subconsulta a una única la para cada registro a actualizar.
