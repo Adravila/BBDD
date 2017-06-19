@@ -16,11 +16,11 @@
 
 ## Notas sobre el empleo de la clasificación de fila ORDER BY:
 - La cláusula order by deberá ser la última cláusula en aparecer en la consulta SQL.
-- Esta cláusula es el único sistema existente para ordenar los datos según el criterio que se desee, ya que las tablas almacenan las las conforme éstas han sido introducidas.
+- Esta cláusula es el único sistema existente para ordenar los datos según el criterio que se desee, ya que las tablas almacenan las filas conforme éstas han sido introducidas.
 - La cláusula order by únicamente clasifica las filas obtenidas en la consulta.
 - Por omisión, la secuencia será ascendente.
 - Para ordenaciones descendentes se deberá especificar explícitamente.
 - Puede mezclarse ordenaciones ascendentes y descendentes en la misma cláusula order by.
-- Puede clasificarse por columnas que no formen parte de la consulta, siempre que formen parte de alguna de las tablas especicadas en la cláusula from.
-- La secuencia de las columnas especificadas en la cláusula order by determina la secuencia de las claves de clasicación, esto es, los valores de una columna serán clasicados con valores iguales de las columnas precedentes, y así sucesivamente.
+- Puede clasificarse por columnas que no formen parte de la consulta, siempre que formen parte de alguna de las tablas especificadas en la cláusula from.
+- La secuencia de las columnas especificadas en la cláusula order by determina la secuencia de las claves de clasificación, esto es, los valores de una columna serán clasificados con valores iguales de las columnas precedentes, y así sucesivamente.
 - Las columnas con valores nulos (null) se evaluarán al final de todas si el orden es asc y al principio si son desc.
