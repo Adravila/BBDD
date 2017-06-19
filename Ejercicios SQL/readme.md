@@ -1068,7 +1068,7 @@ WHERE C.clt_num = V.vnt_clt
 GROUP BY C.clt_pob;
 ```
 
-2. Realiza la siguiente consulta de 4 formas distintas (3,5 puntos): Listado de tiendas que hayan vendido productos del proveedor número 7. Dentro de la tabla artículos, la columna que contiene el número de proveedor es art_prv.
+4. Realiza la siguiente consulta de 4 formas distintas (3,5 puntos): Listado de tiendas que hayan vendido productos del proveedor número 7. Dentro de la tabla artículos, la columna que contiene el número de proveedor es art_prv.
 - Producto natural
 ```SQL
 SELECT T.*
