@@ -87,6 +87,9 @@ SQL>
 ```
 
 ### 1.8. Salvar el buffer y guardar la ejecución en un fichero
+- Listaremos el contenido del bufeer.
+- Dicho contenido se salvará en un fichero del sistema operativo, fich-conf, y cuya extensión por defecto será 'sql'.
+- Se ejecutará y se guardará el resultado de dicha consulta en un fichero del sistema operativo en el subdirectorio por defecto, denominado 'resul.lst'.
 ```SQL
 SQL> l
 1 select *
@@ -111,6 +114,7 @@ SQL>
 ```
 
 ### 1.9. Definición de editor
+Nos muestra cómo definirnos el editor jed como editor por defecto y que sea el que se invoque cuando tecleamos la orden edit.
 ```SQL
 SQL> define_editor = jed
 SQL>
@@ -177,6 +181,9 @@ UCA
 ```
 
 ### 1.15. Formateo de columnas
+- Le asignamos un alias a la columna art_nom para luego poder utilizarlo con otras opciones de column.
+- Reducimos el ancho de la columna art_nom a 6 caracteres.
+- Por último, queremos que la columna art_pv tenga 5 dígitos solamente.
 ```SQL
 SQL> column art_nom alias nombre
 SQL> column nombre format a6
