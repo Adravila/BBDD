@@ -12,9 +12,9 @@ común, seguida de aquellos valores de las funciones aplicadas a cada grupo.
 - Las columnas que no aparezcan en la cláusula group by no podrán aparecer en la cláusula select, excepto como argumentos para agrupar funciones.
 
 ## La cláusula having
-La cláusula having equivale a la cláusula where pero aplicada a grupos. Esta cláusula generalmente no puede emplearse si antes no ha sido especificada la cláusula group by. De
+- La cláusula having equivale a la cláusula where pero aplicada a grupos. Esta cláusula generalmente no puede emplearse si antes no ha sido especificada la cláusula group by. De
 hecho, el criterio especificado en la cláusula having afecta al valor de una función calculada sobre un grupo. La cláusula having se utiliza para restringir los grupos seleccionados en el resultado de la consulta una vez ejecutada ésta con la cláusula group by.
-Los grupos que no cumplen el criterio especificado en la cláusula having no se incluyen en el resultado.
+- Los grupos que no cumplen el criterio especificado en la cláusula having no se incluyen en el resultado.
 
 ## Los valores null y la función nvl
 - El valor null es un valor indeterminado; por tanto, los valores nulos no se utilizan
