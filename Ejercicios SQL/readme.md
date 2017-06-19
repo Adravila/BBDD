@@ -800,6 +800,94 @@ WHERE clt_pob IN ('madrid','barcelona') AND clt_num NOT IN(
 	HAVING sum(vnt_cant)>=2
 );
 ```
+
+21. Se desea obtener una lista con el nombre de los gerentes de las tiendas y las ventas realizadas durante el año 1991 por cada uno de ellos, en orden decreciente de ganancias. El listado ha de salir con el siguiente formato:
+- Número máximo de registros por página igual a 3.
+- Nombre del autor del listado.
+- Registros no superiores a 100 caracteres.
+- Cada página debe llevar un encabezamiento.
+```SQL
+set pages 3
+ttitle "Adrián Dávila Guerra"
+
+select T.tda_ger, V.*
+FROM Tiendas T, Ventas V
+WHERE vnt_fch LIKE '91%' AND T.tda_num = V.vnt_tda 
+ORDER BY vnt_precio DESC;
+```
+
+23. Obtener los datos de los clientes que han comprado al menos 20€, en un sólo día, así como la fecha de compra.
+```SQL
+SELECT *
+FROM Clientes
+WHERE clt_num IN(
+	SELECT vnt_clt
+	FROM Ventas
+	GROUP BY vnt_clt
+	HAVING sum(vnt_precio*vnt_cant)>2000 AND count(distinct vnt_fch) = 1
+);
+```
+
+24. Deseamos conocer los datos de todos los clientes que han comprado alguna vez el artículo nº 3. Resolver esta consulta de cuatro formas distintas.
+```SQL
+# Consula PRODUCTO NATURAL
+SELECT C.*
+FROM Clientes C, Ventas V
+WHERE C.clt_num = V.vnt_clt AND V.vnt_art = 3
+GROUP BY C.clt_num;
+```
+
+```SQL
+# Consula ANIDADA
+SELECT *
+FROM Clientes
+WHERE clt_num IN(
+	SELECT vnt_clt
+	FROM Ventas
+	WHERE vnt_art = 3);
+```
+
+```SQL
+# Consula ANIDADA
+SELECT *
+FROM Clientes
+WHERE EXISTS(
+	SELECT vnt_clt
+	FROM Ventas
+	WHERE clt_num = vnt_clt AND vnt_art = 3);
+```
+
+```SQL
+# Consula CORRELACIONADA
+SELECT *
+FROM Clientes
+WHERE 3 IN(
+	SELECT vnt_art
+	FROM Ventas
+	WHERE clt_num = vnt_clt);
+```
+
+25. Listado que contenga el número y el nombre de los gerentes de las tiendas, así como el número de clientes diferentes que han comprado en esa tienda y el total en pesetas que han gastado los clientes en cada tienda. Si una tienda no ha vendido nada, también deben aparecer sus datos
+```SQL
+SELECT T.*, count(distinct V.vnt_clt), sum(16639 * V.vnt_precio) AS "Importe en pesetas"
+FROM Tiendas T, Ventas V
+WHERE T.tda_num = V.vnt_tda(+)
+GROUP BY T.tda_num, T.tda_pob, T.tda_ger;
+```
+26. Obtener una tabla que contenga el nº y el nombre del artículo, así como el número de ventas realizadas de ese artículo y la cantidad vendida de dicho artículo en las tiendas de Madrid.
+```SQL
+SELECT A.art_num, A.art_nom, sum(V.vnt_cant), sum(T.tda_pob LIKE 'madrid%')
+FROM Articulos A, Ventas V, Tiendas T
+WHERE A.art_num = V.vnt_art AND T.tda_num = V.vnt_tda
+GROUP BY A.art_num, A.art_nom;
+```
+27. Visualizar el nº de los clientes que sólo compran en las tiendas de Pamplona.
+```SQL
+SELECT count(distinct clt_num)
+FROM Clientes, Tiendas, Ventas
+WHERE clt_num = vnt_clt AND vnt_tda = tda_num AND tda_pob LIKE 'Pamplona';
+```
+
 # Práctica 5
 
 1. Seleccionar los artículos de color rojo y visualizar su nº, nombre y peso, así como el nombre del proveedor, ordenados según su peso.
@@ -1019,6 +1107,7 @@ WHERE vnt_clt != 5 AND vnt_fch >
 	 FROM Ventas
 	 WHERE vnt_clt = 5);
 ```
+
 # Preguntas de examen
 
 1. Listado con la información de cada tienda y el importe de ventas realizadas por cada una de ellas. Si una tienda no ha realizado ninguna venta deberá aparecer que ha gastado 0 €.
