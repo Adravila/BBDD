@@ -24,3 +24,19 @@
 - Puede clasificarse por columnas que no formen parte de la consulta, siempre que formen parte de alguna de las tablas especificadas en la cláusula from.
 - La secuencia de las columnas especificadas en la cláusula order by determina la secuencia de las claves de clasificación, esto es, los valores de una columna serán clasificados con valores iguales de las columnas precedentes, y así sucesivamente.
 - Las columnas con valores nulos (null) se evaluarán al final de todas si el orden es asc y al principio si son desc.
+
+## Notas sobre el empleo de la orden INSERT:
+- Una tabla deberá estar creada antes de poder insertar datos en ella.
+- La lista de nombres de columnas se utiliza cuando:
+  1) Se insertan unas cuantas columnas que existen en la definición de la tabla.
+  2) Se introducen columnas en una secuencia diferente en la que fueron creadas.
+- Las columnas de la tabla que no aparezcan en la orden insert tomarán como valor null.
+- En la cláusula values pueden especificarse valores null, siempre y cuando en la definición de restricción de integridad correspondiente no aparezca especificado el valor not null.
+- Los valores deberán colocarse en el mismo orden en el que aparecen sus correspondientes columnas en la cláusula insert.
+- Si se omite la lista de columnas, deberá especificarse un valor para cada una de las columnas de la tabla.
+- Si se omiten las columnas, los valores a insertar deberán seguir la misma secuencia seguida por las correspondientes columnas cuando se creó la tabla.
+- Los valores insertados deberán corresponder con el tipo de dato de la columna correspondiente.
+- Los valores tipo carácter deberán ir entre comillas simples.
+- La especificación de las filas a copiar tiene la misma sintaxis que la de las consultas SQL. Podrá ser tan compleja como se desee con excepción de la cláusula order by que no puede ser utilizada.
+- Las columnas que aparezcan en la cláusula insert son receptoras de los datos, mientras que las que aparecen en la select son columnas emisoras.
+- La secuencia y tipo de datos de las columnas que aparecen en la cláusula insert deberán corresponder con la secuencia y tipo de datos de las columnas obtenidas por la subconsulta.
