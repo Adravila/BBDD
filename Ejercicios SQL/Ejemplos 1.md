@@ -43,6 +43,7 @@ SQL>
 ```
 
 ### 1.4. Mostrar el contenido del buffer
+Mostramos el contenido del buffer, donde cada línea está numerada y la línea actual además está marcada con un asterisco.
 ```SQL
 SQL> l
 1 select *
@@ -51,6 +52,7 @@ SQL>
 ```
 
 ### 1.5. Añadir una línea a la orden del buffer
+Añadimos una línea al final de la línea actual y pasa a ser la nueva línea actual.
 ```SQL
 
 SQL> i where prv_num > 2
@@ -62,6 +64,7 @@ SQL>
 ```
 
 ### 1.6. Borrar línea y cambiar texto
+Borrar la línea actual y cambiar el nombre de la tabla.
 ```SQL
 SQL> del
 SQL> l
