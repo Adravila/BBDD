@@ -80,7 +80,7 @@ SQL>
 SQL> select art_num
 2 from proveedores;
 select art_num
-*
+       *
 ERROR en linea 1:
 ORA-00904: "ART_NUM": identificador no valido
 SQL>
