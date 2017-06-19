@@ -819,12 +819,8 @@ WHERE art_col LIKE 'rojo';
 3. Obtener una listado con los datos de los clientes que han realizado alguna compra, así como la fecha de la misma, y cuyo no de cliente sea superior o igual a 11. Si el cliente no ha efectuado todavía ninguna compra, también debe aparecer en el listado.
 ```SQL
 SELECT C.*, V.vnt_fch
-FROM Clientes C, Ventas V
-WHERE C.clt_num = V.vnt_clt AND C.clt_num >= 1
-GROUP BY V.vnt_clt
-HAVING count(V.vnt_cant) >= 1;
-
-# Nota: ¿Cómo puede aparecer una tupla si no se ha afectado la compra un cliente?
+FROM Clientes C, ventas V
+WHERE C.clt_num = V.vnt_clt(+) AND C.clt_num >= 11;
 ```
 
 4. Obtener una lista con todos los artículos cuyo precio de compra sea superior al precio del artículo nº 8
