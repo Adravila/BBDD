@@ -55,6 +55,7 @@ Expresar en álgebra relacional y obtener la instancia resultante de los siguien
 
 ```
 {a | (∃c)(∃n) Autores(cna)}
+{a | (Autores(c,n,a))}
 ```
 
 ``` SQL
@@ -72,6 +73,7 @@ SELECT Apellidos FROM Autores;
 
 ```
 {((∃c)(∃n)(∃a) Autores(cna) ^ a = 'Ullman'}
+{(Autores(c,n,a) ^ a = 'Ullman')}
 ```
 
 ```SQL
@@ -89,6 +91,7 @@ SELECT * FROM Autores WHERE Apellido = 'Ullman';
 
 ```
 {na | (∃c) (Autores(cna) ^ c>1)}
+{na | (Autores(c,n,a) ^ c > 1)}
 ```
 
 ```SQL
@@ -106,6 +109,7 @@ Socios x Libros
 
 ```
 {(∃l)(∃n)(∃e)(∃a) Socios(cna) ^ Libros(lnea)}
+{((Socios(c,n,a) ^ Libros(l,n,e,a))}
 ```
 
 ```SQL
