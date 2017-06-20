@@ -58,19 +58,22 @@ a la otra tabla, sabiendo que las dos tablas son la misma.
 Recordemos que la expresión "exists (select * from ...)" es un predicado que vale
 verdadero (true) si la consulta tiene resultado no vacío. Por lo tanto, una fila de la consulta
 exterior forma parte del resultado "si existe" en la tabla interior "al menos una" fila que
-satisface las condiciones de la cláusula where de la subconsulta. Cuando la expresión está
-precedida de not, el predicado se evalua como verdadero si no existe ninguna fila de la
+satisface las condiciones de la cláusula where de la subconsulta.
+
+Cuando la expresión está precedida de not, el predicado se evalua como verdadero si no existe ninguna fila de la
 tabla interior que satisface las condiciones exigidas.
 Examinando las consultas que se pueden hacer a una base de datos, se llega fácilmente
 a la conclusión de que toda subconsulta precedida por el operador in puede ser expresada
 con el operador exists. Pero lo inverso no es verdad; algunas consultas no pueden
 expresarse sino con la ayuda del operador exists.
+
 Como conclusión, el operador in ante una subconsulta puede ser sustituido por exists.
 El operador in es, pues, redundante en SQL, si se exceptúa el hecho de que permite expresar
 una consulta de manera conjuntista, algo que algunos usuarios prefieren en lugar
 del enfoque predicativo de exists. El operador in a veces es necesario, porque los optimizadores
 no son perfectos y el tiempo de ejecución de la consulta con exists puede ser
 mucho mayor en algunos casos.
+
 Por otra parte, exists es necesario para expresar el cuantificador universal for all,
 muy conocido en lógica, pero que no está representado directamente en SQL. En general,
 la expresión "para todo" puede formularse con la ayuda de uno o dos not exists.
