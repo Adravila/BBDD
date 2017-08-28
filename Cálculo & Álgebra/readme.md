@@ -259,7 +259,7 @@ A <- (π id_cliente (σ destino = 'Vigo' (Embarque)))
 ```
 
 ```
-{t.nom_cliente | t ∈ Cliente, ∃r ∈ Embarque ^ t.id_cliente = r.id_ciente ^ t.destino = 'Vigo'}
+{t.nom_cliente | t ∈ Cliente, ∃r ∈ Embarque ^ t.id_cliente = r.id_ciente ^ r.destino = 'Vigo'}
 ```
 
 ```
@@ -282,7 +282,7 @@ A <- (π id_cliente (σ renta_anual < 6.000 (Cliente)))
 ```
 
 ```
-{t.destino | t ∈ Embarque, ∃r ∈ Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 600}
+{t.destino | t ∈ Embarque, ∃r ∈ Cliente ^ t.id_cliente = r.id_cliente ^ r.renta_anual < 6000}
 ```
 
 ```
