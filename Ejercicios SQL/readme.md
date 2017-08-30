@@ -443,7 +443,7 @@ pesado |2501| 9999
 
 5. Contar cuántas ventas ha realizado cada tienda.
 	```SQL
-	SELECT vnt_tda, sum(vnt_cant)
+	SELECT vnt_tda, count(vnt_tda)
 	FROM Ventas
 	GROUP BY vnt_tda
 	ORDER BY vnt_tda;
@@ -599,10 +599,19 @@ pesado |2501| 9999
 
 6. ¿Cuál es el artículo con el precio de venta al público más caro de cada color?
 -  Expresado en euros.
--  Expresado en pesetas.
-
 	```SQL
 	SELECT art_num, art_nom, art_pv, art_col
+	FROM Articulos A1
+	WHERE 	art_pv IN 
+			(SELECT max(art_pv)
+			 FROM Articulos A2
+			 WHERE A1.art_col = A2.art_col
+			 GROUP BY art_col)
+	ORDER BY art_nom;
+	```
+-  Expresado en pesetas.
+	```SQL
+	SELECT art_num, art_nom, art_pv*1.66, art_col
 	FROM Articulos A1
 	WHERE 	art_pv IN 
 			(SELECT max(art_pv)
@@ -635,6 +644,19 @@ WHERE tda_num IN
 	(SELECT vnt_tda
 	 FROM Ventas
 	 WHERE vnt_cant >= 1 AND vnt_art = 2);
+	 
+```
+
+```SQL
+SELECT tda_ger
+FROM Tiendas
+WHERE tda_num IN(
+	SELECT vnt_tda
+	FROM Ventas
+	WHERE vnt_art = 2
+	GROUP BY vnt_tda
+	HAVING sum(vnt_cant)>=1
+);
 ```
 
 9. Obtener una lista de los artículos cuyo precio de venta es mayor que el precio de venta del artículo más barato de color blanco.
