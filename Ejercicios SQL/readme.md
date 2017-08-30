@@ -815,12 +815,14 @@ set pages 3
 ```SQL
 SELECT *
 FROM Clientes
-WHERE clt_pob IN ('madrid','barcelona') AND clt_num NOT IN(
+WHERE clt_pob IN ('Madrid','Barcelona') AND clt_num NOT IN(
 	SELECT vnt_clt
-	FROM Ventas
+	FROM ventas
 	GROUP BY vnt_clt
-	HAVING sum(vnt_cant)>=2
-);
+	HAVING count(vnt_clt)>=2);
+	
+SELECT * FROM ventas;
+SELECT * FROM Clientes;
 ```
 
 21. Se desea obtener una lista con el nombre de los gerentes de las tiendas y las ventas realizadas durante el año 1991 por cada uno de ellos, en orden decreciente de ganancias. El listado ha de salir con el siguiente formato:
