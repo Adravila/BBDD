@@ -982,11 +982,13 @@ ORDER BY clt_num;
 
 #ANIDADA
 
-SELECT clt_num, clt_nom
+SELECT *
 FROM Clientes
 WHERE clt_num IN(
 	SELECT vnt_clt
 	FROM Ventas
+	GROUP BY vnt_clt
+	HAVING count(*) > 0
 );
 
 #EXISTENCIAL
@@ -997,6 +999,8 @@ WHERE EXISTS(
 	SELECT vnt_clt
 	FROM Ventas
 	WHERE A1.clt_num = vnt_clt
+	GROUP BY vnt_clt
+	HAVING count(*) > 0
 );
 
 #CORRELACIONADA
@@ -1007,6 +1011,8 @@ WHERE 0 < (
 	SELECT count(vnt_cant)
 	FROM Ventas
 	WHERE clt_num = vnt_clt
+	GROUP BY vnt_clt
+	HAVING count(*) > 0
 );
 ```
 
@@ -1014,11 +1020,13 @@ WHERE 0 < (
 ```SQL
 #ANIDADA
 
-SELECT clt_num, clt_nom
+SELECT *
 FROM Clientes
 WHERE clt_num NOT IN(
 	SELECT vnt_clt
 	FROM Ventas
+	GROUP BY vnt_clt
+	HAVING count(*)
 );
 
 #EXISTENCIAL
@@ -1046,9 +1054,8 @@ WHERE 0 = (
 ```SQL
 SELECT art_num, art_col, art_peso, max(vnt_cant)
 FROM Articulos, Ventas
-WHERE vnt_fch BETWEEN 910109 AND 910113 AND vnt_cant > 5
-GROUP BY vnt_art,art_num, art_col, art_peso
-ORDER BY art_num;
+WHERE art_num = vnt_clt AND vnt_fch BETWEEN 910109 AND 910113 AND vnt_cant > 5
+GROUP BY art_num;
 ```
 
 11. Visualizar las informaciones sobre las tiendas que han vendido el artículo nº 4. Resolver el problema de cuatro maneras distintas
@@ -1129,6 +1136,77 @@ WHERE vnt_clt != 5 AND vnt_fch >
 	(SELECT max(vnt_fch)
 	 FROM Ventas
 	 WHERE vnt_clt = 5);
+```
+
+16) Visualizar el nº y el nombre de los artículos que han sido vendidos por todas las tiendas. Se selecciona un artículo si no existe ninguna tienda que no haya tenido alguna compra de éste.
+```SQL
+
+```
+
+17) Obtener una tabla con todos los datos de los clientes que no han realizado ninguna compra todavía. Realizar la consulta de diferentes maneras
+```SQL
+
+```
+
+18) Obtener un listado de todos los clientes con los datos más relevantes y la fecha de su última compra. Si el cliente todavía no ha realizado ninguna compra también debe aparecer en dicho listado. El listado ha de salir con el siguiente formato:
+- Las fechas con formato por defecto.
+- Número máximo de registros por página igual a 3.
+- Nombre del autor del listado.
+- Registros no superiores a 100 caracteres.
+- Un encabezado con el siguiente texto: Datos relevantes de los clientes.
+- En el pie de página debe aparecer el nombre del esquema desde el que se realiza el informe.
+```SQL
+
+```
+
+19) Se desea conocer el número de artículos distintos que existen y el número de artículos, tambien distintos, que han sido comprados alguna vez.
+```SQL
+
+```
+
+20) Obtener el número, nombre y apellido de los clientes, así como el número de veces que ha comprado algún objeto y el total en euros que se ha gastado. Si un cliente no ha realizado ninguna compra debe aparecer también en la tabla indicado que se ha gastado 0€.
+```SQL
+
+```
+
+21) Se desea obtener una lista con el nombre de los gerentes de las tiendas y las ventas realizadas durante el año 1991 por cada uno de ellos, en orden decreciente de ganancias. El listado ha de salir con el siguiente formato:
+- Número máximo de registros por página igual a 3.
+- Nombre del autor del listado.
+- Registros no superiores a 100 caracteres.
+- Cada página debe llevar un encabezamiento.
+```SQL
+
+```
+
+22) Se desea realizar un informe que contenga lo siguiente: el número de artículos distintos vendidos por cada tienda, así como el nombre del gerente y las ganancias obtenidas cada día.
+```SQL
+
+```
+Nota: la fecha se presentará con formato por defecto. Las páginas han de contener un máximo de 3 registros.
+
+23) Obtener los datos de los clientes que han comprado al menos 20 ¿, en un sólo día, así como la fecha de compra.
+```SQL
+
+```
+
+24) Deseamos conocer los datos de todos los clientes que han comprado alguna vez el artículo nº 3. Resolver esta consulta de tres formas distintas.
+```SQL
+
+```
+
+25) Listado que contenga el número y el nombre de los gerentes de las tiendas, así como el número de clientes diferentes que han comprado en esa tienda y el total en pesetas que han gastado los clientes en cada tienda. Si una tienda no ha vendido nada, también deben aparecer sus datos.
+```SQL
+
+```
+
+26) Obtener una tabla que contenga el nº y el nombre del artículo, así como el número de ventas realizadas de ese artículo y la cantidad vendida de dicho artículo en las tiendas de Madrid.
+```SQL
+
+```
+
+27) Visualizar el nº de los clientes que sólo compran en las tiendas de Pamplona.
+```SQL
+
 ```
 
 # Preguntas de examen
