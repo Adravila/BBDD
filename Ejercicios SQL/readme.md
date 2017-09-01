@@ -230,8 +230,8 @@ pesado |2501| 9999
 	
 9. Formatear el resultado del problema 6 para que la columna resultante se llame localidad.
 	```SQL
-	SELECT DISTINCT tda_pob AS localidad
-	FROM Tiendas;
+	SELECT DISTINCT clt_pob AS localidad
+	FROM Clientes;
 	```
 	
 10. Hallar todos los clientes que viven en Madrid.
@@ -252,7 +252,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Clientes
-	WHERE clt_pais NOT LIKE 'e';
+	WHERE clt_pais != 'e';
 	```
 	
 13. Seleccionar todos los artículos que tengan precio de venta superior o igual al doble del precio de compra
@@ -279,21 +279,21 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Articulos
-	WHERE art_col LIKE 'rojo' OR art_peso > 500;
+	WHERE art_col = 'rojo' OR art_peso > 500;
 	```
 	
 17. Deseamos obtener el resultado inverso de la consulta del problema 16.
 	```SQL
 	SELECT *
 	FROM Articulos
-	WHERE art_col NOT LIKE 'rojo' AND NOT art_peso > 500;
+	WHERE art_col != 'rojo' AND NOT art_peso > 500;
 	```
 	
 18. Seleccionar los artículos que sean rojos y a la vez pesen más de 100g, o bien sean de color verde.
 	```SQL
 	SELECT *
 	FROM Articulos
-	WHERE (art_col LIKE 'rojo' AND art_peso > 100) OR art_col LIKE 'verde';
+	WHERE (art_col = 'rojo' AND art_peso > 100) OR art_col = 'verde';
 	```
 	
 19. Necesitamos obtener un listado de aquellos artículos cuyo color no sea ni blanco ni negro.
@@ -328,7 +328,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT *
 	FROM Ventas
-	WHERE vnt_fch LIKE '910109';
+	WHERE vnt_fch = '910109';
 	```
 	
 24. Buscar un cliente del que hemos olvidado el apellido exacto, pero recordamos que comienza por "ro".
@@ -368,7 +368,7 @@ pesado |2501| 9999
 	
 29. Sacar un listado de los gerentes de las distintas tiendas, por orden alfabético. 
 	```SQL
-	SELECT tda_ger
+	SELECT distinct(tda_ger)
 	FROM Tiendas
 	ORDER BY tda_ger;
 	```
@@ -378,7 +378,7 @@ pesado |2501| 9999
 	SELECT *
 	FROM Articulos
 	WHERE art_peso <= 100
-	ORDER BY art_peso, art_pc;
+	ORDER BY art_peso ASC, art_pc DESC;
 	```
 31. Obtener una lista de los artículos vendidos en orden creciente a la cantidad vendida de una sola vez de dicho artículo.
 	```SQL
