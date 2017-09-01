@@ -1148,14 +1148,12 @@ GROUP BY tda_num;
 ```SQL
 SELECT *
 FROM Clientes
-WHERE clt_pob LIKE 'Ma%' 
-	AND clt_nom NOT LIKE 'Pablo' 
-	AND clt_num IN(
-		SELECT vnt_clt
-		FROM Ventas
-		GROUP BY vnt_clt
-		HAVING sum(vnt_cant) >= 3)
-ORDER BY clt_apell DESC, clt_nom ASC; 
+WHERE clt_pob LIKE 'Ma%' AND clt_nom != 'Pablo' AND clt_num IN(
+	SELECT vnt_clt
+	FROM Ventas
+	GROUP BY vnt_clt
+	HAVING count(vnt_tda) >=  3)
+ORDER BY clt_apell, clt_nom;
 ```
 
 3. Listado de localidades. Para cada localidad queremos saber el nombre de la localidad, la cantidad de clientes que residen en dicha localidad, la cantidad de tiendas que hay en dicha localidad y la ratio de habitantes por tienda.
