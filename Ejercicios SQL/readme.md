@@ -430,9 +430,9 @@ pesado |2501| 9999
 
 3. Calcular la media de peso, el margen máximo (diferencia máxima entre el precio de venta y el precio de compra) y la diferencia que se da entre el mayor precio de venta y el menor precio de compra. Estos cálculos habrán de realizarse sólo para aquellos artículos cuya columna art_col se encuentre definida.
 	```SQL
-	SELECT avg(nvl(art_peso,0)), max(art_pv - art_pc), max(art_pv) - max(art_pc)
+	SELECT nvl(art_col,'indefinido'), avg(nvl(art_peso,0)), max(art_pv - art_pc), max(art_pv) - min(art_pc)
 	FROM Articulos
-	GROUP BY art_peso;
+	GROUP BY art_col;
 	```
 
 4. Contar el número de colores distintos existentes en el stock.
