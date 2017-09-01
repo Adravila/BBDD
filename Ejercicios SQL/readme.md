@@ -1135,10 +1135,10 @@ WHERE vnt_clt != 5 AND vnt_fch >
 
 1. Listado con la información de cada tienda y el importe de ventas realizadas por cada una de ellas. Si una tienda no ha realizado ninguna venta deberá aparecer que ha gastado 0 €.
 ```SQL
-SELECT T.*, sum(ifnull(V.vnt_precio,0))
+SELECT T.*, ifnull(sum(vnt_precio * vnt_cant),0)
 FROM Tiendas T, Ventas V
-WHERE T.tda_num = V.vnt_tda
-GROUP BY T.tda_num, T.tda_pob, T.tda_ger;
+WHERE tda_num = vnt_tda
+GROUP BY tda_num;
 
 # Nota: en MySQL no funciona la función nvl() al ser de Oracle, si se está utilizando MySQL se utiliza en su lugar ifnull.
 
