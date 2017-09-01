@@ -507,17 +507,16 @@ pesado |2501| 9999
 
 13. Seleccionar el nº de cada tienda que ha hecho más de 2 ventas entre el 9 y el 13 de enero de 1991. Visualizar tanto el número de ventas efectuadas como el número de artículos distintos vendidos.
 	```SQL
-	SELECT vnt_tda,sum(vnt_cant),count(DISTINCT vnt_art)
+	SELECT vnt_tda, count(vnt_tda), count(distinct vnt_art)
 	FROM Ventas
-	WHERE vnt_fch BETWEEN 910109 AND 910113
+	WHERE vnt_fch BETWEEN 910109 AND 910131
 	GROUP BY vnt_tda
-	HAVING sum(vnt_cant)>2
-	ORDER BY vnt_tda;
+	HAVING count(vnt_tda)>2;
 	```
 
 14. Visualizar el nombre, peso, precio de venta y la suma del peso y el precio de venta de todos los artículos, utilizando o no la función nvl.
 	```SQL
-	SELECT art_nom, art_peso, art_pv, (ifnull(art_peso,0) + ifnull(art_pv,0))
+	SELECT nvl(art_nom,'indefinido'), art_peso, art_pv, sum(nvl(art_peso,0)), sum(nvl(art_pv,0))
 	FROM Articulos
 	GROUP BY art_nom, art_peso, art_pv;
 	```
@@ -724,7 +723,8 @@ WHERE art_num IN(
 	SELECT vnt_art
 	FROM Ventas
 	GROUP BY vnt_art
-	HAVING sum(vnt_cant) > avg(vnt_cant));
+	HAVING sum(vnt_cant) > (SELECT avg(vnt_cant) FROM Ventas)
+);
 ```
 
 15. Obtener los datos de los clientes que han efectuado compras al menos en tres ocasiones distintas.
@@ -741,13 +741,13 @@ WHERE clt_num IN(
 
 16. Listado con los datos de los artículos comprados por el cliente nº 1.
 ```SQL
-SELECT * 
+SELECT *
 FROM Articulos
-WHERE art_num IN (
+WHERE art_num IN(
 	SELECT vnt_art
 	FROM Ventas
 	WHERE vnt_clt = 1
-);
+	GROUP BY vnt_art);
 ```
 
 17) Se desea conocer los datos de los clientes que no han realizado ninguna compra durante el año 1992.
@@ -757,7 +757,8 @@ FROM Clientes
 WHERE clt_num NOT IN(
 	SELECT vnt_clt
 	FROM Ventas
-	WHERE vnt_fch LIKE '92%'
+	WHERE vnt_fch LIKE "92%"
+	GROUP BY vnt_clt
 );
 ```
 
@@ -771,10 +772,11 @@ WHERE clt_num NOT IN(
 ```SQL
 SELECT *
 FROM Clientes
-WHERE clt_pais LIKE 'e' AND clt_num IN(
+WHERE clt_pais = 'e' and clt_num IN(
 	SELECT vnt_clt
-	FROM Ventas
-	WHERE vnt_cant>=5
+	FROM ventas
+	WHERE vnt_cant > 5
+	GROUP BY vnt_clt
 );
 
 col clt_num format 9999999999	 
@@ -796,13 +798,13 @@ btitle "Adrián Dávila Guerra"
 - No más de tres registros por página
 
 ```SQL
-SELECT *
+SELECT tda_num, tda_ger
 FROM Tiendas
 WHERE tda_num IN(
 	SELECT vnt_tda
-	FROM Ventas	
+	FROM Ventas
 	GROUP BY vnt_tda
-	HAVING sum(vnt_cant) > avg(vnt_cant)
+	HAVING sum(vnt_precio * vnt_cant) > (SELECT avg(vnt_precio * vnt_cant) FROM Ventas)
 );
 
 ttitle "Nombre de los gerentes"
@@ -817,12 +819,9 @@ SELECT *
 FROM Clientes
 WHERE clt_pob IN ('Madrid','Barcelona') AND clt_num NOT IN(
 	SELECT vnt_clt
-	FROM ventas
+	FROM Ventas
 	GROUP BY vnt_clt
 	HAVING count(vnt_clt)>=2);
-	
-SELECT * FROM ventas;
-SELECT * FROM Clientes;
 ```
 
 21. Se desea obtener una lista con el nombre de los gerentes de las tiendas y las ventas realizadas durante el año 1991 por cada uno de ellos, en orden decreciente de ganancias. El listado ha de salir con el siguiente formato:
