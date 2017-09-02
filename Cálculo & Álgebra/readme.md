@@ -515,7 +515,12 @@ B <- π id_cliente (σ nom_chofer != 'Juan' (A))
 ```
 
 12. Los conductores que han distribuido envíos de clientes con renta anual por encima de los 120.000€ a ciudades con población superior a un millón de habitantes.
-```
+```SQL
+A <- (π id_cliente (σ renta_anual > 120.000 (Cliente))
+B <- (π nom_ciudad (σ poblacion > 1.000.000 (Ciudad))
+C <- (π destino (Embarque ⋈ A))
+D <- (π id_camion (C ∩ B))
+(π id_camion, nom_chofer (Camion ⋈ D)) -> R
 ```
 
 13. Clientes que han recibido envíos distribuidos por todos los chóferes.
