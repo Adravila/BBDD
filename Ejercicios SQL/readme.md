@@ -697,9 +697,9 @@ SELECT *
 FROM Clientes
 WHERE clt_num IN(
 	SELECT vnt_clt
-	FROM ventas
+	FROM Ventas
 	GROUP BY vnt_clt
-	HAVING sum(vnt_cant*vnt_precio) > (SELECT avg(vnt_precio) FROM ventas)
+	HAVING sum(vnt_cant*vnt_precio) > (SELECT avg(vnt_cant*vnt_precio) FROM Ventas)
 );
 ```
 
