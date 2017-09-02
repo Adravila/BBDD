@@ -509,7 +509,7 @@ pesado |2501| 9999
 	```SQL
 	SELECT vnt_tda, count(vnt_tda), count(distinct vnt_art)
 	FROM Ventas
-	WHERE vnt_fch BETWEEN 910109 AND 910131
+	WHERE vnt_fch BETWEEN 910109 AND 910113
 	GROUP BY vnt_tda
 	HAVING count(vnt_tda)>2;
 	```
