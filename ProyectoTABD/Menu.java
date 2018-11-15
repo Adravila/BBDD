@@ -113,13 +113,12 @@ public class Menu
 		{
 			System.out.println("1. Modificar nombre");
 			System.out.println("2. Modificar apellidos");
-			System.out.println("3. Modificar dirección - calle");
-			System.out.println("4. Modificar dirección - ciudad");
-			System.out.println("5. Modificar telefono");
-			System.out.println("6. Modificar peso");
-			System.out.println("7. Modificar suscripcion");			
-			System.out.println("8. Modificar DNIe");			
-			System.out.println("9. Volver atras");		
+			System.out.println("3. Modificar dirección");
+x			System.out.println("4. Modificar telefono");
+			System.out.println("5. Modificar peso");
+			System.out.println("6. Modificar suscripcion");			
+			System.out.println("7. Modificar DNIe");			
+			System.out.println("8. Volver atras");		
 
 			System.out.print("Elegir: ");
 			op = scan.nextInt();
@@ -160,7 +159,7 @@ public class Menu
 					}
 				}while(op_d != 3);
 				break;	
-			case 5:
+			case 4:
 				int op_t;
 				do
 				{
@@ -186,15 +185,15 @@ public class Menu
 
 				}while(op_t != 3);
 				break;	
-			case 6:
+			case 5:
 				System.out.print("Introduzca el nuevo peso a modificar: ");
 				cli_peso = scan.nextDouble();
 				break;		
-			case 7:
+			case 6:
 				System.out.print("Introduzca la nueva suscripcion a modificar: ");
 				cli_suscripcion = scan.nextDouble();
 				break;		
-			case 8:
+			case 7:
 				System.out.print("Introduzca el nuevo DNIe a modificar: ");
 				cli_dni_e = scan.nextLine();
 				break;	
@@ -202,7 +201,7 @@ public class Menu
 				System.out.println("");
 				break;																						
 			}	
-		}while(op != 9);
+		}while(op != 8);
 
 	}
 
