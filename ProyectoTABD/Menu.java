@@ -11,8 +11,6 @@ public class Menu
 	static double cli_suscripcion, cli_peso;
 	static String[] cli_direccion = new String[2];
 
-
-
 	// Métodos de la ENTIDAD DE CLIENTE *********************************************** //
 
 	public static void entidad_Clientes()
