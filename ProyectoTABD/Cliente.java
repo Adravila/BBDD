@@ -44,9 +44,9 @@ public class Cliente
 		return direccion[0];
 	}
 
-	public void setCalle(String direccion)
+	public void setCalle(String calle)
 	{
-		this.direccion[0] = direccion;
+		this.direccion[0] = calle;
 	}	
 
 	public String getCiudad()
@@ -54,9 +54,9 @@ public class Cliente
 		return direccion[1];
 	}
 
-	public void setCiudad(String direccion)
+	public void setCiudad(String ciudad)
 	{
-		this.direccion[1] = direccion;
+		this.direccion[1] = ciudad;
 	}	
 
 	// Teléfono
@@ -104,12 +104,12 @@ public class Cliente
 
 	// DNI-E
 
-	public String GetDNI_e()
+	public String getDNI_e()
 	{
 		return dni_e;
 	}
 
-	public void SetDNI_e(String dni_e)
+	public void setDNI_e(String dni_e)
 	{
 		this.dni_e = dni_e;
 	}	
@@ -126,6 +126,6 @@ public class Cliente
 			  "\nTelefono (2): "+getTelefono_2()+
 			  "\nPeso: "+getPeso()+
 			  "\nSuscripcion: "+getSuscripcion()+
-			  "\nDNI-e: "+GetDNI_e();
+			  "\nDNI-e: "+getDNI_e();
 	}
 }
