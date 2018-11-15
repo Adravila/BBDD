@@ -114,7 +114,7 @@ public class Menu
 			System.out.println("1. Modificar nombre");
 			System.out.println("2. Modificar apellidos");
 			System.out.println("3. Modificar dirección");
-x			System.out.println("4. Modificar telefono");
+			System.out.println("4. Modificar telefono");
 			System.out.println("5. Modificar peso");
 			System.out.println("6. Modificar suscripcion");			
 			System.out.println("7. Modificar DNIe");			
