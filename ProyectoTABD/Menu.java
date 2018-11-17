@@ -17,8 +17,8 @@ public class Menu
 			System.out.println("2. Employee");
 			System.out.println("3. Class collective");
 			System.out.println("4. Exercise");
-			System.out.println("5. Rutina");
-			System.out.println("6. Routine");
+			System.out.println("5. Routine");
+			System.out.println("6. Equipment");
 			System.out.println("7. Exit the program");
 
 			System.out.print("Choose: ");
@@ -33,14 +33,18 @@ public class Menu
 					Menu_Empleado.entidad_Empleados();
 					break;
 				case 3: // Clase_colectiva
+					Menu_ClaseColectiva.entidad_ClaseColectiva();
 					break;
 				case 4: // Ejercicio
+					Menu_Ejercicio.entidad_Ejercicio();
 					break;
 				case 5: // Rutina
+					Menu_Rutina.entidad_Rutina();
 					break;
 				case 6: // Equipo
+					Menu_Equipo.entidad_Equipo();
 					break;
-				case 7: // Equipo
+				case 7:
 					break;
 				default:
 					System.out.println("\nWrong option, try it again.\n");

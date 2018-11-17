@@ -5,6 +5,19 @@ public class Menu_Empleado
 	// Variables reservadas para los menús
 	static Scanner scan = new Scanner(System.in);
 
+	/**
+	*	- Añadir un empleado (puede ser jefe, mantenimiento o entrenador).
+	*	- Modificar datos del empleado.
+	*	- Eliminar un empleado (de cualquier tipo).
+	*	- Deasignar monitor de una clase colectiva.
+	*	- Asignar monitor a una clase colectiva.
+	*	- Asignar encargado de mantenimiento una maquina.
+	*	- Desasignar encargado de mantenimiento una maquina.
+	*	- Ver empleados en el sistema.
+	*	- Ver las máquinas de las que está encargado un empleado de mantenimiento
+	**/
+
+	// Variables reservadas para los empleados
 	static long emp_cod_emp;
 	static double emp_sueldo;
 	static String emp_nombre, emp_apellidos, emp_jornada_laboral;
@@ -13,7 +26,7 @@ public class Menu_Empleado
 	static int emp_tipo;
 
 	/**
-	*	Método para acceder a las sección de clientes
+	*	Método para acceder a las sección de empleados
 	**/
 	public static void entidad_Empleados()
 	{
@@ -125,6 +138,9 @@ public class Menu_Empleado
 		}while(op != 8);
 	}
 
+	/**
+	*	Método para añadir un empleado (Menú -> Empleado -> Añadir empleados)
+	**/
 	public static void addEmpleado()
 	{
 		System.out.print("\nName of the employee: ");

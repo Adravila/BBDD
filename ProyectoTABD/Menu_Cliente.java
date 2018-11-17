@@ -3,15 +3,23 @@ import java.util.*;
 
 public class Menu_Cliente
 {
-		// Variables reservadas para los menús
+	// Variables reservadas para los menús
 	static Scanner scan = new Scanner(System.in);
-		// Variables reservadas para cliente
+
+	/**
+	*	- Añadir un cliente.
+	*	- Eliminar un cliente.
+	*	- Modificar datos del cliente.
+	*	- Asignarle una rutina a un cliente.
+	*	- Desasignar rutina a un cliente.
+	*	- Ver clientes del sistema.
+	**/
+
+	// Variables reservadas para los clientes
 	static String cli_nombre, cli_apellidos, cli_dni_e;
 	static long[] cli_telefono = new long[2];
 	static double cli_suscripcion, cli_peso;
 	static String[] cli_direccion = new String[2];
-
-	// Métodos de la ENTIDAD DE CLIENTE *********************************************** //
 
 	/**
 	*	Método para acceder a las sección de clientes
@@ -238,7 +246,8 @@ public class Menu_Cliente
 	}
 
 	/**
-	*	Método para acceder a las sección de asignar rutina a un cliente (Menú -> Cliente -> Añadir cliente)
+	*	Método para acceder a las sección de asignar rutina a un cliente 
+	*	(Menú -> Cliente -> Assign routine to client)
 	**/
 	public static void asignarRutinaCliente()
 	{
@@ -246,7 +255,8 @@ public class Menu_Cliente
 	}
 
 	/**
-	*	Método para acceder a las sección de asignar rutina a un cliente (Menú -> Cliente -> Añadir cliente)
+	*	Método para acceder a las sección de asignar rutina a un cliente 
+	*	(Menú -> Cliente -> Unassign routine to client)
 	**/
 	public static void designarRutinaCliente()
 	{
@@ -255,7 +265,8 @@ public class Menu_Cliente
 
 
 	/**
-	*	Método para acceder a las sección de mostrar todos los clientes (Menú -> Cliente -> Ver clientes)
+	*	Método para acceder a las sección de mostrar todos los clientes 
+	*	(Menú -> Cliente -> mostar clientes)
 	**/
 	public static void mostrarClientes()
 	{
