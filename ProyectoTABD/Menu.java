@@ -8,6 +8,8 @@ public class Menu
 	public static void main(String[] args)
 	{
 		int op = 0;
+		System.out.println("");
+
 		do
 		{
 			System.out.println("Choose the entity to be modified: ");
@@ -21,7 +23,6 @@ public class Menu
 
 			System.out.print("Choose: ");
 			op = scan.nextInt();
-			System.out.println("");
 
 			switch(op)
 			{
@@ -32,11 +33,17 @@ public class Menu
 					Menu_Empleado.entidad_Empleados();
 					break;
 				case 3: // Clase_colectiva
+					break;
 				case 4: // Ejercicio
+					break;
 				case 5: // Rutina
+					break;
 				case 6: // Equipo
-				default: 
-					System.out.println("");
+					break;
+				case 7: // Equipo
+					break;
+				default:
+					System.out.println("\nWrong option, try it again.\n");
 					break;
 			}
 		}while(op != 7);

@@ -21,7 +21,7 @@ public class Menu_Cliente
 		int op = 0;
 		do
 		{
-			System.out.println("Choose the action of the Customer to be modified: ");
+			System.out.println("\nChoose the action of the Customer to be modified: ");
 			System.out.println("1. Add customer");
 			System.out.println("2. Delete a customer");
 			System.out.println("3. Modify customer data");
@@ -73,8 +73,12 @@ public class Menu_Cliente
 				case 5:	// Ver clientes
 					mostrarClientes();
 					break;	
+				case 6:
+					break;
+				default:
+					System.out.println("\nWrong option, try it again.");
+					break;	
 			}
-			System.out.println("");
 		}while(op != 6);
 	}
 
@@ -149,18 +153,18 @@ public class Menu_Cliente
 			switch(op)
 			{
 			case 1: 
-				System.out.print("Enter the new name to modify: ");
+				System.out.print("\nEnter the new name to modify: ");
 				cli_nombre = scan.nextLine();
 				break;
 			case 2:
-				System.out.print("Enter the new surnames to be modified: ");
+				System.out.print("\nEnter the new surnames to be modified: ");
 				cli_apellidos = scan.nextLine();
 				break;							
 			case 3:
 				int op_d;
 				do
 				{
-					System.out.println("Enter the new address to be modified: ");
+					System.out.println("\nEnter the new address to be modified: ");
 					System.out.println("1. Modify street");
 					System.out.println("2. Modify city");
 					System.out.println("3. Go back");
@@ -170,13 +174,16 @@ public class Menu_Cliente
 					switch(op_d)
 					{
 						case 1: 
-							System.out.print("Enter the new street to be modified: ");
+							System.out.print("\nEnter the new street to be modified: ");
 							cli_direccion[0] = scan.nextLine();
 							break;
 						case 2:
-							System.out.print("Enter the new city to be modified: ");
+							System.out.print("\nEnter the new city to be modified: ");
 							cli_direccion[1] = scan.nextLine();
 							break;
+						default:
+							System.out.println("\nWrong option, try it again.");
+							break;	
 					}
 				}while(op_d != 3);
 				break;	
@@ -184,7 +191,7 @@ public class Menu_Cliente
 				int op_t;
 				do
 				{
-					System.out.println("Enter the new phone to be modified: ");
+					System.out.println("\nEnter the new phone to be modified: ");
 					System.out.println("1. First phone");
 					System.out.println("2. Second phone");
 					System.out.println("3. Go back");
@@ -194,13 +201,16 @@ public class Menu_Cliente
 					switch(op_t)
 					{
 						case 1: 
-							System.out.print("First phone to modify: ");
+							System.out.print("\nFirst phone to modify: ");
 							cli_telefono[0] = scan.nextLong();
 							break;
 						case 2:
-							System.out.print("Second phone to modify: ");
+							System.out.print("\nSecond phone to modify: ");
 							cli_telefono[1] = scan.nextLong();
 							break;
+						default:
+							System.out.println("\nWrong option, try it again.");
+							break;	
 					}
 
 				}while(op_t != 3);
@@ -216,7 +226,13 @@ public class Menu_Cliente
 			case 7:
 				System.out.print("Enter the new DNIe to be modified: ");
 				cli_dni_e = scan.nextLine();
-				break;	
+				break;
+			case 8:
+				System.out.println("");
+				break;
+			default:
+				System.out.println("Wrong option, try it again.\n");
+				break;		
 			}	
 		}while(op != 8);
 	}

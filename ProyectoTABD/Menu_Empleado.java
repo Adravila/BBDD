@@ -20,7 +20,7 @@ public class Menu_Empleado
 		int op = 0;
 		do
 		{
-			System.out.println("Choose the action of the Employee to be modified: ");
+			System.out.println("\nChoose the action of the Employee to be modified: ");
 			System.out.println("1. Add employee");
 			System.out.println("2. Modify employee data");
 			System.out.println("3. Delete an employee");
@@ -72,6 +72,11 @@ public class Menu_Empleado
 							case 2:
 								designarMonitorClaseColectiva();
 								break;
+							case 3:
+								break;
+							default:
+								System.out.println("Wrong option, try it again.\n");
+								break;	
 						}
 					}while(op_t != 3);
 					break;
@@ -94,6 +99,11 @@ public class Menu_Empleado
 							case 2:
 								designarMantenimientoClaseColectiva();
 								break;
+							case 3: 
+								break;
+							default:
+								System.out.println("\nWrong option, try it again.");
+								break;	
 						}
 
 					}while(op_t != 3);
@@ -101,9 +111,17 @@ public class Menu_Empleado
 
 				case 6:
 					mostrarEmpleados();
-					break;		
+					break;	
+				case 7:
+					mostrarMaquinas();
+					break;	
+				case 8:
+					System.out.println("");
+					break;
+				default:
+					System.out.println("\nWrong option, try it again.");
+					break;
 			}
-			System.out.println("");
 		}while(op != 8);
 	}
 
@@ -159,7 +177,7 @@ public class Menu_Empleado
 		int op = 0;
 		do
 		{
-			System.out.println("1. Modify name");
+			System.out.println("\n1. Modify name");
 			System.out.println("2. Modify surname");
 			System.out.println("3. Modify address");
 			System.out.println("4. Modify phone");
@@ -175,34 +193,40 @@ public class Menu_Empleado
 			switch(op)
 			{
 			case 1: 
-				System.out.print("Enter the new name to modify: ");
+				System.out.print("\nEnter the new name to modify: ");
 				emp_nombre = scan.nextLine();
 				break;
 			case 2:
-				System.out.print("Enter the new surnames to be modified: ");
+				System.out.print("\nEnter the new surnames to be modified: ");
 				emp_apellidos = scan.nextLine();
 				break;							
 			case 3:
 				int op_d;
 				do
 				{
-					System.out.println("Enter the new address to be modified: ");
+					System.out.println("\nEnter the new address to be modified: ");
 					System.out.println("1. Modify street");
 					System.out.println("2. Modify city");
 					System.out.println("3. Go back");
 					System.out.print("Choose: ");
 					op_d = scan.nextInt();
+					scan.nextLine();
 
 					switch(op_d)
 					{
 						case 1: 
-							System.out.print("Enter the new street to be modified: ");
+							System.out.print("\nEnter the new street to be modified: ");
 							emp_direccion[0] = scan.nextLine();
 							break;
 						case 2:
-							System.out.print("Enter the new city to be modified: ");
+							System.out.print("\nEnter the new city to be modified: ");
 							emp_direccion[1] = scan.nextLine();
 							break;
+						case 3: 
+							break;
+						default:
+							System.out.println("\nWrong option, try it again.");
+							break;	
 					}
 				}while(op_d != 3);
 				break;	
@@ -210,7 +234,7 @@ public class Menu_Empleado
 				int op_t;
 				do
 				{
-					System.out.println("Enter the new phone to be modified: ");
+					System.out.println("\nEnter the new phone to be modified: ");
 					System.out.println("1. First phone");
 					System.out.println("2. Second phone");
 					System.out.println("3. Go back");
@@ -220,34 +244,40 @@ public class Menu_Empleado
 					switch(op_t)
 					{
 						case 1: 
-							System.out.print("First phone to modify: ");
+							System.out.print("\nFirst phone to modify: ");
 							emp_telefono[0] = scan.nextLong();
 							break;
 						case 2:
-							System.out.print("Second phone to modify: ");
+							System.out.print("\nSecond phone to modify: ");
 							emp_telefono[1] = scan.nextLong();
 							break;
-						default:
-							System.out.println("");
+						case 3: 
 							break;
+						default:
+							System.out.println("\nWrong option, try it again.");
+							break;	
 					}
 
 				}while(op_t != 3);
 				break;	
 			case 5:
-				System.out.print("Enter the new working day to modify: ");
+				System.out.print("\nEnter the new working day to modify: ");
 				emp_jornada_laboral = scan.nextLine();
 				break;		
 			case 6:
-				System.out.print("Enter the new salary to be modified: ");
+				System.out.print("\nEnter the new salary to be modified: ");
 				emp_sueldo = scan.nextDouble();
 				break;		
 			case 7:
-				System.out.print("Enter the new employee type: ");
+				System.out.print("\nEnter the new employee type: ");
 				emp_cod_emp = scan.nextLong();
-				break;																							
+				break;				
+			case 8:
+				break;
+			default:
+				System.out.println("\nWrong option, try it again.");
+				break;																						
 			}	
-			System.out.println("");
 		}while(op != 8);
 
 	}
