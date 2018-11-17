@@ -21,7 +21,7 @@ public class Menu_Cliente
 		int op = 0;
 		do
 		{
-			System.out.println("Choose the action of the Customer to be modified: : ");
+			System.out.println("Choose the action of the Customer to be modified: ");
 			System.out.println("1. Add customer");
 			System.out.println("2. Delete a customer");
 			System.out.println("3. Modify customer data");
@@ -51,7 +51,7 @@ public class Menu_Cliente
 					int op_d;
 					do
 					{
-						System.out.println("Assign / Unassign routine to client ");
+						System.out.println("\nAssign / Unassign routine to client ");
 						System.out.println("1. Assign routine to client");
 						System.out.println("2. Unassign routine to client");
 						System.out.println("3. Go back");
@@ -66,21 +66,15 @@ public class Menu_Cliente
 							case 2:
 								designarRutinaCliente();
 								break;
-							default:
-								System.out.println("");
-								break;
 						}
 					}while(op_d != 3);
 				break;	
 
 				case 5:	// Ver clientes
 					mostrarClientes();
-					break;
-
-				default: 
-					System.out.println("");
-					break;		
+					break;	
 			}
+			System.out.println("");
 		}while(op != 6);
 	}
 
@@ -178,11 +172,10 @@ public class Menu_Cliente
 						case 1: 
 							System.out.print("Enter the new street to be modified: ");
 							cli_direccion[0] = scan.nextLine();
+							break;
 						case 2:
 							System.out.print("Enter the new city to be modified: ");
 							cli_direccion[1] = scan.nextLine();
-						default:
-							System.out.println("");
 							break;
 					}
 				}while(op_d != 3);
@@ -203,11 +196,10 @@ public class Menu_Cliente
 						case 1: 
 							System.out.print("First phone to modify: ");
 							cli_telefono[0] = scan.nextLong();
+							break;
 						case 2:
 							System.out.print("Second phone to modify: ");
 							cli_telefono[1] = scan.nextLong();
-						default:
-							System.out.println("");
 							break;
 					}
 
@@ -225,12 +217,8 @@ public class Menu_Cliente
 				System.out.print("Enter the new DNIe to be modified: ");
 				cli_dni_e = scan.nextLine();
 				break;	
-			default: 
-				System.out.println("");
-				break;																						
 			}	
 		}while(op != 8);
-
 	}
 
 	/**

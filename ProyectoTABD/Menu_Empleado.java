@@ -46,18 +46,18 @@ public class Menu_Empleado
 					break;
 
 				case 2: // Modificar datos del empleado
-					deleteEmpleado();
+					updateEmpleado();
 					break;
 
 				case 3: // Eliminar empleado
-					updateEmpleado();
+					deleteEmpleado();
 					break;
 
 				case 4:	// Asignar/Deasignar monitor de una clase colectiva	
 					int op_t;
 					do
 					{
-						System.out.println("Assign / Unassign monitor of a collective class: ");
+						System.out.println("\nAssign / Unassign monitor of a collective class: ");
 						System.out.println("1. Assign monitor of a collective class");
 						System.out.println("2. Unassign monitor of a collective class");
 						System.out.println("3. Go back");
@@ -72,18 +72,14 @@ public class Menu_Empleado
 							case 2:
 								designarMonitorClaseColectiva();
 								break;
-							default:
-								System.out.println("");
-								break;
 						}
-
 					}while(op_t != 3);
 					break;
 
 				case 5:	// Asignar monitor a una clase colectiva
 					do
 					{
-						System.out.println("Assign / Designate maintenance manager a machine: ");
+						System.out.println("\nAssign / Designate maintenance manager a machine: ");
 						System.out.println("1. Assign maintenance manager a machine");
 						System.out.println("2. Designate maintenance manager a machine");
 						System.out.println("3. Go back");
@@ -98,9 +94,6 @@ public class Menu_Empleado
 							case 2:
 								designarMantenimientoClaseColectiva();
 								break;
-							default:
-								System.out.println("");
-								break;
 						}
 
 					}while(op_t != 3);
@@ -108,12 +101,10 @@ public class Menu_Empleado
 
 				case 6:
 					mostrarEmpleados();
-					break;
-				default: 
-					System.out.println("");
 					break;		
 			}
-		}while(op != 7);
+			System.out.println("");
+		}while(op != 8);
 	}
 
 	public static void addEmpleado()
@@ -207,11 +198,10 @@ public class Menu_Empleado
 						case 1: 
 							System.out.print("Enter the new street to be modified: ");
 							emp_direccion[0] = scan.nextLine();
+							break;
 						case 2:
 							System.out.print("Enter the new city to be modified: ");
 							emp_direccion[1] = scan.nextLine();
-						default:
-							System.out.println("");
 							break;
 					}
 				}while(op_d != 3);
@@ -232,9 +222,11 @@ public class Menu_Empleado
 						case 1: 
 							System.out.print("First phone to modify: ");
 							emp_telefono[0] = scan.nextLong();
+							break;
 						case 2:
 							System.out.print("Second phone to modify: ");
 							emp_telefono[1] = scan.nextLong();
+							break;
 						default:
 							System.out.println("");
 							break;
@@ -253,11 +245,9 @@ public class Menu_Empleado
 			case 7:
 				System.out.print("Enter the new employee type: ");
 				emp_cod_emp = scan.nextLong();
-				break;	
-			default: 
-				System.out.println("");
-				break;																						
+				break;																							
 			}	
+			System.out.println("");
 		}while(op != 8);
 
 	}
