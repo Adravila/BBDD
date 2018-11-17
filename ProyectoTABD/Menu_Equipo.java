@@ -15,23 +15,25 @@ public class Menu_Equipo
 	*	- Ver qué clientes usan un equipo determinado.
 	**/
 
-	// Variables reservadas para los ejercicios
-	static String ejer_nombre, ejer_descripcion;
+	// Variables reservadas para los equipos
+	static long eq_cod_equipo;
+	static double eq_coste;
 
 	/**
-	*	Método para acceder a las sección de ejercicios
+	*	Método para acceder a las sección de equipos
 	**/
-	public static void entidad_Ejercicio()
+	public static void entidad_Equipo()
 	{
 		int op = 0;
 		do
 		{
-			System.out.println("\nChoose the action of the Exercise to be modified: ");
-			System.out.println("1. Add exercise class");
-			System.out.println("2. Modify exercise data");
-			System.out.println("3. Delete an exercise class");
-			System.out.println("4. See exercises in the system");
-			System.out.println("5. Go back");
+			System.out.println("\nChoose the action of the equipment to be modified: ");
+			System.out.println("1. Add equipment");
+			System.out.println("2. Modify equipment data");
+			System.out.println("3. Remove equipment");
+			System.out.println("4. Assign / Unassign an equipment to a customer");
+			System.out.println("5. View equipments in the system");
+			System.out.println("6. Go back");
 
 			System.out.print("Choose: ");
 			op = scan.nextInt();
@@ -39,62 +41,86 @@ public class Menu_Equipo
 
 			switch(op)
 			{
-				case 1: // Añadir un ejercicio
-					addEjercicio();
+				case 1: // Añadir un equipo
+					addEquipo();
 					break;
-				case 2: // Modificar datos de ejercicio
-					updateEjercicio();
+				case 2: // Modificar datos de equipo
+					updateEquipo();
 					break;
 				case 3: // Eliminar un ejercicio
-					deleteEjercicio();
+					deleteEquipo();
 					break;
 				case 4:
-					mostrarEjercicios();
-					break;	
+					int op_d;
+					do
+					{
+						System.out.println("\nAssign / Unassign an equipment to a customer");
+						System.out.println("1. Assign an equipment to a customer");
+						System.out.println("2. Unassign an equipment to a customer");
+						System.out.println("3. Go back");
+						System.out.print("Choose: ");
+						op_d = scan.nextInt();
+
+						switch(op_d)
+						{
+							case 1: 
+								asignarEquipoCliente();
+								break;
+							case 2:
+								designarEquipoCliente();
+								break;
+							case 3:
+								break;
+						}
+					}while(op_d != 3);
+					break;					
 				case 5:
+					mostrarEquipos();
+					break;	
+				case 6:
 					System.out.println("");
 					break;
 				default:
 					System.out.println("\nWrong option, try it again.");
 					break;
 			}
-		}while(op != 5);
+		}while(op != 6);
 	}
 
 	/**
-	*	Método para añadir un ejercicio (Menú -> Ejercicio -> Añadir ejercicio)
+	*	Método para añadir un equipo (Menú -> Equipo -> Añadir equipo)
 	**/
-	public static void addEjercicio()
+	public static void addEquipo()
 	{
-		System.out.print("\nName of the exercise: ");
-		ejer_nombre = scan.nextLine();
+		System.out.print("\nEquipment code: ");
+		eq_cod_equipo = scan.nextLong();
 
-		System.out.print("Duration of the exercise: ");
-		ejer_descripcion = scan.nextLine();
+		System.out.print("Equipment cost: ");
+		eq_coste = scan.nextDouble();
 	}
 
 	/**
-	*	Método para acceder a las sección de eliminar ejercicio (Menú -> Clase Colectiva -> Eliminar clase)
+	*	Método para acceder a las sección de eliminar equipo (Menú -> Equipo -> Eliminar equipo)
 	**/
-	public static void deleteEjercicio()
+	public static void deleteEquipo()
 	{
-		System.out.print("\nEnter the name of exercise to be deleted: ");
-		ejer_nombre = scan.nextLine();
-		// Procediendo a eliminar el ejercicio
+		System.out.print("\nEnter the equipment code to be deleted: ");
+		eq_cod_equipo = scan.nextLong();
+		// Procediendo a eliminar el equipo
 	}
 
 	/**
-	*	Método para acceder a las sección de modificar ejercicio (Menú -> Ejercicio -> Modificar ejercicio)
+	*	Método para acceder a las sección de modificar equipo (Menú -> Equipo -> Modificar equipo)
 	**/
-	public static void updateEjercicio()
+	public static void updateEquipo()
 	{
-		System.out.print("\nEnter the name of the exercise to be modify: ");
-		ejer_nombre = scan.nextLine();
+		System.out.print("\nEnter the name of the equipment to be modify: ");
+		eq_cod_equipo = scan.nextLong();
 		int op = 0;
 		do
 		{
-			System.out.println("\n1. Modify name of the exercise");
-			System.out.println("2. Modify duration of the exercise");
+			System.out.println("\n1. Modify equipment code");
+			System.out.println("3. Modify cost of the equipment");
 			System.out.println("3. Go back");		
 
 			System.out.print("Choose: ");
@@ -104,12 +130,12 @@ public class Menu_Equipo
 			switch(op)
 			{
 			case 1: 
-				System.out.print("\nEnter the exercise to modify: ");
-				ejer_nombre = scan.nextLine();
-				break;
+				System.out.print("\nEnter the equipment code to modify: ");
+				eq_cod_equipo = scan.nextLong();
+				break;		
 			case 2:
-				System.out.print("\nEnter the new duration of the exercise to be modified: ");
-				ejer_descripcion = scan.nextLine();
+				System.out.print("\nEnter the new cost of the equipment to be modified: ");
+				eq_coste = scan.nextDouble();
 				break;				
 			case 3:
 				break;
@@ -122,10 +148,29 @@ public class Menu_Equipo
 	}
 
 	/**
-	*	Método para acceder a la sección de ver ejercicios en el sistema
-	*	(Menu -> Exercise -> See exercises in the system)
+	*	Método para acceder a las sección de asignar ejercicio a una rutina 
+	*	(Menú -> Equipment -> Assign an equipment to a routine)
 	**/
-	public static void mostrarEjercicios()
+	public static void asignarEquipoCliente()
+	{
+
+	}
+
+	/**
+	*	Método para acceder a las sección de asignar ejercicio a una rutina 
+	*	(Menú -> equipment -> Unassign an equipment to a routine)
+	**/
+	public static void designarEquipoCliente()
+	{
+
+	}
+
+
+	/**
+	*	Método para acceder a la sección de ver ejercicios en el sistema
+	*	(Menu -> Equipment -> See equipments in the system)
+	**/
+	public static void mostrarEquipos()
 	{
 
 	}
