@@ -1,9 +1,7 @@
-/**
+/*
 Clases colectivas:
-- La fecha no puede ser menor que el día actual (fecha del sistema)
 - La duración no puede ser mayor de 45 minutos.
-- El tipo de clase tiene que ser algunos de estos tipos: {Ciclo, Step, Zumba, Body Pump, ABD, Body Combat, Yoga, Pilates, Body Balance}.
-**/
+*/
 
 SET SERVEROUTPUT ON
 
@@ -43,9 +41,8 @@ END;
 
 /**
 Empleados:
-- El sueldo del jefe debe ser mayor o igual que el del resto de los empleados.
 - Los telefonos deben de tener exactamente 9 dígitos.
-- El tipo debe estar en esta lista {Mantenimiento, Monitor, Jefe}.
+- El tipo debe estar en esta lista {mantenimiento, monitor, jefe}.
 - Jornada laboral, sea un máximo de 5 días a la semana y 8 horas al día.
 */
 
