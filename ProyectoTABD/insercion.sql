@@ -7,4 +7,4 @@ INSERT INTO Tabla_Ejercicios VALUES (Tipo_Ejercicio('Flex rod','Flexion de rodil
 INSERT INTO Tabla_Mantenimiento VALUES (Tipo_Mantenimiento(1,900,'Pepe','Lopez',Tipo_JornadaLaboral(5,7),Tipo_Direccion('REAL','Cadiz'),Tipo_Telfs('111202333','444550999'),'mantenimiento',NULL));
 INSERT INTO Tabla_Monitor VALUES (Tipo_Monitor(3,900,'Pepe','Lopez',Tipo_JornadaLaboral(5,7),Tipo_Direccion('REAL','Cadiz'),Tipo_Telfs('111222533','444556999'),'monitor',NULL,NULL));
 INSERT INTO Tabla_Jefe VALUES(Tipo_Jefe(2,900,'Pepe','Lopez',Tipo_JornadaLaboral(5,7),Tipo_Direccion('REAL','Cadiz'),Tipo_Telfs('111222333','444555999'),'jefe',NULL,NULL));
-INSERT INTO Tabla_Rutinas VALUES (Tipo_Rutina(788455,'Adelgazar',90,NULL,NULL,(SELECT REF(oc) FROM Tabla.Monitor oc WHERE oc.cod_emp = 3)));
+INSERT INTO Tabla_Rutinas VALUES (Tipo_Rutina(788455,'Adelgazar',90,NULL,NULL,(SELECT REF(oc) FROM Tabla_Monitor oc WHERE oc.cod_emp = 3)));
