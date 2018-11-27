@@ -1,6 +1,5 @@
 /**
 Empleados:
-- El sueldo del jefe debe ser mayor o igual que el del resto de los empleados.
 - Los telefonos deben de tener exactamente 9 dígitos.
 - El tipo debe estar en esta lista {Mantenimiento, Monitor, Jefe}.
 - Jornada laboral, sea un máximo de 5 días a la semana y 8 horas al día.
@@ -38,13 +37,14 @@ CREATE OR REPLACE TRIGGER TriggerEmpleados
 BEFORE INSERT OR UPDATE ON Empleados 
 FOR EACH ROW
 BEGIN
-	IF(:NEW.sueldo < 0 OR :NEW.sueldo > 45) THEN
+	IF(LENGTH(TO_CHAR(:NEW.telefonos)) != 9) THEN
 		RAISE_APPLICATION_ERROR (-20600,'El teléfono debe tener 9 dígitos');
-	ELSIF(LENGTH(TO_CHAR(:NEW.telefonos)) != 9) THEN
-		RAISE_APPLICATION_ERROR (-20600,'El teléfono debe tener 9 dígitos');
-	ELSIF(LENGTH(:NEW.jornada_laboral.dias > 8 OR NEW.jornada_laboral.horas > 8 ) THEN
+	END IF;
+	IF(LENGTH(:NEW.jornada_laboral.dias > 8 OR NEW.jornada_laboral.horas > 8 ) THEN
 		RAISE_APPLICATION_ERROR (-20600,'La jornada laboral no es correcta');
-	ELSIF(:NEW.tipo = 'Mantenimiento' OR :NEW.tipo = 'Monitor' OR :NEW.tipo = 'Jefe') THEN
+	END IF;
+	   
+	 IF(:NEW.tipo = 'Mantenimiento' OR :NEW.tipo = 'Monitor' OR :NEW.tipo = 'Jefe') THEN
 		RAISE_APPLICATION_ERROR (-20600,'Error, no se corresponde a ninguno de estos tipos');
 	END IF;
 END;
