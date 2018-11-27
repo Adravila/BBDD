@@ -147,8 +147,10 @@ NESTED TABLE supermavisa_ma STORE AS Empleados_man_super;
 
 ALTER TABLE Clientes_equipados 
     ADD (SCOPE FOR (column_value) IS Tabla_Clientes) -- SCOPE FOR.
+/
 ALTER TABLE Ejercicios_de_la_rutina 
      ADD (SCOPE FOR (contiene) IS Tabla_Ejercicios)-- SCOPE FOR.
+/
 ALTER TABLE EquipoUtilizados 
 	ADD (SCOPE FOR (column_value) IS Tabla_Equipo) -- SCOPE FOR.
 /
