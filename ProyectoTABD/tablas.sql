@@ -140,7 +140,8 @@ CONSTRAINT PK_Tabla_Jefe
 	STORAGE( INITIAL 50K
 		NEXT 50K
 		PCTINCREASE 0
-	)NESTED TABLE supervisa_m STORE AS Monitores_supervisados,
+	)
+NESTED TABLE supervisa_m STORE AS Monitores_supervisados,
 NESTED TABLE supermavisa_ma STORE AS Empleados_man_super;
 
 /*SCOPES FOR.*/
