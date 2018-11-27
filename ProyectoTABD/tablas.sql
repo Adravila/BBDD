@@ -23,15 +23,14 @@ CREATE TABLE Tabla_Equipo OF Tipo_Equipo
 (
 	CONSTRAINT PK_Tabla_Equipo
 	PRIMARY KEY (cod_equipo),
-	coste NOT NULL,
-	PCTFREE 90,
-	PCTUSED 50,
-	STORAGE( INITIAL 80000,
-		NEXT 80000,
-		PCTINCREASE 0
-	)
+	coste NOT NULL
 )
-NESTED TABLE usan STORE AS Clientes_equipados;
+	PCTFREE 90
+	PCTUSED 10
+	STORAGE( INITIAL 80K
+		NEXT 80K
+		PCTINCREASE 0
+	)NESTED TABLE usan STORE AS Clientes_equipados;
 
 /*TABLA TABLA CLIENTES.*/
 
@@ -44,15 +43,14 @@ CREATE TABLE Tabla_Clientes OF Tipo_Cliente
 	apellidos NOT NULL,
 	direccion NOT NULL,
 	telfs NOT NULL,
-	suscripcion NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 100000,
-		NEXT 80000,
-		PCTINCREASE 0
-	)
+	suscripcion NOT NULL
 )
-NESTED TABLE tiene_asignada STORE AS Rutinas_asignadas;
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 100K
+		NEXT 80K
+		PCTINCREASE 0
+	) NESTED TABLE tiene_asignada STORE AS Rutinas_asignadas;
 
 /*TABLA EJERCICIOS.*/
 
@@ -60,14 +58,14 @@ CREATE TABLE Tabla_Ejercicios OF Tipo_Ejercicio
 (
 	CONSTRAINT PK_Tabla_Ejercicios
 	PRIMARY KEY (nombre),
-	descripcion NOT NULL,
-	PCTFREE 80,
-	PCTUSED 20,
-	STORAGE( INITIAL 80000,
-		NEXT 50000,
+	descripcion NOT NULL
+)
+	PCTFREE 80
+	PCTUSED 20
+	STORAGE( INITIAL 80K,
+		NEXT 50K,
 		PCTINCREASE 0
-	)
-);
+	);
 
 /*TABLA RUTINAS.*/
 
@@ -77,14 +75,14 @@ CREATE TABLE Tabla_Rutinas OF Tipo_Rutina
 	PRIMARY KEY (cod_rutina),
 	proposito NOT NULL,
 	duracion NOT NULL,
-	asigna NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 100000,
-		NEXT 80000,
+	asigna NOT NULL
+)
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 100K
+		NEXT 80K,
 		PCTINCREASE 0
 	)
-)
 NESTED TABLE contienen STORE AS Ejercicios_de_la_rutina,
 NESTED TABLE tiene_asignada STORE AS Clientes_con_rutinas;
 
@@ -98,14 +96,14 @@ CONSTRAINT PK_Tabla_Monitor
 	jornada_laboral NOT NULL,
 	nombre NOT NULL,
 	apellidos NOT NULL,
-	tipo NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 50000,
-		NEXT 50000,
+	tipo NOT NULL
+)
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 50K
+		NEXT 50K
 		PCTINCREASE 0
 	)
-)
 NESTED TABLE da_clase STORE AS Clases_del_monitor,
 NESTED TABLE asigna STORE AS Rutinas_asignadas_monitor;
 
@@ -118,16 +116,14 @@ CONSTRAINT PK_Tabla_Mantenimiento
 	jornada_laboral NOT NULL,
 	nombre NOT NULL,
 	apellidos NOT NULL,
-	tipo NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 50000,
-		NEXT 50000,
-		PCTINCREASE 0
-	)
-	
+	tipo NOT NULL
 )
-NESTED TABLE mantiene STORE AS Equipos_mantenidos_empleado;
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 50K
+		NEXT 50K
+		PCTINCREASE 0
+	)NESTED TABLE mantiene STORE AS Equipos_mantenidos_empleado;
 
 CREATE TABLE Tabla_Jefe OF Tipo_Jefe
 (
@@ -137,16 +133,14 @@ CONSTRAINT PK_Tabla_Jefe
 	jornada_laboral NOT NULL,
 	nombre NOT NULL,
 	apellidos NOT NULL,
-	tipo NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 50000,
-		NEXT 50000,
-		PCTINCREASE 0
-	)
-	
+	tipo NOT NULL
 )
-NESTED TABLE supervisa_m STORE AS Monitores_supervisados
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 50K
+		NEXT 50K
+		PCTINCREASE 0
+	)NESTED TABLE supervisa_m STORE AS Monitores_supervisados,
 NESTED TABLE supermavisa_ma STORE AS Empleados_mantenimiento_supervisados;
 
 /*SCOPES FOR.*/
