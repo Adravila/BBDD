@@ -7,14 +7,14 @@ CREATE TABLE Tabla_ClasesColectivas OF Tipo_ClaseColectiva
 	CONSTRAINT PK_Tabla_ClasesColectivas
 	PRIMARY KEY (fecha.dia, fecha.hora),
 	duracion NOT NULL,
-	tipo_clase NOT NULL,
-	PCTFREE 50,
-	PCTUSED 10,
-	STORAGE( INITIAL 50000,
-		NEXT 50000,
+	tipo_clase NOT NULL
+)
+	PCTFREE 60
+	PCTUSED 40
+	STORAGE( INITIAL 50000
+		NEXT 50000
 		PCTINCREASE 0
 	)
-)
 NESTED TABLE utiliza STORE AS EquipoUtilizados;
 
 /*TABLA EQUIPO.*/
