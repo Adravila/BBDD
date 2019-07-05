@@ -1,4 +1,6 @@
-/* Autor: Adravila */
+/* Autor: Adrián Dávila Guerra 
+*  Práctica 1.1
+*/
 
 SET SERVEROUTPUT ON
 

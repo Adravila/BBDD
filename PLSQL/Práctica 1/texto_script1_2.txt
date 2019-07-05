@@ -1,0 +1,20 @@
+SQL> @block_1.sql
+ 16  /
+v_num is not greater than 0                                                     
+
+PL/SQL procedure successfully completed.
+
+SQL> @block_2.sql
+ 18  /
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off
+
+/**
+- En el primer bloque realizar  la condición de ELSE porque no se puede cumplir la condición v_num > 0
+dado que v_num es nulo y no se puede determinar como condición booleana.
+- En el segundo bloque no se podrá  realizar ninguna condición como ocurre anteriormente en el primer bloque.
+- Si quisieramos tomar v_num que al ser NULL tome por defecto otro valor, como 0, se le añade nvl(v_num,0).
+Si esto ocurriera, entonces en el segundo bloque imprimir  'v_num is not greater than 0'.
+*/
